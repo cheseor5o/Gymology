@@ -2,11 +2,11 @@ package controller;
 
 import javafx.application.Platform;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
-import javafx.scene.Parent;
 import javafx.scene.control.*;
-import javafx.scene.layout.BorderPane;
-import model.*;
+import model.Coach;
+import model.Customer;
+import model.Manager;
+import model.User;
 import util.*;
 
 import java.net.URL;
@@ -21,7 +21,7 @@ import java.util.regex.Pattern;
  * @author Dong
  */
 public class RegisterController extends AbstractController {
-    
+    //
     @FXML
     private TextField email;
     @FXML
