@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CourseController">
+   <VBox prefHeight="500.0" prefWidth="600.0">
+      <HBox prefHeight="50.0" prefWidth="600.0">
+         <TextField fx:id="courseSearchTxt" promptText="Type here to search" />
+         <Button fx:id="courseSearchBtn" mnemonicParsing="false" onAction="#searchCourse" text="Search" />
+         <ChoiceBox fx:id="courseSortCBox" prefHeight="23.0" prefWidth="91.0" value="- Select choice -" />
+         <Button fx:id="courseUploadBtn" mnemonicParsing="false" onAction="#uploadCourse" text="Upload" visible="false" />
+      </HBox>
+      <ScrollPane fx:id="courseScrollPane" prefHeight="450.0" prefWidth="600.0">
+         <GridPane fx:id="courseGridPane" prefHeight="440.0" prefWidth="580.0" style="-fx-background-color: #2F2B43;">
+            <columnConstraints>
+               <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            </columnConstraints>
+         </GridPane>
+      </ScrollPane>
+   </VBox>
+</Pane>

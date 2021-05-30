@@ -1,0 +1,18 @@
+{
+  "1": {
+    "picLocation": "/img/course/1.jpg",
+    "videoLocation": "/video/1.mp4",
+    "name": "超燃慢速跑",
+    "sort": "Warm up",
+    "time": "5:12",
+    "vip": false
+  },
+  "2": {
+    "picLocation": "/img/course/2.png",
+    "videoLocation": "/video/2.mp4",
+    "name": "瑜伽",
+    "sort": "Warm up",
+    "time": "null",
+    "vip": true
+  }
+}

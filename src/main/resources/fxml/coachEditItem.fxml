@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="580.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CoachEditItemController">
+   <children>
+      <HBox alignment="CENTER" prefHeight="50.0" prefWidth="580.0">
+         <children>
+            <TextField fx:id="coachEditTextField" prefHeight="23.0" prefWidth="192.0" />
+            <Label fx:id="coachEditTimeLabel" alignment="CENTER" prefHeight="30.0" prefWidth="174.0" text="Available" textFill="#1aeb52">
+               <font>
+                  <Font name="Broadway" size="12.0" />
+               </font>
+            </Label>
+            <Button fx:id="coachEditDeleteBtn" alignment="CENTER" mnemonicParsing="false" onAction="#delete" prefHeight="30.0" prefWidth="90.0" text="delete" />
+            <Button fx:id="coachEditSaveBtn" alignment="CENTER" mnemonicParsing="false" onAction="#save" prefHeight="30.0" prefWidth="90.0" text="save" />
+         </children>
+      </HBox>
+   </children>
+</Pane>

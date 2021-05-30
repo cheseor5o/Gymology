@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.media.*?>
+<?import javafx.scene.text.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0"
+      prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="controller.CoursePlayerController">
+   
+   <MediaView fx:id="courseMediaView" fitHeight="400.0" fitWidth="600.0"/>
+   <Button fx:id="volumeButton" layoutX="36.0" layoutY="422.0" mnemonicParsing="false" onAction="#operateVolumeButton"
+           prefHeight="40.0" prefWidth="68.0" stylesheets="@../css/playerButton.css"/>
+   <Button fx:id="functionButton" layoutX="278.0" layoutY="422.0" mnemonicParsing="false" onAction="#operateVideoButton"
+           prefHeight="40.0" prefWidth="80.0" stylesheets="@../css/playerButton.css"/>
+   <Slider fx:id="processSlider" layoutX="1.0" layoutY="400.0" prefHeight="20.0" prefWidth="600.0"/>
+   <Slider fx:id="volumeSlider" layoutX="119.0" layoutY="435.0" prefHeight="14.0" prefWidth="98.0" value="100.0"/>
+   <Label fx:id="timeLabel" alignment="CENTER_RIGHT" layoutX="448.0" layoutY="426.0" prefHeight="33.0" prefWidth="138.0"
+          text="Time" textFill="#3ba0da">
+      <font>
+         <Font name="Broadway" size="18.0"/>
+      </font>
+   </Label>
+</Pane>

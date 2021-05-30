@@ -1,0 +1,9 @@
+[ {
+  "email" : "1029899255@qq.com",
+  "password" : "123123",
+  "identity" : "Coach"
+}, {
+  "email" : "631999273@qq.com",
+  "password" : "123123",
+  "identity" : "Customer"
+} ]
