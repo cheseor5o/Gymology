@@ -4,6 +4,8 @@ import controller.*;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.layout.BorderPane;
+import model.Instance;
+import model.User;
 
 
 import java.io.IOException;
@@ -13,8 +15,7 @@ import java.util.*;
  * @author Dong
  */
 public final class Controllers {
-    private static final HashMap<Class<?>,Object> CONTROLLER_BOX =new HashMap<>();
-    
+    private static final HashMap<Class<? extends AbstractController>,Object> CONTROLLER_BOX =new HashMap<>();
     private static BorderPane mainPane;
     private static final SceneList<Parent> sceneList = new SceneList<>();
     private static int current;
@@ -107,6 +108,8 @@ public final class Controllers {
         T controller =(T)CONTROLLER_BOX.get(clazz);
         return Objects.requireNonNull(controller);
     }
+
+   
 
     public static <T extends AbstractController> void reload(Class<T> clazz) throws IOException {
         FXMLLoader loader;

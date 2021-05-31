@@ -17,7 +17,7 @@
             <Font name="Broadway" size="12.0" />
          </font>
       </Label>
-      <Label fx:id="user" layoutX="267.0" layoutY="10.0" prefHeight="30.0" prefWidth="104.0" text="User">
+      <Label fx:id="instance" layoutX="267.0" layoutY="10.0" prefHeight="30.0" prefWidth="104.0" text="User">
          <font>
             <Font name="Broadway" size="12.0" />
          </font>

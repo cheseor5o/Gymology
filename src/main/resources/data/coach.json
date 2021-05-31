@@ -2,6 +2,8 @@
   "1029899255@qq.com" : {
     "id" : "1029899255@qq.com",
     "name" : "Kangyu Wang",
+    "gender" : "M",
+    "phone" : "15510412588",
     "sort" : "LOSE_WEIGHT",
     "picture" : "/img/coach/logo.png",
     "time" : [ {
@@ -9,14 +11,24 @@
       "ordered" : false
     }, {
       "time" : "2021/6/12 10:00-12:00",
+      "ordered" : true
+    }, {
+      "time" : "2021/6/13 10:00-12:00",
+      "ordered" : true
+    }, {
+      "time" : "2021/6/14 10:00-12:00",
+      "ordered" : false
+    }, {
+      "time" : "2021/6/15 10:00-12:00",
+      "ordered" : false
+    }, {
+      "time" : "2021/6/16 10:00-12:00",
       "ordered" : false
     } ],
-    "gender" : "M",
     "price" : 200.0,
     "description" : "又高又帅又可爱，人见人爱花见花开捣蛋鬼",
     "height" : "180",
     "weight" : "70kg",
-    "orders" : [ ],
-    "phone" : "15510412588"
+    "orders" : [ "1622450071843", "1622450073571" ]
   }
 }

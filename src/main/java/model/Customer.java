@@ -5,11 +5,8 @@ import util.Tools;
 import java.util.List;
 import java.util.Map;
 
-public class Customer {
-    private String id;
-    private String name;
-    private String gender;
-    private String phone;
+public class Customer extends User{
+    
     private String height;
     private String weight;
     private Boolean vip;
@@ -72,43 +69,7 @@ public class Customer {
     public void removeFavouriteCoach(String id){
         likeCoach.remove(id);
     }
-
-    public Customer(User user) {
-        this.id = user.getEmail();
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getGender() {
-        return gender;
-    }
-
-    public void setGender(String gender) {
-        this.gender = gender;
-    }
-
-    public String getPhone() {
-        return phone;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
-
+    
     public String getHeight() {
         return height;
     }
@@ -192,10 +153,10 @@ public class Customer {
     @Override
     public String toString() {
         return "Customer{" +
-                "id='" + id + '\'' +
-                ", name='" + name + '\'' +
-                ", gender='" + gender + '\'' +
-                ", phone='" + phone + '\'' +
+                "id='" + super.getId() + '\'' +
+                ", name='" + super.getName() + '\'' +
+                ", gender='" + super.getGender() + '\'' +
+                ", phone='" + super.getPhone() + '\'' +
                 ", height='" + height + '\'' +
                 ", weight='" + weight + '\'' +
                 ", vip=" + vip +

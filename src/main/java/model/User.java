@@ -1,44 +1,50 @@
 package model;
 
 public class User {
-    public enum Identity {
-        Customer, Coach, Manager
-    }
-    private String email; //用邮箱登录,后面也要用到邮箱相当于一个id
-    private String password;
-    private Identity identity;
+    private String id;
+    private String name;
+    private String gender;
+    private String phone;
 
-    public String getEmail() {
-        return email;
+    public String getId() {
+        return id;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setId(String id) {
+        this.id = id;
     }
 
-    public String getPassword() {
-        return password;
+    public String getName() {
+        return name;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public Identity getIdentity() {
-        return identity;
+    public String getGender() {
+        return gender;
     }
 
-    public void setIdentity(Identity identity) {
-        this.identity = identity;
+    public void setGender(String gender) {
+        this.gender = gender;
     }
 
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
 
     @Override
     public String toString() {
         return "User{" +
-                "email='" + email + '\'' +
-                ", password='" + password + '\'' +
-                ", identity=" + identity +
+                "id='" + id + '\'' +
+                ", name='" + name + '\'' +
+                ", gender='" + gender + '\'' +
+                ", phone='" + phone + '\'' +
                 '}';
     }
 }

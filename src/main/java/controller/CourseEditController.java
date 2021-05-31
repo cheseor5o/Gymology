@@ -7,9 +7,9 @@ import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import model.Course;
 import model.Customer;
-import model.User;
+import model.Instance;
 import util.Controllers;
-import util.CustomerDatabase;
+import util.Databases;
 import util.OperateJsonFile;
 import org.apache.commons.io.FileUtils;
 
@@ -104,8 +104,8 @@ public class CourseEditController extends AbstractController {
     private Customer obtainCustomer(){
         LoginController loginController = Controllers.get(LoginController.class);
         if (loginController.hasLogging()) {
-            User user = loginController.getUser();
-            return CustomerDatabase.get(user.getEmail());
+            Instance instance = loginController.getUser();
+            return Databases.getDatabase(Customer.class).get(instance.getEmail());
         }
         Controllers.setCenter(loginController.getClass(),false);
         return null;

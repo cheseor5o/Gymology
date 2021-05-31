@@ -1,8 +1,6 @@
 package controller;
 
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
-import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
@@ -10,9 +8,9 @@ import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
 import model.Coach;
 import model.Customer;
-import model.User;
+import model.Instance;
 import util.Controllers;
-import util.CustomerDatabase;
+import util.Databases;
 
 import java.net.URL;
 import java.util.Objects;
@@ -56,11 +54,11 @@ public class CoachItemController extends AbstractController {
         coachPrice.setText(String.valueOf(coach.getPrice()));
         coachTime.setText(coach.getAvailable().size() == 0 ? "No" : "Yes");
         LoginController loginController = Controllers.get(LoginController.class);
-        User user = loginController.getUser();
+        Instance instance = loginController.getUser();
         if (!loginController.hasLogging()){
             coachLikeButton.setTextFill(Color.GREEN);
-        }else if (user.getIdentity() == User.Identity.Customer){
-            Customer customer = CustomerDatabase.get(user.getEmail());
+        }else if (instance.getIdentity() == Instance.Identity.Customer){
+            Customer customer = Databases.getDatabase(Customer.class).get(instance.getEmail());
             if (customer.exists(customer.getLikeCoach(),coach.getId())) {
                 coachLikeButton.setText("dislike");
                 coachLikeButton.setTextFill(Color.RED);
@@ -86,12 +84,12 @@ public class CoachItemController extends AbstractController {
 
     public void clickLikeButton(){
         LoginController loginController = Controllers.get(LoginController.class);
-        User user = loginController.getUser();
+        Instance instance = loginController.getUser();
         if (!loginController.hasLogging()){
             Controllers.setCenter(loginController.getScene(),false);
-        }else if (user.getIdentity() == User.Identity.Customer){
-            System.out.println(user);
-            Customer customer = CustomerDatabase.get(user.getEmail());
+        }else if (instance.getIdentity() == Instance.Identity.Customer){
+            System.out.println(instance);
+            Customer customer = Databases.getDatabase(Customer.class).get(instance.getEmail());
             if (!customer.exists(customer.getLikeCoach(),coach.getId())) {
                 customer.addFavouriteCoach(coach.getId());
                 coachLikeButton.setText("dislike");

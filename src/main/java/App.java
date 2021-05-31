@@ -1,12 +1,10 @@
 import controller.MainController;
 import javafx.application.Application;
-import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-import javafx.stage.WindowEvent;
 import util.*;
 
 import java.io.IOException;
@@ -29,10 +27,8 @@ public class App extends Application{
         stage.setOnCloseRequest(windowEvent -> {
             System.out.println("See you next time!");
             try {
-                UserDataBase.store();
-                CustomerDatabase.store();
-                CoachDatabase.store();
-                OrderDatabase.store();
+                InstanceDataBase.store();
+                Databases.store();
             } catch (IOException e) {
                 e.printStackTrace();
             }

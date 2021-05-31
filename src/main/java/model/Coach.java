@@ -10,30 +10,22 @@ import java.util.stream.Collectors;
  * @author Cheese
  * @since  2021/5/9 13:40
  */
-public class Coach {
+public class Coach extends User{
     public enum Sort{
         ALL, LOSE_WEIGHT
     }
     
-    private String id;
-    private String name;
     private Sort sort;
     private String picture;
     private List<Schedule> time;
-    private String gender;
     private double price;
     private String description;
     private String height;
     private String weight;
     private List<String> orders;
-    private String phone;
     @JsonIgnore
     private List<Schedule> available;
     public Coach() {
-    }
-
-    public Coach(User user) {
-        this.id = user.getEmail();
     }
     
     public static class Schedule{
@@ -128,13 +120,6 @@ public class Coach {
     private boolean exists(List<String> list, int index, String content){
         return index != list.size() && list.get(index).equals(content);
     }
-    public String getPhone() {
-        return phone;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
 
     public List<String> getOrders() {
         return orders;
@@ -151,24 +136,7 @@ public class Coach {
     public void setTime(List<Schedule> time) {
         this.time = time;
     }
-
-    public String getId() {
-        return id;
-    }
-
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
+    
     public Sort getSort() {
         return sort;
     }
@@ -184,14 +152,7 @@ public class Coach {
     public void setPicture(String picture) {
         this.picture = picture;
     }
-
-    public String getGender() {
-        return gender;
-    }
-
-    public void setGender(String gender) {
-        this.gender = gender;
-    }
+    
 
     public double getPrice() {
         return price;
@@ -244,18 +205,18 @@ public class Coach {
     @Override
     public String toString() {
         return "Coach{" +
-                "id='" + id + '\'' +
-                ", name='" + name + '\'' +
+                "id='" + super.getId() + '\'' +
+                ", name='" + super.getName() + '\'' +
                 ", sort=" + sort +
                 ", picture='" + picture + '\'' +
                 ", time=" + time +
-                ", gender='" + gender + '\'' +
+                ", gender='" + super.getGender() + '\'' +
                 ", price=" + price +
                 ", description='" + description + '\'' +
                 ", height='" + height + '\'' +
                 ", weight='" + weight + '\'' +
                 ", orders=" + orders +
-                ", phone='" + phone + '\'' +
+                ", phone='" + super.getPhone() + '\'' +
                 ", available=" + available +
                 '}';
     }

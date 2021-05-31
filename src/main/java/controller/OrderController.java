@@ -4,15 +4,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
-import javafx.scene.paint.Color;
-import model.Coach;
-import model.Customer;
-import model.Order;
-import model.User;
-import util.CoachDatabase;
-import util.Controllers;
-import util.CustomerDatabase;
-import util.OrderDatabase;
+import model.*;
+import util.*;
 
 import java.io.IOException;
 import java.net.URL;
@@ -34,17 +27,17 @@ public class OrderController extends AbstractController {
     public void scene() {
         if (Controllers.get(LoginController.class).hasLogging()) {
             if (changed == null || changed){
-                User user = Controllers.get(LoginController.class).getUser();
-                switch (user.getIdentity()){
+                Instance instance = Controllers.get(LoginController.class).getUser();
+                switch (instance.getIdentity()){
                     case Coach:
-                        Coach coach = CoachDatabase.get(user.getEmail());
+                        Coach coach = Databases.getDatabase(Coach.class).get(instance.getEmail());
                         List<Order> coachOrders = OrderDatabase.getOrders(coach);
-                        displayOrder(coachOrders);
+                        displayOrder(coachOrders, coach.getClass());
                         break;
                     case Customer:
-                        Customer customer = CustomerDatabase.get(user.getEmail());
+                        Customer customer = Databases.getDatabase(Customer.class).get(instance.getEmail());
                         List<Order> customerOrders = OrderDatabase.getOrders(customer);
-                        displayOrder(customerOrders);
+                        displayOrder(customerOrders, customer.getClass());
                         break;
                     default:
                         System.out.println("ERROR");
@@ -57,7 +50,7 @@ public class OrderController extends AbstractController {
         }
     }
 
-    private void displayOrder(List<Order> orders) {
+    private void displayOrder(List<Order> orders, Class<? extends User> clazz) {
         orderInfoVbox.getChildren().clear();
         for (Order order : orders) {
             FXMLLoader orderInfoItemLoader = new FXMLLoader();
@@ -65,7 +58,7 @@ public class OrderController extends AbstractController {
             try {
                 Pane orderInfoItemPane = orderInfoItemLoader.load();
                 OrderItemController controller = orderInfoItemLoader.getController();
-                controller.setAll(order);
+                controller.setAll(order, clazz);
                 orderInfoVbox.getChildren().add(orderInfoItemPane);
             } catch (IOException e) {
                 e.printStackTrace();

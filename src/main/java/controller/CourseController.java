@@ -12,7 +12,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import model.Course;
-import model.User;
+import model.Instance;
 import util.Controllers;
 
 import java.net.URL;
@@ -48,8 +48,8 @@ public class CourseController extends AbstractController {
     @Override
     @FXML
     public void scene() {
-        User user = Controllers.get(LoginController.class).getUser();
-        courseUploadBtn.setVisible(user != null && user.getIdentity() == User.Identity.Manager);
+        Instance instance = Controllers.get(LoginController.class).getUser();
+        courseUploadBtn.setVisible(instance != null && instance.getIdentity() == Instance.Identity.Manager);
         super.scene();
     }
 

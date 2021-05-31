@@ -1,7 +1,6 @@
 import model.Coach;
 import model.User;
 import org.junit.Test;
-import util.CoachDatabase;
 
 import java.util.ArrayList;
 import java.util.List;

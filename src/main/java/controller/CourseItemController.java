@@ -11,9 +11,9 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import model.Course;
 import model.Customer;
-import model.User;
+import model.Instance;
 import util.Controllers;
-import util.CustomerDatabase;
+import util.Databases;
 
 import java.net.URL;
 import java.util.Objects;
@@ -65,13 +65,13 @@ public class CourseItemController extends AbstractController {
             Image image = new Image(Objects.requireNonNull(getClass().getResourceAsStream(course.getPicture())));
             coursePic.setImage(image);
         }
-        User user = Controllers.get(LoginController.class).getUser();
-        if (user == null){
+        Instance instance = Controllers.get(LoginController.class).getUser();
+        if (instance == null){
             setButtonIcon(likeButton, likeIcon);
         }else {
-            switch (user.getIdentity()){
+            switch (instance.getIdentity()){
                 case Customer:
-                    Customer customer = CustomerDatabase.get(user.getEmail());
+                    Customer customer = Databases.getDatabase(Customer.class).get(instance.getEmail());
                     setButtonIcon(likeButton, customer.exists(customer.getLikeCourse(),course.getId()) ? dislikeIcon : likeIcon);
                     break;
                 case Coach:
@@ -106,11 +106,11 @@ public class CourseItemController extends AbstractController {
             coursePlayerController.mediaPlayerOnLoad(course);
             coursePlayerController.scene();
         }else {
-            User user = Controllers.get(LoginController.class).getUser();
-            if (user == null){
+            Instance instance = Controllers.get(LoginController.class).getUser();
+            if (instance == null){
                 Controllers.setCenter(LoginController.class, false);
-            }else if (user.getIdentity() == User.Identity.Customer){
-                Customer customer = CustomerDatabase.get(user.getEmail());
+            }else if (instance.getIdentity() == Instance.Identity.Customer){
+                Customer customer = Databases.getDatabase(Customer.class).get(instance.getEmail());
                 if (customer.getVip()){
                     coursePlayerController.mediaPlayerOnLoad(course);
                     coursePlayerController.scene();
@@ -126,11 +126,11 @@ public class CourseItemController extends AbstractController {
     
     @FXML
     public void like(){
-        User user = Controllers.get(LoginController.class).getUser();
-        if (user == null){
+        Instance instance = Controllers.get(LoginController.class).getUser();
+        if (instance == null){
             Controllers.setCenter(LoginController.class, false);
         }else {
-            Customer customer = CustomerDatabase.get(user.getEmail());
+            Customer customer = Databases.getDatabase(Customer.class).get(instance.getEmail());
             if (course.getVip()){
                 if (customer.getVip()){
                     like(customer,course);
@@ -173,15 +173,15 @@ public class CourseItemController extends AbstractController {
 
     @FXML
     private void mouseIn() {
-        User user = Controllers.get(LoginController.class).getUser();
-        if (user == null){
+        Instance instance = Controllers.get(LoginController.class).getUser();
+        if (instance == null){
             functionBtn.setVisible(false);
             likeButton.setVisible(false);
-        }else if (user.getIdentity() == User.Identity.Customer){
+        }else if (instance.getIdentity() == Instance.Identity.Customer){
             likeButton.setVisible(true);
-        }else if (user.getIdentity() == User.Identity.Manager){
+        }else if (instance.getIdentity() == Instance.Identity.Manager){
             functionBtn.setVisible(true);
-        }else if (user.getIdentity() == User.Identity.Coach){
+        }else if (instance.getIdentity() == Instance.Identity.Coach){
             functionBtn.setVisible(false);
             likeButton.setVisible(false);
         }

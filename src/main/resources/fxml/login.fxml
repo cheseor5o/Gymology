@@ -33,7 +33,7 @@
             </ImageView>
             <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true"
                        GridPane.halignment="CENTER" GridPane.valignment="CENTER">
-                <Image url="@../img/user.png"/>
+                <Image url="@../img/instance.png"/>
             </ImageView>
             <TextField fx:id="email" prefHeight="25.0" prefWidth="100.0" promptText="Email"
                        GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">

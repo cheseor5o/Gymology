@@ -8,10 +8,8 @@ import javafx.scene.control.Label;
 import model.Coach;
 import model.Customer;
 import model.Order;
-import util.CoachDatabase;
-import util.Controllers;
-import util.CustomerDatabase;
-import util.OrderDatabase;
+import model.User;
+import util.*;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -29,7 +27,7 @@ public class OrderItemController extends AbstractController {
     @FXML
     private Label status;
     @FXML
-    private Label user;
+    private Label instance;
 
     @FXML
     private Button finish;
@@ -46,7 +44,7 @@ public class OrderItemController extends AbstractController {
     public boolean finish(){
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         System.out.println(order);
-        Customer customer = CustomerDatabase.get(order.getCustomer());
+        Customer customer = Databases.getDatabase(Customer.class).get(order.getCustomer());
         alert.setTitle("Dear "+ customer.getName() + ", ");
         alert.setContentText("Are you sure you have finished this course?");
         alert.showAndWait();
@@ -61,7 +59,7 @@ public class OrderItemController extends AbstractController {
     @FXML
     public boolean cancel(){
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-        Customer customer = CustomerDatabase.get(order.getCustomer());
+        Customer customer = Databases.getDatabase(Customer.class).get(order.getCustomer());
         alert.setTitle("Dear "+ customer.getName() + ", ");
         alert.setContentText("Are you sure you want to cancel this course?");
         alert.showAndWait();
@@ -69,7 +67,7 @@ public class OrderItemController extends AbstractController {
             Alert alert1 = new Alert(Alert.AlertType.INFORMATION);
             alert1.setTitle("Dear "+ customer.getName() + ", ");
             if (order.getTime().compareTo(OrderDatabase.now())>0){//可以退
-                Coach coach = CoachDatabase.get(order.getCoach());
+                Coach coach = Databases.getDatabase(Coach.class).get(order.getCoach());
                 customer.cancelOrder(order);
                 coach.cancelOrder(order);
                 OrderDatabase.delete(order.getId());
@@ -89,12 +87,12 @@ public class OrderItemController extends AbstractController {
         return true;
     }
 
-    public void setAll(Order order){
+    public void setAll(Order order, Class<? extends User> clazz){
         setOrder(order);
         id.setText(order.getId());
         time.setText(order.getTime());
         status.setText(order.getStatus().toString());
-        user.setText(CustomerDatabase.get(order.getCustomer()).getName());
+        instance.setText(Databases.getDatabase(clazz).get(clazz == Customer.class ? order.getCustomer() : order.getCoach()).getId());
     }
     
     public void setId(Label id) {
@@ -117,12 +115,12 @@ public class OrderItemController extends AbstractController {
         this.status = status;
     }
 
-    public Label getUser() {
-        return user;
+    public Label getInstance() {
+        return instance;
     }
 
-    public void setUser(Label user) {
-        this.user = user;
+    public void setInstance(Label instance) {
+        this.instance = instance;
     }
 
     public Order getOrder() {

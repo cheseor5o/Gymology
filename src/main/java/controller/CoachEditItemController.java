@@ -7,9 +7,9 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import model.Coach;
-import model.User;
-import util.CoachDatabase;
+import model.Instance;
 import util.Controllers;
+import util.Databases;
 
 import java.net.URL;
 import java.util.List;
@@ -69,21 +69,16 @@ public class CoachEditItemController extends AbstractController {
     }
 
     public void delete(){
-        User user = Controllers.get(LoginController.class).getUser();
-        Coach coach = CoachDatabase.get(user.getEmail());
+        Instance instance = Controllers.get(LoginController.class).getUser();
+        Coach coach = Databases.getDatabase(Coach.class).get(instance.getEmail());
         List<Coach.Schedule> timeStrings = coach.getTime();
         timeStrings.remove(schedule);
         coachVbox.getChildren().remove(flag);
-        CoachDatabase.store();
-
-
-
     }
 
     public void save(){
         System.out.println(schedule);
         schedule.setTime(coachEditTextField.getText());
-        CoachDatabase.store();
     }
 
 

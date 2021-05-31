@@ -3,13 +3,11 @@ package controller;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
-import model.Coach;
-import model.Customer;
-import model.Manager;
-import model.User;
+import model.*;
 import util.*;
 
 import java.net.URL;
+import java.util.Optional;
 import java.util.Random;
 import java.util.ResourceBundle;
 import java.util.concurrent.ExecutionException;
@@ -21,6 +19,9 @@ import java.util.regex.Pattern;
  * @author Dong
  */
 public class RegisterController extends AbstractController {
+    private static final String COACH_AUTHORIZATION_CODE = "2020";
+    private static final String MANAGER_AUTHORIZATION_CODE = "2021";
+    public ComboBox<Instance.Identity> type;
     //
     @FXML
     private TextField email;
@@ -48,62 +49,59 @@ public class RegisterController extends AbstractController {
         String emailText = email.getText();
         if (MailUtil.isFormatValid(emailText)) {
             String usernameText = username.getText();
-            String passwordText = password1.getText();
             String genderValue = gender.getValue();
             String phoneText = phone.getText();
-            if (!validField(usernameText)) {
-                prompt.setText("Invalid Username!");
-            } else if (!validPassword(passwordText, password2.getText())) {
-                prompt.setText("Invalid Password! (Must > 6)");
-            } else if (genderValue != null && !validField(genderValue)) {
-                prompt.setText("Select gender plz!");
-            } else if (!validPhone(phoneText)) {
-                prompt.setText("Invalid phone number!");
-            } else if (!verifyCode.getText().equals(checkCode)) {
-                prompt.setText("Incorrect check code!");
-            } else {
-                User user = new User();
-                user.setEmail(emailText);
-                user.setIdentity(User.Identity.Customer);
-                if (!UserDataBase.exists(UserDataBase.contains(user), user)) {
-                    user.setPassword(passwordText);
-                    switch (user.getIdentity()) {
-                        case Customer:
-                            user.setIdentity(User.Identity.Customer);
-                            Customer customer = new Customer(user);
-                            customer.setName(usernameText);
-                            customer.setPhone(phoneText);
-                            customer.setGender(genderValue);
-                            CustomerDatabase.add(customer);
-                            break;
-                        case Coach:
-                            user.setIdentity(User.Identity.Coach);
-                            Coach coach = new Coach(user);
-                            coach.setName(usernameText);
-                            coach.setPhone(phoneText);
-                            coach.setGender(genderValue);
-                            CoachDatabase.add(coach);
-                            break;
-                        case Manager:
-                            user.setIdentity(User.Identity.Manager);
-                            Manager manager = new Manager(user);
-                            manager.setName(usernameText);
-                            manager.setPhone(phoneText);
-                            manager.setGender(genderValue);
-                            
+            if (validateBasic(usernameText,password1.getText(),password2.getText(),genderValue,phoneText,prompt)){
+                if (verifyCode.getText().equals(checkCode)) {
+                    Instance instance = new Instance();
+                    instance.setEmail(emailText);
+                    instance.setIdentity(type.getValue());
+                    if (!InstanceDataBase.exists(InstanceDataBase.contains(instance), instance)) {
+                        instance.setPassword(password1.getText());
+                        User user = null;
+                        UserDatabase database = null;
+                        switch (instance.getIdentity()) {
+                            case Customer:
+                                instance.setIdentity(Instance.Identity.Customer);
+                                database = Databases.getDatabase(Customer.class);
+                                user = new Customer();
+                                break;
+                            case Coach:
+                                instance.setIdentity(Instance.Identity.Coach);
+                                database = Databases.getDatabase(Coach.class);
+                                user = new Coach();
+                                break;
+                            case Manager:
+                                instance.setIdentity(Instance.Identity.Manager);
+                                database = Databases.getDatabase(Manager.class);
+                                user = new Manager();
+                                break;
+                            default:showUpError();
+                        }
+                        setUp(user,instance.getEmail(),usernameText,phoneText,genderValue);
+                        database.add(user);
+                        InstanceDataBase.add(instance);
+                        prompt.setText("");
+                        Controllers.get(LoginController.class).loginScene("Register Successfully!");
+                    } else {
+                        prompt.setText("This email is already been used!");
                     }
-                    
-                    UserDataBase.add(user);
-                    prompt.setText("");
-                    Controllers.get(LoginController.class).loginScene("Register Successfully!");
                 } else {
-                    prompt.setText("This email is already been used!");
+                    prompt.setText("Incorrect check code!");
                 }
             }
+            
         } else {
             email.setText("");
             prompt.setText("Email invalid!");
         }
+    }
+    
+    private void setUp(User user, String email, String name, String phone, String gender){
+        user.setId(email);
+        user.setName(name);
+        user.setPhone(phone);
+        user.setGender(gender);
     }
 
     @FXML
@@ -175,6 +173,68 @@ public class RegisterController extends AbstractController {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         gender.getItems().addAll("Male", "Female", "Prefer not to say");
+        type.getItems().addAll(Instance.Identity.Customer, Instance.Identity.Coach, Instance.Identity.Manager);
+        type.getSelectionModel().select(0);
+        type.getSelectionModel().selectedItemProperty().addListener((observableValue, oldOne, newOne) -> {
+            if (!newOne.equals(Instance.Identity.Customer)){
+                TextInputDialog dialog = new TextInputDialog("");
+                dialog.setTitle("Identity verification");
+                dialog.setHeaderText("We need your authorization code");
+                dialog.setContentText("Enter authorization code:");
+                Optional<String> result = dialog.showAndWait();
+                result.ifPresent(name -> {
+                    switch (newOne){
+                        case Coach:
+                            if (!COACH_AUTHORIZATION_CODE.equals(name)){
+                                showUpError();
+                                type.getSelectionModel().select(oldOne);
+                            }
+                            break;
+                        case Manager:
+                            if (!MANAGER_AUTHORIZATION_CODE.equals(name)) {
+                                showUpError();
+                                type.getSelectionModel().select(oldOne);
+                            }
+                            break;
+                        default:
+                            System.out.println("ERROR");
+                    }
+                });
+                if (!result.isPresent()){
+                    type.getSelectionModel().select(Instance.Identity.Customer);
+                }
+                
+            }
+        });
+    }
+
+    private void showUpError(){
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Error Dialog");
+        alert.setHeaderText("ERROR OCCUR!");
+        alert.setContentText("Incorrect authorization code!");
+        alert.showAndWait();
+    }
+    
+    
+    public boolean validateBasic(String username, String password1,String password2, String gender, String phone, Label prompt){
+        if (!validField(username)) {
+            prompt.setText("Invalid Username!");
+            return false;
+        }
+        if (!validPassword(password1, password2)) {
+            prompt.setText("Invalid Password! (Must > 6)");
+            return false;
+        } 
+        if (gender != null && !validField(gender)) {
+            prompt.setText("Select gender plz!");
+            return false;
+        } 
+        if (!validPhone(phone)) {
+            prompt.setText("Invalid phone number!");
+            return false;
+        }
+        return true;
     }
 
     public static boolean validField(String text) {

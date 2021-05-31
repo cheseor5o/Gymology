@@ -2,8 +2,6 @@ import model.Coach;
 import model.Customer;
 import model.User;
 import org.junit.Test;
-import util.CoachDatabase;
-import util.CustomerDatabase;
 
 import java.util.*;
 

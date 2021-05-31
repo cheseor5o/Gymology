@@ -5,9 +5,9 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
-import model.User;
+import model.Instance;
 import util.Controllers;
-import util.UserDataBase;
+import util.InstanceDataBase;
 
 import java.io.IOException;
 import java.net.URL;
@@ -21,7 +21,7 @@ public class LoginController extends AbstractController {
     /**
      * 全局user
      */
-    private User user;
+    private Instance instance;
     @FXML
     private TextField email;
 
@@ -34,20 +34,20 @@ public class LoginController extends AbstractController {
 
     @FXML
     private void login() {
-        User user = new User();
-        user.setEmail(email.getText());
-        user.setPassword(password.getText());
-        int index = UserDataBase.contains(user);
-        if (UserDataBase.exists(index, user)) {
+        Instance instance = new Instance();
+        instance.setEmail(email.getText());
+        instance.setPassword(password.getText());
+        int index = InstanceDataBase.contains(instance);
+        if (InstanceDataBase.login(index, instance)) {
             prompt.setText("");
-            this.user = UserDataBase.get(index);
+            this.instance = InstanceDataBase.get(index);
             try {
                 Controllers.reload(CoachController.class);
                 Controllers.reload(CourseController.class);
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            Controllers.get(AccountController.class).scene(this.user);
+            Controllers.get(AccountController.class).scene(this.instance);
         } else {
             password.setText("");
             prompt.setText("Login failed!");
@@ -56,13 +56,13 @@ public class LoginController extends AbstractController {
     
     
     public boolean hasLogging(){
-        return user != null;
+        return instance != null;
     }
 
 
     @Override
     public void scene() {
-        Controllers.setCenter(user == null ? LoginController.class : AccountController.class);
+        Controllers.setCenter(instance == null ? LoginController.class : AccountController.class);
     }
 
     public void loginScene(String prompt)  {
@@ -92,11 +92,11 @@ public class LoginController extends AbstractController {
         });
     }
 
-    public User getUser() {
-        return user;
+    public Instance getUser() {
+        return instance;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setUser(Instance instance) {
+        this.instance = instance;
     }
 }

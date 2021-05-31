@@ -7,12 +7,9 @@ import javafx.scene.control.Label;
 import model.Coach;
 import model.Customer;
 import model.Order;
-import model.User;
-import util.Controllers;
-import util.CustomerDatabase;
-import util.OrderDatabase;
+import model.Instance;
+import util.*;
 
-import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -44,12 +41,12 @@ public class CoachInfoItemController extends AbstractController {
     @FXML
     public void reserveCoach(){
         LoginController loginController = Controllers.get(LoginController.class);
-        User user = loginController.getUser();
-        if (user == null){
+        Instance instance = loginController.getUser();
+        if (instance == null){
             Controllers.setCenter(loginController.getScene(),false);
-        }else if (user.getIdentity().equals(User.Identity.Customer)){
+        }else if (instance.getIdentity().equals(Instance.Identity.Customer)){
             CoachInfoController coachInfoController = Controllers.get(CoachInfoController.class);
-            reserve(user, coachInfoController.getCoach(),coachInfoItemTime.getText());
+            reserve(instance, coachInfoController.getCoach(),coachInfoItemTime.getText());
             try {
                 coachInfoController.setCoachInfoData(coachInfoController.getCoach());
             } catch (Exception e) {
@@ -58,12 +55,13 @@ public class CoachInfoItemController extends AbstractController {
         }
     }
 
-    private void reserve(User user, Coach coach, String time){
+    private void reserve(Instance instance, Coach coach, String time){
         String id = System.currentTimeMillis() + "";
-        Customer customer = CustomerDatabase.get(user.getEmail());
+        UserDatabase<Customer> database = Databases.getDatabase(Customer.class);
+        Customer customer = database.get(instance.getEmail());
         Order order = new Order(id,customer.getId(),coach.getId(), time,coach.getPrice());
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Dear "+CustomerDatabase.get(order.getCustomer()).getName() + ", ");
+        alert.setTitle("Dear "+database.get(order.getCustomer()).getName() + ", ");
         if (customer.order(order)) {
             coach.reserve(order);
             OrderDatabase.add(order);

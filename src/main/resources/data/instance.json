@@ -3,6 +3,10 @@
   "password" : "123123",
   "identity" : "Coach"
 }, {
+  "email" : "1783172079@qq.com",
+  "password" : "123123",
+  "identity" : "Manager"
+}, {
   "email" : "631999273@qq.com",
   "password" : "123123",
   "identity" : "Customer"
