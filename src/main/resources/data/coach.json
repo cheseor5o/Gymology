@@ -6,12 +6,9 @@
     "picture" : "/img/coach/logo.png",
     "time" : [ {
       "time" : "2021/6/11 10:00-12:00",
-      "ordered" : true
+      "ordered" : false
     }, {
-      "time" : "Mon May 31 00:05:58 CST 2021",
-      "ordered" : true
-    }, {
-      "time" : "Mon May 31 00:05:59 CST 2021",
+      "time" : "2021/6/12 10:00-12:00",
       "ordered" : false
     } ],
     "gender" : "M",
@@ -19,7 +16,7 @@
     "description" : "又高又帅又可爱，人见人爱花见花开捣蛋鬼",
     "height" : "180",
     "weight" : "70kg",
-    "orders" : [ "1622389368096", "1622390785477" ],
+    "orders" : [ ],
     "phone" : "15510412588"
   }
 }

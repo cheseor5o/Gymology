@@ -44,9 +44,9 @@ public class OperateJsonFile {
         BufferedWriter writer = null;
         writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file,false), "UTF-8"));
 
-
         if (commend == "save") {
             JSONObject jsonSubObj = new JSONObject();
+            jsonSubObj.put("id", course.getId());
             jsonSubObj.put("name", course.getName());
             jsonSubObj.put("picLocation", course.getPicture());
             jsonSubObj.put("videoLocation", course.getLocation());
@@ -65,7 +65,7 @@ public class OperateJsonFile {
 
 
     public static String[] strToArray(String jsonStr){
-        JSONArray jsonArray = com.alibaba.fastjson.JSON.parseArray(jsonStr);
+        JSONArray jsonArray = JSON.parseArray(jsonStr);
         String[] array =new String[jsonArray.size()];
         String[] strings = jsonArray.toArray(array);
         return strings;

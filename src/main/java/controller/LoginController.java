@@ -1,12 +1,10 @@
 package controller;
 
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
-import javafx.scene.input.KeyEvent;
 import model.User;
 import util.Controllers;
 import util.UserDataBase;
@@ -45,6 +43,7 @@ public class LoginController extends AbstractController {
             this.user = UserDataBase.get(index);
             try {
                 Controllers.reload(CoachController.class);
+                Controllers.reload(CourseController.class);
             } catch (IOException e) {
                 e.printStackTrace();
             }

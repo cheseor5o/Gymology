@@ -1,9 +1,7 @@
 package controller;
 
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.Cursor;
-import javafx.scene.Parent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -16,7 +14,6 @@ import model.Customer;
 import model.User;
 import util.Controllers;
 import util.CustomerDatabase;
-
 
 import java.net.URL;
 import java.util.Objects;
@@ -51,6 +48,7 @@ public class CourseItemController extends AbstractController {
 
     private final String editIcon = Objects.requireNonNull(getClass().getResource("/img/edit.png")).toString();
     private final String likeIcon = Objects.requireNonNull(getClass().getResource("/img/like.png")).toString();
+    private final String dislikeIcon = Objects.requireNonNull(getClass().getResource("/img/dislike.png")).toString();
     private final Image VipIcon = new Image(Objects.requireNonNull(getClass().getResourceAsStream("/img/Vip.png")));
 
     
@@ -67,6 +65,19 @@ public class CourseItemController extends AbstractController {
             Image image = new Image(Objects.requireNonNull(getClass().getResourceAsStream(course.getPicture())));
             coursePic.setImage(image);
         }
+        User user = Controllers.get(LoginController.class).getUser();
+        if (user == null){
+            setButtonIcon(likeButton, likeIcon);
+        }else {
+            switch (user.getIdentity()){
+                case Customer:
+                    Customer customer = CustomerDatabase.get(user.getEmail());
+                    setButtonIcon(likeButton, customer.exists(customer.getLikeCourse(),course.getId()) ? dislikeIcon : likeIcon);
+                    break;
+                case Coach:
+                    setButtonIcon(functionBtn, editIcon);
+            }
+        }
     }
 
     private void setButtonIcon(Button button, String path) {
@@ -79,7 +90,7 @@ public class CourseItemController extends AbstractController {
 
         ColorAdjust colorAdjust = new ColorAdjust();
         button.setOnMousePressed(event -> {
-            colorAdjust.setBrightness(0.5);
+            colorAdjust.setBrightness(1);
             button.setEffect(colorAdjust);
         });
         button.setOnMouseReleased(event -> {
@@ -104,19 +115,50 @@ public class CourseItemController extends AbstractController {
                     coursePlayerController.mediaPlayerOnLoad(course);
                     coursePlayerController.scene();
                 }else {
-                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                    alert.setTitle("Dear "+customer.getName() + ", ");
-                    alert.setContentText("This course is for VIP customer,Please go to purchase VIP first!");
-                    alert.showAndWait();
+                    inform(customer);
                 }
             }else {
                 coursePlayerController.mediaPlayerOnLoad(course);
                 coursePlayerController.scene();
             }
-
         }
-
-
+    }
+    
+    @FXML
+    public void like(){
+        User user = Controllers.get(LoginController.class).getUser();
+        if (user == null){
+            Controllers.setCenter(LoginController.class, false);
+        }else {
+            Customer customer = CustomerDatabase.get(user.getEmail());
+            if (course.getVip()){
+                if (customer.getVip()){
+                    like(customer,course);
+                }else {
+                    inform(customer);
+                }
+            }else {
+                like(customer,course);
+            }
+        }
+    }
+    
+    private void inform(Customer customer){
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Dear "+customer.getName() + ", ");
+        alert.setContentText("This course is for VIP customer,Please go to purchase VIP first!");
+        alert.showAndWait();
+    }
+    
+    
+    private void like(Customer customer, Course course){
+        if (!customer.exists(customer.getLikeCourse(),course.getId())) {
+            customer.addFavouriteCourse(course.getId());
+            setButtonIcon(likeButton,dislikeIcon);
+        }else {
+            setButtonIcon(likeButton,likeIcon);
+            customer.removeFavouriteCourse(course.getId());
+        }
     }
 
     @FXML
@@ -158,8 +200,6 @@ public class CourseItemController extends AbstractController {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        setButtonIcon(functionBtn, editIcon);
-        setButtonIcon(likeButton, likeIcon);
         courseItemPane.setCursor(Cursor.HAND);
     }
 }

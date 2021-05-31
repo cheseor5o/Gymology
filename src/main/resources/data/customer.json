@@ -6,16 +6,16 @@
     "phone" : "15510412588",
     "height" : "190",
     "weight" : "70kg",
-    "vip" : false,
+    "vip" : true,
     "vipExpired" : null,
     "vipRank" : null,
-    "balance" : 9.99998199E8,
-    "likeCourse" : [ "4", "5" ],
-    "likeCoach" : [ "1029899255@qq.com" ],
+    "balance" : 9.99998599E8,
+    "likeCourse" : [ "1", "2" ],
+    "likeCoach" : [ ],
     "courseHistory" : [ {
       "1" : "19:00",
       "2" : "20:00"
     } ],
-    "orders" : [ "1622389368096", "1622390785477" ]
+    "orders" : [ ]
   }
 }
