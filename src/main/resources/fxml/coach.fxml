@@ -1,60 +1,87 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ScrollPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.Pane?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
-
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.String?>
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CoachController">
    <children>
-      <VBox layoutY="120.0" prefHeight="380.0" prefWidth="600.0">
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="600.0">
          <children>
-            <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="580.0">
+            <Label prefHeight="46.0" prefWidth="253.0" text="Booking a Personal " textFill="#fc8d65">
+               <font>
+                  <Font name="Century Gothic Italic" size="24.0" />
+               </font>
+               <HBox.margin>
+                  <Insets left="20.0" />
+               </HBox.margin>
+            </Label>
+            <Label prefHeight="46.0" prefWidth="339.0" text="Coach" textFill="#e4dcdf">
+               <font>
+                  <Font name="Century Gothic Bold Italic" size="36.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+      <VBox layoutY="75.0" prefHeight="425.0" prefWidth="600.0">
+         <children>
+            <HBox alignment="CENTER_LEFT" prefHeight="35.0" prefWidth="600.0">
                <children>
-                  <Label alignment="CENTER" prefHeight="30.0" prefWidth="50.0" text="A" textFill="#3ba0da">
+                  <Label alignment="CENTER" prefHeight="30.0" prefWidth="50.0" text="A" textFill="#ff854c">
                      <font>
-                        <Font name="Broadway" size="15.0" />
+                        <Font name="Century Gothic" size="18.0" />
                      </font>
                      <HBox.margin>
                         <Insets />
                      </HBox.margin>
                   </Label>
-                  <Label prefHeight="30.0" prefWidth="120.0" text="Name" textFill="#3ba0da">
+                  <Label prefHeight="30.0" prefWidth="100.0" text="Name" textFill="#ff854c">
                      <font>
-                        <Font name="Broadway" size="15.0" />
+                        <Font name="Century Gothic" size="18.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </Label>
+                  <Label prefHeight="30.0" prefWidth="100.0" text=" Sort" textFill="#ff854c">
+                     <font>
+                        <Font name="Century Gothic" size="18.0" />
                      </font>
                   </Label>
-                  <Label prefHeight="30.0" prefWidth="80.0" text=" Sort" textFill="#3ba0da">
+                  <Label prefHeight="30.0" prefWidth="80.0" text="Status" textFill="#ff854c">
                      <font>
-                        <Font name="Broadway" size="15.0" />
+                        <Font name="Century Gothic" size="18.0" />
                      </font>
                   </Label>
-                  <Label prefHeight="30.0" prefWidth="140.0" text="Time" textFill="#3ba0da">
+                  <Label prefHeight="30.0" prefWidth="100.0" text="Price" textFill="#ff854c">
                      <font>
-                        <Font name="Broadway" size="15.0" />
+                        <Font name="Century Gothic" size="18.0" />
                      </font>
                   </Label>
-                  <Label prefHeight="30.0" prefWidth="80.0" text="Price" textFill="#3ba0da">
+                  <Label alignment="CENTER" prefHeight="30.0" prefWidth="150.0" text="Actions" textFill="#ff854c">
                      <font>
-                        <Font name="Broadway" size="15.0" />
-                     </font>
-                  </Label>
-                  <Label alignment="CENTER" prefHeight="30.0" prefWidth="110.0" text="Actions" textFill="#3ba0da">
-                     <font>
-                        <Font name="Broadway" size="15.0" />
+                        <Font name="Century Gothic" size="18.0" />
                      </font>
                   </Label>
                </children>
             </HBox>
-            <ScrollPane prefHeight="380.0" prefWidth="600.0">
+            <ScrollPane prefHeight="380.0" prefWidth="595.0" styleClass="transparent" stylesheets="@../css/style.css">
                <content>
-                  <VBox fx:id="coachVbox" prefHeight="349.0" prefWidth="580.0" />
+                  <VBox fx:id="coachVbox" prefHeight="380.0" prefWidth="585.0" stylesheets="@../css/style.css">
+                     <styleClass>
+                        <String fx:value="transparent" />
+                        <String fx:value="gradient-background" />
+                     </styleClass></VBox>
                </content>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
             </ScrollPane>
          </children>
+         <padding>
+            <Insets bottom="5.0" />
+         </padding>
       </VBox>
    </children>
 </Pane>

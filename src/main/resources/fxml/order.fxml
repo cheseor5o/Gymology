@@ -1,14 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ScrollPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.Pane?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
-
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.OrderController">
    <children>
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="600.0">
+         <children>
+            <Label prefHeight="46.0" prefWidth="149.0" text="Check Your" textFill="#fc8d65">
+               <font>
+                  <Font name="Century Gothic Italic" size="24.0" />
+               </font>
+               <HBox.margin>
+                  <Insets left="20.0" />
+               </HBox.margin>
+            </Label>
+            <Label prefHeight="46.0" prefWidth="443.0" text="Order" textFill="#e4dcdf">
+               <font>
+                  <Font name="Century Gothic Bold Italic" size="36.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
       <VBox layoutY="120.0" prefHeight="380.0" prefWidth="600.0">
          <children>
             <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="580.0">
@@ -46,6 +60,9 @@
                </content>
             </ScrollPane>
          </children>
+         <padding>
+            <Insets bottom="5.0" />
+         </padding>
       </VBox>
    </children>
 </Pane>

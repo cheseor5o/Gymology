@@ -1,22 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.Pane?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
-
-<AnchorPane id="Main_AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" style="-fx-background-color: #2F2B43;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MainController">
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.String?>
+<AnchorPane id="Main_AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" styleClass="gradient-background" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MainController">
    <Pane id="mainPane" layoutX="200.0" prefHeight="500.0" prefWidth="600.0">
       <BorderPane fx:id="mainPane" prefHeight="500.0" prefWidth="600.0" />
    </Pane>
-   <AnchorPane id="Menu_AnchorPane" prefHeight="500.0" prefWidth="200.0" style="-fx-background-color: #393351;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
-      <VBox layoutY="100.0" prefHeight="350.0" prefWidth="200.0">
-         <Button alignment="BASELINE_LEFT" graphicTextGap="20.0" mnemonicParsing="false" onAction="#homeScene" prefHeight="50.0" prefWidth="200.0" stylesheets="@../css/button.css" text="Home" textFill="#3ba0da">
+   <AnchorPane id="Menu_AnchorPane" prefHeight="500.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <VBox layoutY="8.0" prefHeight="480.0" prefWidth="200.0" stylesheets="@../css/style.css" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
+         <HBox alignment="CENTER" prefHeight="84.0" prefWidth="200.0" styleClass="shadow" stylesheets="@../css/style.css">
+            <children>
+               <Label text="Gym" textFill="#e4dcdf">
+                  <font>
+                     <Font name="Century Gothic Bold Italic" size="36.0" />
+                  </font>
+               </Label>
+               <Label text="ology" textFill="#ebac7f">
+                  <font>
+                     <Font name="Century Gothic Italic" size="24.0" />
+                  </font>
+               </Label>
+            </children>
+         </HBox>
+         <Pane prefHeight="3.0" prefWidth="200.0" styleClass="line-color" stylesheets="@../css/style.css">
+            <VBox.margin>
+               <Insets bottom="20.0" />
+            </VBox.margin>
+         </Pane>
+         <Button alignment="BASELINE_LEFT" graphicTextGap="20.0" mnemonicParsing="false" onAction="#homeScene" prefHeight="50.0" prefWidth="200.0" styleClass="home-button" stylesheets="@../css/style.css" text="Home" textFill="#e4dcdf">
             <graphic>
                <ImageView fitHeight="36.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
                   <Image url="@../img/home.png" />
@@ -29,10 +44,10 @@
                <Insets />
             </VBox.margin>
             <font>
-               <Font name="Broadway" size="24.0" />
+               <Font name="Century Gothic" size="24.0" />
             </font>
          </Button>
-         <Button alignment="BASELINE_LEFT" graphicTextGap="20.0" mnemonicParsing="false" onAction="#courseScene" prefHeight="50.0" prefWidth="200.0" stylesheets="@../css/button.css" text="Course" textFill="#3ba0da">
+         <Button alignment="BASELINE_LEFT" graphicTextGap="20.0" mnemonicParsing="false" onAction="#courseScene" prefHeight="50.0" prefWidth="200.0" styleClass="home-button" stylesheets="@../css/style.css" text="Course" textFill="#e4dcdf">
             <graphic>
                <ImageView fitHeight="36.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
                   <Image url="@../img/分类.png" />
@@ -42,10 +57,10 @@
                <Insets left="10.0" />
             </padding>
             <font>
-               <Font name="Broadway" size="24.0" />
+               <Font name="Century Gothic" size="24.0" />
             </font>
          </Button>
-         <Button alignment="BASELINE_LEFT" graphicTextGap="20.0" mnemonicParsing="false" onAction="#coachScene" prefHeight="50.0" prefWidth="200.0" stylesheets="@../css/button.css" text="Coach" textFill="#3ba0da">
+         <Button alignment="BASELINE_LEFT" graphicTextGap="20.0" mnemonicParsing="false" onAction="#coachScene" prefHeight="50.0" prefWidth="200.0" styleClass="home-button" stylesheets="@../css/style.css" text="Coach" textFill="#e4dcdf">
             <graphic>
                <ImageView fitHeight="36.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
                   <Image url="@../img/发现.png" />
@@ -55,10 +70,10 @@
                <Insets left="10.0" />
             </padding>
             <font>
-               <Font name="Broadway" size="24.0" />
+               <Font name="Century Gothic" size="24.0" />
             </font>
          </Button>
-         <Button alignment="BASELINE_LEFT" graphicTextGap="20.0" mnemonicParsing="false" onAction="#orderScene" prefHeight="50.0" prefWidth="200.0" stylesheets="@../css/button.css" text="Order" textFill="#3ba0da">
+         <Button alignment="BASELINE_LEFT" graphicTextGap="20.0" mnemonicParsing="false" onAction="#orderScene" prefHeight="50.0" prefWidth="200.0" styleClass="home-button" stylesheets="@../css/style.css" text="Order" textFill="#e4dcdf">
             <graphic>
                <ImageView fitHeight="36.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
                   <Image url="@../img/订单.png" />
@@ -68,10 +83,10 @@
                <Insets left="10.0" />
             </padding>
             <font>
-               <Font name="Broadway" size="24.0" />
+               <Font name="Century Gothic" size="24.0" />
             </font>
          </Button>
-         <Button alignment="BASELINE_LEFT" graphicTextGap="20.0" mnemonicParsing="false" onAction="#accountScene" prefHeight="50.0" prefWidth="200.0" stylesheets="@../css/button.css" text="Account" textFill="#3ba0da">
+         <Button alignment="BASELINE_LEFT" graphicTextGap="20.0" mnemonicParsing="false" onAction="#accountScene" prefHeight="50.0" prefWidth="200.0" styleClass="home-button" stylesheets="@../css/style.css" text="Account" textFill="#e4dcdf">
             <graphic>
                <ImageView fitHeight="36.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
                   <Image url="@../img/我的.png" />
@@ -81,20 +96,41 @@
                <Insets left="10.0" />
             </padding>
             <font>
-               <Font name="Broadway" size="24.0" />
+               <Font name="Century Gothic" size="24.0" />
             </font>
          </Button>
+         <HBox prefHeight="80.0" prefWidth="200.0">
+            <children>
+               <Button mnemonicParsing="false" onAction="#backward" prefHeight="50.0" prefWidth="100.0" styleClass="directLeft-button" stylesheets="@../css/style.css">
+                  <graphic>
+                     <ImageView fitHeight="50.0" fitWidth="50.0" onMouseClicked="#backward" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                           <Image url="@../img/backward.png" />
+                        </image>
+                     </ImageView>
+                  </graphic>
+                  <HBox.margin>
+                     <Insets top="20.0" />
+                  </HBox.margin>
+               </Button>
+               <Button mnemonicParsing="false" onAction="#forward" prefHeight="50.0" prefWidth="100.0" styleClass="directRight-button" stylesheets="@../css/style.css">
+                  <graphic>
+                     <ImageView fitHeight="50.0" fitWidth="50.0" onMouseClicked="#forward" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                           <Image url="@../img/forward.png" />
+                        </image>
+                     </ImageView>
+                  </graphic>
+                  <HBox.margin>
+                     <Insets top="20.0" />
+                  </HBox.margin>
+               </Button>
+            </children>
+         </HBox>
+         <styleClass>
+            <String fx:value="container" />
+            <String fx:value="shadow" />
+         </styleClass>
       </VBox>
    </AnchorPane>
-   <ImageView fitHeight="72.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
-   <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="35.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true" onMouseClicked="#backward">
-      <image>
-         <Image url="@../img/backward.png" />
-      </image>
-   </ImageView>
-   <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="110.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true" onMouseClicked="#forward">
-      <image>
-         <Image url="@../img/forward.png" />
-      </image>
-   </ImageView>
 </AnchorPane>

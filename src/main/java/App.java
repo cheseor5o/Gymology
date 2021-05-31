@@ -5,7 +5,9 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-import util.*;
+import util.Controllers;
+import util.Databases;
+import util.InstanceDataBase;
 
 import java.io.IOException;
 
@@ -21,6 +23,7 @@ public class App extends Application{
         stage.setTitle("Gymology");
         stage.setScene(new Scene(parent));
         stage.initStyle(StageStyle.DECORATED);
+        stage.setResizable(false);
         stage.show();
         mainController.homeScene();
         //持久化

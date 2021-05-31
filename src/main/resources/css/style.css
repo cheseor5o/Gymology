@@ -1,0 +1,178 @@
+.menu-button{
+    -fx-background-color: #FFFFFF;
+    -fx-background-radius: 100;
+}
+.menu-btn:hover {
+    -fx-background-color: rgb(94, 130, 187);
+    -fx-text-fill: #fff;
+}
+.transparent{
+    -fx-background-color: rgba(0,0,0,0);
+}
+.change-left-color{
+    -fx-background-color: rgba(30,152,255,0.28);
+}
+.box-border{
+    -fx-border-color: rgba(30,152,255,0.31);
+    -fx-border-radius: 5;
+    -fx-border-style: solid inside;
+    -fx-border-width: 6;
+}
+.box-border2{
+    -fx-border-color: rgba(30,152,255,0.31);
+    -fx-border-radius: 5;
+    -fx-border-style: solid inside;
+    -fx-border-width: 2;
+}
+/*.custom-btn1 {*/
+/*    -fx-border-color: rgba(30, 152, 255, 0.31);*/
+/*    -fx-background-color:  #FFFFFF;*/
+/*-fx-background-radius: 60;*/
+/*-fx-border-radius: 5;*/
+/*-fx-border-width: 4;*/
+/*}*/
+.gradient-background{
+    -fx-background-color: linear-gradient(from 75% 75% to 100% 100%, #D91F4E,#FF854C);
+}
+.line-color{
+    -fx-background-color: #F3ABB5;
+}
+.container{
+    -fx-background-color: rgba(255, 255, 255, 0.2);
+    -fx-background-radius: 30;
+}
+.shadow{
+    -fx-effect:dropShadow(three-pass-box,rgba(0,0,0,0.2),10.0,0.0,0.0,10.0);
+}
+
+/*主页版面*/
+
+.home-button{
+    -fx-background-color: transparent;
+    -fx-background-radius:30 0 0 30;
+}
+
+.home-button:hover{
+    -fx-background-color: #D91F4E;
+    -fx-background-radius:30 0 0 30;
+}
+
+.home-button:pressed{
+    -fx-background-color: #ebac7f;
+}
+
+
+.directLeft-button{
+    -fx-background-color: transparent;
+    -fx-background-radius:30 0 0 30;
+}
+
+.directLeft-button:hover{
+    -fx-background-color: #D91F4E;
+    -fx-background-radius:30 0 0 30;
+}
+
+.directLeft-button:pressed{
+    -fx-background-color:  #ebac7f;
+}
+
+
+.directRight-button{
+    -fx-background-color: transparent;
+    -fx-background-radius:0 30 30 0;
+}
+
+.directRight-button:hover{
+    -fx-background-color: #D91F4E;
+    -fx-background-radius:0 30 30 0;
+}
+
+.directRight-button:pressed{
+    -fx-background-color:  #ebac7f;
+}
+
+
+/*课程版面*/
+
+.course-search-box{
+    -fx-background-color: #FFFFFF;
+    -fx-background-radius: 100;
+}
+
+.course-search-box-transparent{
+    -fx-background-color: rgba(0,0,0,0);
+}
+
+.course-search-box-border{
+    -fx-border-color: black;
+    -fx-border-style: solid;
+    -fx-background-radius: 30;
+}
+
+
+.course-search-box-button{
+    -fx-background-color: #828282;
+    -fx-background-radius: 30 ;
+}
+
+.scroll-pane{
+    -fx-background-color: transparent;
+}
+
+.scroll-bar:horizontal,.scroll-bar:vertical{
+    -fx-background-color:transparent;
+}
+
+
+.course-item{
+    -fx-background-color: #FFFFFF;
+    -fx-background-radius: 30;
+}
+
+
+
+/*教练界面*/
+
+.coach-item{
+    -fx-background-color: #FFFFFF;
+    -fx-background-radius: 30;
+}
+
+.coach-button{
+    -fx-background-color: #828282;
+    -fx-background-radius: 30 ;
+}
+
+
+
+/*订单界面*/
+.order-item{
+    -fx-background-color: #FFFFFF;
+    -fx-background-radius: 30;
+}
+
+.order-button{
+    -fx-background-color: #828282;
+    -fx-background-radius: 30 ;
+}
+
+/*账号界面*/
+
+.login-box{
+    -fx-background-color: #FFFFFF;
+    -fx-background-radius: 100;
+}
+
+.login-box-transparent{
+    -fx-background-color: rgba(0,0,0,0);
+}
+
+.login-button{
+    -fx-background-color: #828282;
+    -fx-background-radius: 30 ;
+}
+
+.register-button{
+    -fx-background-color: #828282;
+    -fx-background-radius: 30 ;
+}

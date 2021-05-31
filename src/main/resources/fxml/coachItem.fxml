@@ -1,18 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.Pane?>
-<?import javafx.scene.text.Font?>
-
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="580.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CoachItemController">
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.String?>
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="580.0" style="-fx-background-color: #1222;" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CoachItemController">
    <children>
       <HBox alignment="CENTER" prefHeight="50.0" prefWidth="580.0">
          <children>
-            <HBox alignment="CENTER" prefHeight="50.0" prefWidth="50.0">
+            <HBox alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0">
                <children>
                   <ImageView fx:id="coachPicture" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -21,33 +20,63 @@
                   </ImageView>
                </children>
             </HBox>
-            <Label fx:id="coachName" prefHeight="30.0" prefWidth="120.0" text="Coach Name">
+            <Label fx:id="coachName" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="100.0" text="Coach Name">
                <font>
-                  <Font name="Broadway" size="12.0" />
+                  <Font name="Century Gothic" size="12.0" />
                </font>
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
             </Label>
-            <Label fx:id="coachSort" prefHeight="30.0" prefWidth="80.0" text="Coach Sort">
+            <Label fx:id="coachSort" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="100.0" text="Coach Sort">
                <font>
-                  <Font name="Broadway" size="12.0" />
+                  <Font name="Century Gothic" size="12.0" />
                </font>
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
             </Label>
-            <Label fx:id="coachTime" prefHeight="30.0" prefWidth="140.0" text="Coach Time">
+            <Label fx:id="coachTime" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="80.0" text="Available">
                <font>
-                  <Font name="Broadway" size="12.0" />
+                  <Font name="Century Gothic" size="12.0" />
                </font>
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
             </Label>
-            <Label fx:id="coachPrice" prefHeight="30.0" prefWidth="80.0" text="Coach Price">
+            <Label fx:id="coachPrice" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="100.0" text="Coach Price">
                <font>
-                  <Font name="Broadway" size="12.0" />
+                  <Font name="Century Gothic" size="12.0" />
                </font>
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
             </Label>
-            <HBox alignment="CENTER" prefHeight="50.0" prefWidth="110.0">
+            <HBox alignment="CENTER" prefHeight="50.0" prefWidth="150.0">
                <children>
-                  <Button fx:id="coachCheckButton" alignment="CENTER" mnemonicParsing="false" onAction="#clickCheckButton" prefHeight="30.0" prefWidth="50.0" text="check" />
-                  <Button fx:id="coachLikeButton" alignment="CENTER" mnemonicParsing="false" onAction="#clickLikeButton" prefHeight="30.0" prefWidth="50.0" text="like" />
+                  <Button fx:id="coachCheckButton" alignment="CENTER" mnemonicParsing="false" onAction="#clickCheckButton" prefHeight="30.0" prefWidth="70.0" styleClass="coach-button" stylesheets="@../css/style.css" text="check">
+                     <font>
+                        <Font name="Century Gothic" size="12.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="coachLikeButton" alignment="CENTER" mnemonicParsing="false" onAction="#clickLikeButton" prefHeight="30.0" prefWidth="60.0" styleClass="coach-button" stylesheets="@../css/style.css" text="like">
+                     <font>
+                        <Font name="Century Gothic" size="12.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="5.0" />
+                     </HBox.margin></Button>
                </children>
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
             </HBox>
          </children>
       </HBox>
    </children>
+   <styleClass>
+      <String fx:value="shadow" />
+      <String fx:value="transparent" />
+      <String fx:value="coach-item" />
+   </styleClass>
 </Pane>
