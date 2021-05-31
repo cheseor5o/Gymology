@@ -9,13 +9,13 @@
     "vip" : true,
     "vipExpired" : null,
     "vipRank" : null,
-    "balance" : 9.99996999E8,
+    "balance" : 2200.0,
     "likeCourse" : [ "1" ],
     "likeCoach" : [ ],
     "courseHistory" : [ {
       "1" : "19:00",
       "2" : "20:00"
     } ],
-    "orders" : [ "1622461691551" ]
+    "orders" : [ "1622450071843", "1622450073571" ]
   }
 }

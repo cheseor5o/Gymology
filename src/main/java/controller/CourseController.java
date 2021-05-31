@@ -48,7 +48,7 @@ public class CourseController extends AbstractController {
     @Override
     @FXML
     public void scene() {
-        Instance instance = Controllers.get(LoginController.class).getUser();
+        Instance instance = Controllers.get(LoginController.class).getInstance();
         courseUploadBtn.setVisible(instance != null && instance.getIdentity() == Instance.Identity.Manager);
         super.scene();
     }

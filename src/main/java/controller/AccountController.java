@@ -8,6 +8,7 @@ import util.*;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 /**
@@ -25,8 +26,14 @@ public class AccountController extends AbstractController {
     public TextField phone;
     @FXML
     public ComboBox<String> gender;
+    @FXML
     public Button save;
+    @FXML
     public Label prompt;
+    @FXML
+    public TextField balance;
+    @FXML
+    public Button topUp;
     @FXML
     private Button information;
 
@@ -34,7 +41,7 @@ public class AccountController extends AbstractController {
     public void scene() {
         LoginController loginController = Controllers.get(LoginController.class);
         if (loginController.hasLogging()) {
-            Instance instance = loginController.getUser();
+            Instance instance = loginController.getInstance();
             scene(instance);
         } else {
             Controllers.setCenter(loginController.getScene(), false);
@@ -63,28 +70,39 @@ public class AccountController extends AbstractController {
                 break;
             case Coach:
                 database = Databases.getDatabase(Coach.class);
+                setTopUp(false);
                 break;
             case Manager:
                 database = Databases.getDatabase(Manager.class);
+                setTopUp(false);
                 break;
         }
         user = database.get(instance.getEmail());
+        if (instance.getIdentity().equals(Instance.Identity.Customer)){
+            balance.setText(String.valueOf(((Customer) user).getBalance()));
+        }else {
+            balance.setText("Unavailable");
+        }
         username.setText(user.getName());
         password.setText(instance.getPassword());
         phone.setText(user.getPhone());
         gender.getSelectionModel().select(user.getGender());
     }
 
-
+    private void setTopUp(boolean status){
+        topUp.setDisable(status);
+        topUp.setVisible(status);
+    }
+    
     @FXML
     public void save() {
         String username = this.username.getText();
         String password = this.password.getText();
         String gender = this.gender.getValue();
         String phone = this.phone.getText();
-        Instance instance = Controllers.get(LoginController.class).getUser();
+        Instance instance = Controllers.get(LoginController.class).getInstance();
         if (Controllers.get(RegisterController.class).validateBasic(username, password, password, gender, phone, prompt)) {
-            User user = null;
+            User user;
             UserDatabase database = null;
             switch (instance.getIdentity()) {
                 case Customer:
@@ -116,12 +134,41 @@ public class AccountController extends AbstractController {
             }
         }).start();
     }
+    
+    @FXML
+    public void topUp(){
+        TextInputDialog dialog = Tools.openDialog("Balance Recharge Center","Here to top up your account","Enter the amount:");
+        Optional<String> result = dialog.showAndWait();
+        result.ifPresent(s -> {
+            try {
+                double amount = Double.parseDouble(s);
+                if (amount<=0){
+                    Alert alert = Tools.openMessage(Alert.AlertType.ERROR, "Balance Recharge Center", "Balance <= 0", "Please enter a positive amount!");
+                    alert.showAndWait();
+                }else {
+                    Instance instance = Controllers.get(LoginController.class).getInstance();
+                    Customer customer = Databases.getDatabase(Customer.class).get(instance.getEmail());
+                    customer.setBalance(customer.getBalance()+amount);
+                    Alert alert = Tools.openMessage(Alert.AlertType.INFORMATION, "Balance Recharge Center", "Success", "Top up successfully!");
+                    alert.showAndWait();
+                    Controllers.reload(this.getClass());
+                    Controllers.replaceCenter(this.getClass());
+                    Controllers.get(this.getClass()).scene();
+                    Controllers.clearHistory();
+                }
+            }catch (Exception e){
+                e.printStackTrace();
+                Alert alert = Tools.openMessage(Alert.AlertType.ERROR, "Balance Recharge Center", "Invalid input", "Please enter a valid amount!");
+                alert.showAndWait();
+            }
+        });
+    }
 
 
     @FXML
     public void logout() {
         LoginController loginController = Controllers.get(LoginController.class);
-        loginController.setUser(null);
+        loginController.setInstance(null);
         try {
             Controllers.reload(LoginController.class);
             Controllers.reload(CoachController.class);
@@ -135,5 +182,7 @@ public class AccountController extends AbstractController {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         gender.getItems().addAll("Male", "Female", "Prefer not to say");
+        information.setDisable(true);
+        balance.setDisable(true);
     }
 }

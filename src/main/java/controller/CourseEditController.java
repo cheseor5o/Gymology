@@ -104,7 +104,7 @@ public class CourseEditController extends AbstractController {
     private Customer obtainCustomer(){
         LoginController loginController = Controllers.get(LoginController.class);
         if (loginController.hasLogging()) {
-            Instance instance = loginController.getUser();
+            Instance instance = loginController.getInstance();
             return Databases.getDatabase(Customer.class).get(instance.getEmail());
         }
         Controllers.setCenter(loginController.getClass(),false);

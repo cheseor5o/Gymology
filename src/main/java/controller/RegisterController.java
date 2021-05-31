@@ -76,7 +76,7 @@ public class RegisterController extends AbstractController {
                                 database = Databases.getDatabase(Manager.class);
                                 user = new Manager();
                                 break;
-                            default:showUpError();
+                            default:Tools.openMessage(Alert.AlertType.ERROR,"Error Dialog","ERROR OCCUR!","Unknown Error!");
                         }
                         setUp(user,instance.getEmail(),usernameText,phoneText,genderValue);
                         database.add(user);
@@ -177,22 +177,19 @@ public class RegisterController extends AbstractController {
         type.getSelectionModel().select(0);
         type.getSelectionModel().selectedItemProperty().addListener((observableValue, oldOne, newOne) -> {
             if (!newOne.equals(Instance.Identity.Customer)){
-                TextInputDialog dialog = new TextInputDialog("");
-                dialog.setTitle("Identity verification");
-                dialog.setHeaderText("We need your authorization code");
-                dialog.setContentText("Enter authorization code:");
+                TextInputDialog dialog = Tools.openDialog("Identity verification","We need your authorization code","Enter authorization code:");
                 Optional<String> result = dialog.showAndWait();
                 result.ifPresent(name -> {
                     switch (newOne){
                         case Coach:
                             if (!COACH_AUTHORIZATION_CODE.equals(name)){
-                                showUpError();
+                                Tools.openMessage(Alert.AlertType.ERROR,"Error Dialog","ERROR OCCUR!","Incorrect authorization code!");
                                 type.getSelectionModel().select(oldOne);
                             }
                             break;
                         case Manager:
                             if (!MANAGER_AUTHORIZATION_CODE.equals(name)) {
-                                showUpError();
+                                Tools.openMessage(Alert.AlertType.ERROR,"Error Dialog","ERROR OCCUR!","Incorrect authorization code!");
                                 type.getSelectionModel().select(oldOne);
                             }
                             break;
@@ -208,13 +205,7 @@ public class RegisterController extends AbstractController {
         });
     }
 
-    private void showUpError(){
-        Alert alert = new Alert(Alert.AlertType.ERROR);
-        alert.setTitle("Error Dialog");
-        alert.setHeaderText("ERROR OCCUR!");
-        alert.setContentText("Incorrect authorization code!");
-        alert.showAndWait();
-    }
+    
     
     
     public boolean validateBasic(String username, String password1,String password2, String gender, String phone, Label prompt){
