@@ -1,25 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.media.*?>
-<?import javafx.scene.text.*?>
-
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0"
-      prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="controller.CoursePlayerController">
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.media.MediaView?>
+<?import javafx.scene.text.Font?>
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CoursePlayerController">
    
-   <MediaView fx:id="courseMediaView" fitHeight="400.0" fitWidth="600.0"/>
-   <Button fx:id="volumeButton" layoutX="36.0" layoutY="422.0" mnemonicParsing="false" onAction="#operateVolumeButton"
-           prefHeight="40.0" prefWidth="68.0" stylesheets="@../css/playerButton.css"/>
-   <Button fx:id="functionButton" layoutX="278.0" layoutY="422.0" mnemonicParsing="false" onAction="#operateVideoButton"
-           prefHeight="40.0" prefWidth="80.0" stylesheets="@../css/playerButton.css"/>
-   <Slider fx:id="processSlider" layoutX="1.0" layoutY="400.0" prefHeight="20.0" prefWidth="600.0"/>
-   <Slider fx:id="volumeSlider" layoutX="119.0" layoutY="435.0" prefHeight="14.0" prefWidth="98.0" value="100.0"/>
-   <Label fx:id="timeLabel" alignment="CENTER_RIGHT" layoutX="448.0" layoutY="426.0" prefHeight="33.0" prefWidth="138.0"
-          text="Time" textFill="#3ba0da">
-      <font>
-         <Font name="Broadway" size="18.0"/>
-      </font>
-   </Label>
+   <MediaView fx:id="courseMediaView" fitHeight="400.0" fitWidth="600.0" layoutY="-29.0" />
+   <Slider fx:id="processSlider" layoutY="371.0" prefHeight="20.0" prefWidth="600.0" />
+   <HBox alignment="CENTER" layoutY="420.0" prefHeight="80.0" prefWidth="600.0">
+      <children>
+         <HBox alignment="CENTER" prefHeight="80.0" prefWidth="200.0">
+            <children>
+               <Button fx:id="volumeButton" mnemonicParsing="false" onAction="#operateVolumeButton" prefHeight="40.0" prefWidth="80.0" styleClass="transparent" stylesheets="@../css/style.css" />
+               <Slider fx:id="volumeSlider" prefHeight="14.0" prefWidth="137.0" value="100.0" />
+            </children>
+         </HBox>
+         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+            <children>
+               <Button fx:id="functionButton" mnemonicParsing="false" onAction="#operateVideoButton" prefHeight="40.0" prefWidth="100.0" styleClass="transparent" stylesheets="@../css/style.css" />
+            </children>
+         </HBox>
+         <Label fx:id="timeLabel" alignment="CENTER_RIGHT" prefHeight="80.0" prefWidth="250.0" text="Time" textFill="#ff854c">
+            <font>
+               <Font name="Century Gothic Bold" size="24.0" />
+            </font>
+         </Label>
+      </children>
+   </HBox>
 </Pane>

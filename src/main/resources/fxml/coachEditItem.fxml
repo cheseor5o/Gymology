@@ -6,20 +6,34 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
-
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="580.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CoachEditItemController">
+<?import java.lang.String?>
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="738.0" style="-fx-background-color: #1222;" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CoachEditItemController">
    <children>
       <HBox alignment="CENTER" prefHeight="50.0" prefWidth="580.0">
          <children>
-            <TextField fx:id="coachEditTextField" prefHeight="23.0" prefWidth="192.0" />
+            <TextField fx:id="coachEditTextField" prefHeight="23.0" prefWidth="192.0">
+               <font>
+                  <Font name="Century Gothic" size="12.0" />
+               </font></TextField>
             <Label fx:id="coachEditTimeLabel" alignment="CENTER" prefHeight="30.0" prefWidth="174.0" text="Available" textFill="#1aeb52">
                <font>
-                  <Font name="Broadway" size="12.0" />
+                  <Font name="Century Gothic" size="12.0" />
                </font>
             </Label>
-            <Button fx:id="coachEditDeleteBtn" alignment="CENTER" mnemonicParsing="false" onAction="#delete" prefHeight="30.0" prefWidth="90.0" text="delete" />
-            <Button fx:id="coachEditSaveBtn" alignment="CENTER" mnemonicParsing="false" onAction="#save" prefHeight="30.0" prefWidth="90.0" text="save" />
+            <Button fx:id="coachEditDeleteBtn" alignment="CENTER" mnemonicParsing="false" onAction="#delete" prefHeight="30.0" prefWidth="90.0" text="delete">
+               <font>
+                  <Font name="Century Gothic" size="12.0" />
+               </font></Button>
+            <Button fx:id="coachEditSaveBtn" alignment="CENTER" mnemonicParsing="false" onAction="#save" prefHeight="30.0" prefWidth="90.0" text="save">
+               <font>
+                  <Font name="Century Gothic" size="12.0" />
+               </font></Button>
          </children>
       </HBox>
    </children>
+   <styleClass>
+      <String fx:value="shadow" />
+      <String fx:value="transparent" />
+      <String fx:value="coach-item" />
+   </styleClass>
 </Pane>

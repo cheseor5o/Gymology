@@ -6,26 +6,42 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
-
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="580.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CoachInfoItemController">
+<?import java.lang.String?>
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="580.0" style="-fx-background-color: #1222;" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CoachInfoItemController">
    <children>
       <HBox alignment="CENTER" prefHeight="50.0" prefWidth="580.0">
          <children>
-            <Label fx:id="coachInfoItemTime" prefHeight="30.0" prefWidth="194.0" text="Coach Time">
+            <Label fx:id="coachInfoItemTime" prefHeight="30.0" prefWidth="250.0" text="Coach Time">
                <font>
-                  <Font name="Broadway" size="12.0" />
+                  <Font name="Century Gothic" size="12.0" />
                </font>
                <HBox.margin>
-                  <Insets left="50.0" />
+                  <Insets />
                </HBox.margin>
+               <padding>
+                  <Insets left="50.0" />
+               </padding>
             </Label>
-            <Label fx:id="coachInfoItemStatusLabel" prefHeight="30.0" prefWidth="134.0" text="Available" textFill="#1aeb52">
+            <Label fx:id="coachInfoItemStatusLabel" prefHeight="30.0" prefWidth="130.0" text="Available" textFill="#1aeb52">
                <font>
-                  <Font name="Broadway" size="12.0" />
+                  <Font name="Century Gothic" size="12.0" />
                </font>
             </Label>
-            <Button fx:id="coachInfoItemReserveButton" alignment="CENTER" mnemonicParsing="false" onAction="#reserveCoach" prefHeight="30.0" prefWidth="90.0" text="reserve" onMouseClicked="#reserveCoach"/>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Button fx:id="coachInfoItemReserveButton" alignment="CENTER" mnemonicParsing="false" onAction="#reserveCoach" onMouseClicked="#reserveCoach" prefHeight="30.0" prefWidth="90.0" styleClass="coach-button" stylesheets="@../css/style.css" text="reserve">
+                     <font>
+                        <Font name="Century Gothic" size="12.0" />
+                     </font>
+                  </Button>
+               </children>
+            </HBox>
          </children>
       </HBox>
    </children>
+   <styleClass>
+      <String fx:value="shadow" />
+      <String fx:value="transparent" />
+      <String fx:value="coach-item" />
+   </styleClass>
 </Pane>
