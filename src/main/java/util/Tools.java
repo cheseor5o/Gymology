@@ -1,5 +1,8 @@
 package util;
 
+import javafx.scene.control.Alert;
+import javafx.scene.control.TextInputDialog;
+
 import java.util.List;
 
 public class Tools {
@@ -23,5 +26,21 @@ public class Tools {
             }
         }
         return left;
+    }
+
+    public static Alert openMessage(Alert.AlertType alertType, String title, String headerText, String context){
+        Alert alert = new Alert(alertType);
+        alert.setTitle(title);
+        alert.setHeaderText(headerText);
+        alert.setContentText(context);
+        return alert;
+    }
+    
+    public static TextInputDialog openDialog(String title, String headerText, String context){
+        TextInputDialog dialog = new TextInputDialog();
+        dialog.setTitle(title);
+        dialog.setHeaderText(headerText);
+        dialog.setContentText(context);
+        return dialog;
     }
 }

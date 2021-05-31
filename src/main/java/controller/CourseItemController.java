@@ -65,7 +65,7 @@ public class CourseItemController extends AbstractController {
             Image image = new Image(Objects.requireNonNull(getClass().getResourceAsStream(course.getPicture())));
             coursePic.setImage(image);
         }
-        Instance instance = Controllers.get(LoginController.class).getUser();
+        Instance instance = Controllers.get(LoginController.class).getInstance();
         if (instance == null){
             setButtonIcon(likeButton, likeIcon);
         }else {
@@ -106,7 +106,7 @@ public class CourseItemController extends AbstractController {
             coursePlayerController.mediaPlayerOnLoad(course);
             coursePlayerController.scene();
         }else {
-            Instance instance = Controllers.get(LoginController.class).getUser();
+            Instance instance = Controllers.get(LoginController.class).getInstance();
             if (instance == null){
                 Controllers.setCenter(LoginController.class, false);
             }else if (instance.getIdentity() == Instance.Identity.Customer){
@@ -126,7 +126,7 @@ public class CourseItemController extends AbstractController {
     
     @FXML
     public void like(){
-        Instance instance = Controllers.get(LoginController.class).getUser();
+        Instance instance = Controllers.get(LoginController.class).getInstance();
         if (instance == null){
             Controllers.setCenter(LoginController.class, false);
         }else {
@@ -173,7 +173,7 @@ public class CourseItemController extends AbstractController {
 
     @FXML
     private void mouseIn() {
-        Instance instance = Controllers.get(LoginController.class).getUser();
+        Instance instance = Controllers.get(LoginController.class).getInstance();
         if (instance == null){
             functionBtn.setVisible(false);
             likeButton.setVisible(false);

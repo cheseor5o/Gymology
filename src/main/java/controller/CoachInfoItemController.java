@@ -41,7 +41,7 @@ public class CoachInfoItemController extends AbstractController {
     @FXML
     public void reserveCoach(){
         LoginController loginController = Controllers.get(LoginController.class);
-        Instance instance = loginController.getUser();
+        Instance instance = loginController.getInstance();
         if (instance == null){
             Controllers.setCenter(loginController.getScene(),false);
         }else if (instance.getIdentity().equals(Instance.Identity.Customer)){

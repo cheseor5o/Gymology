@@ -27,7 +27,7 @@ public class CoachController extends AbstractController {
     @Override
     public void scene() {
         if (Controllers.get(LoginController.class).hasLogging()) {
-            Instance instance = Controllers.get(LoginController.class).getUser();
+            Instance instance = Controllers.get(LoginController.class).getInstance();
             switch (instance.getIdentity()) {
                 case Customer:
                     try {

@@ -69,7 +69,7 @@ public class CoachEditItemController extends AbstractController {
     }
 
     public void delete(){
-        Instance instance = Controllers.get(LoginController.class).getUser();
+        Instance instance = Controllers.get(LoginController.class).getInstance();
         Coach coach = Databases.getDatabase(Coach.class).get(instance.getEmail());
         List<Coach.Schedule> timeStrings = coach.getTime();
         timeStrings.remove(schedule);

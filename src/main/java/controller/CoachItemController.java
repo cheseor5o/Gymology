@@ -54,7 +54,7 @@ public class CoachItemController extends AbstractController {
         coachPrice.setText(String.valueOf(coach.getPrice()));
         coachTime.setText(coach.getAvailable().size() == 0 ? "No" : "Yes");
         LoginController loginController = Controllers.get(LoginController.class);
-        Instance instance = loginController.getUser();
+        Instance instance = loginController.getInstance();
         if (!loginController.hasLogging()){
             coachLikeButton.setTextFill(Color.GREEN);
         }else if (instance.getIdentity() == Instance.Identity.Customer){
@@ -84,7 +84,7 @@ public class CoachItemController extends AbstractController {
 
     public void clickLikeButton(){
         LoginController loginController = Controllers.get(LoginController.class);
-        Instance instance = loginController.getUser();
+        Instance instance = loginController.getInstance();
         if (!loginController.hasLogging()){
             Controllers.setCenter(loginController.getScene(),false);
         }else if (instance.getIdentity() == Instance.Identity.Customer){

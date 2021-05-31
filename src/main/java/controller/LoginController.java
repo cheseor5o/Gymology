@@ -92,11 +92,11 @@ public class LoginController extends AbstractController {
         });
     }
 
-    public Instance getUser() {
+    public Instance getInstance() {
         return instance;
     }
 
-    public void setUser(Instance instance) {
+    public void setInstance(Instance instance) {
         this.instance = instance;
     }
 }

@@ -27,7 +27,7 @@ public class OrderController extends AbstractController {
     public void scene() {
         if (Controllers.get(LoginController.class).hasLogging()) {
             if (changed == null || changed){
-                Instance instance = Controllers.get(LoginController.class).getUser();
+                Instance instance = Controllers.get(LoginController.class).getInstance();
                 switch (instance.getIdentity()){
                     case Coach:
                         Coach coach = Databases.getDatabase(Coach.class).get(instance.getEmail());
