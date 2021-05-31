@@ -42,11 +42,9 @@ public class OrderItemController extends AbstractController {
     
     @FXML
     public boolean finish(){
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-        System.out.println(order);
+        
         Customer customer = Databases.getDatabase(Customer.class).get(order.getCustomer());
-        alert.setTitle("Dear "+ customer.getName() + ", ");
-        alert.setContentText("Are you sure you have finished this course?");
+        Alert alert = Tools.openMessage(Alert.AlertType.CONFIRMATION, "Order Center", "Dear " + customer.getName(), "Are you sure you have finished this course?");
         alert.showAndWait();
         if (alert.getResult() == ButtonType.OK){
             System.out.println("Yes");
@@ -57,34 +55,25 @@ public class OrderItemController extends AbstractController {
     }
 
     @FXML
-    public boolean cancel(){
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+    public void cancel(){
         Customer customer = Databases.getDatabase(Customer.class).get(order.getCustomer());
-        alert.setTitle("Dear "+ customer.getName() + ", ");
-        alert.setContentText("Are you sure you want to cancel this course?");
-        alert.showAndWait();
+        Alert alert = Tools.openMessage(Alert.AlertType.CONFIRMATION, "Order Center", "Dear " + customer.getName(), "Are you sure you want to cancel this course?");
         if (alert.getResult() == ButtonType.OK){
-            Alert alert1 = new Alert(Alert.AlertType.INFORMATION);
-            alert1.setTitle("Dear "+ customer.getName() + ", ");
+            String content;
             if (order.getTime().compareTo(OrderDatabase.now())>0){//可以退
                 Coach coach = Databases.getDatabase(Coach.class).get(order.getCoach());
                 customer.cancelOrder(order);
                 coach.cancelOrder(order);
                 OrderDatabase.delete(order.getId());
-                alert1.setContentText("Cancel successfully!");
-                alert1.showAndWait();
+                content = "Cancel successfully!";
                 OrderController orderController = Controllers.get(OrderController.class);
                 orderController.setChanged(true);
                 orderController.scene();
             }else {
-                alert1.setContentText("Cannot be canceled!");
-                alert1.showAndWait();
+                content = "Cannot be canceled!";
             }
-            
-        }else {
-            System.out.println("No");
+            Tools.openMessage(Alert.AlertType.INFORMATION, "Order Center", "Dear " + customer.getName(), content).showAndWait();
         }
-        return true;
     }
 
     public void setAll(Order order, Class<? extends User> clazz){

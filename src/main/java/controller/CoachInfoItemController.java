@@ -60,17 +60,16 @@ public class CoachInfoItemController extends AbstractController {
         UserDatabase<Customer> database = Databases.getDatabase(Customer.class);
         Customer customer = database.get(instance.getEmail());
         Order order = new Order(id,customer.getId(),coach.getId(), time,coach.getPrice());
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Dear "+database.get(order.getCustomer()).getName() + ", ");
+        String content;
         if (customer.order(order)) {
             coach.reserve(order);
             OrderDatabase.add(order);
             Controllers.get(OrderController.class).setChanged(true);
-            alert.setContentText("Reserve successfully");
+            content = "Reserve successfully";
         }else {
-            alert.setContentText("Fail! No enough balance!");
+            content = "Fail! No enough balance!";
         }
-        alert.showAndWait();
+        Tools.openMessage(Alert.AlertType.INFORMATION, "Coach Reservation Center", "Dear " + database.get(order.getCustomer()).getName(), content).showAndWait();
     }
 
 

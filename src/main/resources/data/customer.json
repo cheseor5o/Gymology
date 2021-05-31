@@ -9,13 +9,13 @@
     "vip" : true,
     "vipExpired" : null,
     "vipRank" : null,
-    "balance" : 1000.0,
-    "likeCourse" : [ "1" ],
-    "likeCoach" : [ "1029899255@qq.com" ],
+    "balance" : 2200.0,
+    "likeCourse" : [  ],
+    "likeCoach" : [ ],
     "courseHistory" : [ {
       "1" : "19:00",
       "2" : "20:00"
     } ],
-    "orders" : [ "1622490731288", "1622490881504" ]
+    "orders" : [  ]
   }
 }

@@ -11,12 +11,12 @@
       "ordered" : false
     }, {
       "time" : "2021/6/12 10:00-12:00",
-      "ordered" : true
+      "ordered" : false
     } ],
     "price" : 200.0,
     "description" : "又高又帅又可爱，人见人爱花见花开捣蛋鬼",
     "height" : "180",
     "weight" : "70kg",
-    "orders" : [ "1622490731288", "1622490881504" ]
+    "orders" : [  ]
   }
 }
