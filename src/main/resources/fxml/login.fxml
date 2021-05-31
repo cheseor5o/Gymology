@@ -8,7 +8,24 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.*?>
 <?import java.lang.*?>
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.LoginController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.LoginController">
+   <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="600.0">
+      <children>
+         <Label prefHeight="50.0" prefWidth="100.0" text="Please" textFill="#fc8d65">
+            <font>
+               <Font name="Century Gothic Italic" size="24.0" />
+            </font>
+            <HBox.margin>
+               <Insets left="200.0" />
+            </HBox.margin>
+         </Label>
+         <Label prefHeight="50.0" prefWidth="140.0" text="Login" textFill="#e4dcdf">
+            <font>
+               <Font name="Century Gothic Italic" size="36.0" />
+            </font>
+         </Label>
+      </children>
+   </HBox>
    <VBox layoutX="150.0" layoutY="100.0" prefHeight="300.0" prefWidth="300.0" stylesheets="@../css/style.css">
       <children>
           <Pane prefHeight="300.0" prefWidth="300.0">
@@ -37,7 +54,7 @@
                                  <String fx:value="login-box-transparent" />
                               </styleClass>
                               <font>
-                                 <Font name="Century Gothic Bold" size="12.0" />
+                                 <Font name="Century Gothic" size="12.0" />
                               </font>
                               </PasswordField>
                            <Line endX="100.0" startX="-100.0" />
@@ -51,14 +68,14 @@
                                  <String fx:value="login-box-transparent" />
                               </styleClass>
                               <font>
-                                 <Font name="Century Gothic Bold" size="12.0" />
+                                 <Font name="Century Gothic" size="12.0" />
                               </font>
                               </TextField>
                            <Line endX="100.0" startX="-100.0" />
                         </children>
                      </VBox>
                      <VBox.margin>
-                        <Insets top="20.0" />
+                        <Insets />
                      </VBox.margin>
                     </GridPane>
                     <Label fx:id="prompt" alignment="CENTER" prefHeight="50.0" prefWidth="300.0" textAlignment="CENTER" textFill="RED">
@@ -68,28 +85,28 @@
                     </Label>
                   <HBox alignment="TOP_CENTER" prefHeight="130.0" prefWidth="300.0">
                      <children>
-                          <Button mnemonicParsing="false" onAction="#register" prefHeight="50.0" prefWidth="80.0" styleClass="register-button" stylesheets="@../css/style.css" text="Register">
+                          <Button mnemonicParsing="false" onAction="#register" prefHeight="50.0" prefWidth="80.0" styleClass="container" stylesheets="@../css/style.css" text="Register" textFill="#f5dae6">
                            <HBox.margin>
-                              <Insets right="30.0" />
+                              <Insets right="30.0" top="39.0" />
                            </HBox.margin>
                            <font>
-                              <Font name="Century Gothic Bold" size="12.0" />
+                              <Font name="Century Gothic Bold" size="14.0" />
                            </font>
                         </Button>
-                          <Button mnemonicParsing="false" onAction="#login" prefHeight="50.0" prefWidth="80.0" styleClass="login-button" stylesheets="@../css/style.css" text="Login">
+                          <Button mnemonicParsing="false" onAction="#login" prefHeight="50.0" prefWidth="80.0" styleClass="container" stylesheets="@../css/style.css" text="Login" textFill="#f5dae6">
                            <HBox.margin>
-                              <Insets left="30.0" />
+                              <Insets left="30.0" top="39.0" />
                            </HBox.margin>
                            <font>
-                              <Font name="Century Gothic Bold" size="12.0" />
+                              <Font name="Century Gothic Bold" size="14.0" />
                            </font>
                         </Button>
                      </children>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
                   </HBox>
                </children>
-               <padding>
-                  <Insets top="10.0" />
-               </padding>
             </VBox>
           </Pane>
       </children>
@@ -98,21 +115,4 @@
          <String fx:value="shadow" />
       </styleClass>
    </VBox>
-   <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="600.0">
-      <children>
-         <Label prefHeight="50.0" prefWidth="100.0" text="Please" textFill="#fc8d65">
-            <font>
-               <Font name="Century Gothic Italic" size="24.0" />
-            </font>
-            <HBox.margin>
-               <Insets left="170.0" />
-            </HBox.margin>
-         </Label>
-         <Label prefHeight="50.0" prefWidth="140.0" text="Login" textFill="#e4dcdf">
-            <font>
-               <Font name="Century Gothic Italic" size="36.0" />
-            </font>
-         </Label>
-      </children>
-   </HBox>
 </Pane>

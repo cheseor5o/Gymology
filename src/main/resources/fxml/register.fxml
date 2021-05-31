@@ -1,101 +1,300 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ComboBox?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.PasswordField?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.Pane?>
-<?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.text.Font?>
-
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="600.0" style="-fx-background-color: #2F2B43;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.RegisterController">
-    <Pane layoutX="150.0" layoutY="34.0" prefHeight="441.0" prefWidth="300.0" style="-fx-background-color: #453f61;">
-        <GridPane accessibleRole="BUTTON" prefHeight="358.0" prefWidth="300.0">
-            <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="150.0" minWidth="10.0" prefWidth="71.0" />
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="250.0" minWidth="10.0" prefWidth="229.0" />
-            </columnConstraints>
-            <rowConstraints>
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            </rowConstraints>
-            <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
-                <Image url="@../img/dummy.png" />
-            </ImageView>
-            <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
-                <Image url="@../img/muscle.png" />
-            </ImageView>
-            <TextField fx:id="username" prefHeight="25.0" prefWidth="100.0" promptText="Username" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
-                <GridPane.margin>
-                    <Insets right="50.0" />
-                </GridPane.margin>
-            </TextField>
-            <PasswordField fx:id="password1" prefHeight="25.0" prefWidth="100.0" promptText="Password" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
-                <GridPane.margin>
-                    <Insets right="50.0" />
-                </GridPane.margin>
-            </PasswordField>
-            <PasswordField fx:id="password2" layoutX="81.0" layoutY="77.0" prefHeight="25.0" prefWidth="100.0" promptText="Password" GridPane.columnIndex="1" GridPane.rowIndex="3">
-                <GridPane.margin>
-                    <Insets right="50.0" />
-                </GridPane.margin>
-            </PasswordField>
-            <TextField fx:id="phone" prefHeight="25.0" prefWidth="100.0" promptText="Phone" GridPane.columnIndex="1" GridPane.rowIndex="5">
-                <GridPane.margin>
-                    <Insets right="50.0" />
-                </GridPane.margin>
-            </TextField>
-            <TextField fx:id="email" prefHeight="25.0" prefWidth="100.0" promptText="Email" GridPane.columnIndex="1" GridPane.rowIndex="6">
-                <GridPane.margin>
-                    <Insets right="50.0" />
-                </GridPane.margin>
-            </TextField>
-            <ImageView fitHeight="30.0" fitWidth="30.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
-                <Image url="@../img/dummy.png" />
-            </ImageView>
-            <TextField fx:id="verifyCode" prefHeight="25.0" prefWidth="100.0" promptText="Verify Code" GridPane.columnIndex="1" GridPane.rowIndex="7">
-                <GridPane.margin>
-                    <Insets left="50.0" right="50.0" />
-                </GridPane.margin>
-            </TextField>
-            <Button fx:id="send" mnemonicParsing="false" onAction="#sendCode" text="Send" GridPane.columnIndex="1" GridPane.rowIndex="7" />
-            <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER">
-                <Image url="@../img/push.png" />
-            </ImageView>
-            <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER">
-                <Image url="@../img/run.png" />
-            </ImageView>
-            <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.rowIndex="6" GridPane.valignment="CENTER">
-                <Image url="@../img/pull.png" />
-            </ImageView>
-            <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.rowIndex="7" GridPane.valignment="CENTER">
-                <Image url="@../img/bike.png" />
-            </ImageView>
-            <ComboBox fx:id="gender" prefWidth="150.0" promptText="Gender" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-         <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
-            <image>
-               <Image url="@../img/我的.png" />
-            </image>
-         </ImageView>
-         <ComboBox fx:id="type" prefWidth="150.0" promptText="Type" GridPane.columnIndex="1" />
-        </GridPane>
-        <Button alignment="CENTER" layoutX="104.0" layoutY="389.0" mnemonicParsing="false" onAction="#register" prefHeight="23.0" prefWidth="105.0" text="Register" />
-        <Label fx:id="prompt" alignment="CENTER" layoutX="67.0" layoutY="412.0" prefHeight="15.0" prefWidth="179.0" textAlignment="CENTER" textFill="RED">
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.RegisterController">
+   <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="600.0">
+      <children>
+         <Label prefHeight="50.0" prefWidth="160.0" text="Welcome to" textFill="#fc8d65">
             <font>
-                <Font name="System Bold" size="12.0" />
+               <Font name="Century Gothic Italic" size="24.0" />
             </font>
-        </Label>
-    </Pane>
+            <HBox.margin>
+               <Insets left="60.0" />
+            </HBox.margin>
+         </Label>
+         <Label prefHeight="50.0" prefWidth="140.0" text="Register" textFill="#e4dcdf">
+            <font>
+               <Font name="Century Gothic Italic" size="36.0" />
+            </font>
+         </Label>
+      </children>
+      <padding>
+         <Insets left="100.0" />
+      </padding>
+   </HBox>
+   <VBox layoutX="68.0" layoutY="100.0" prefHeight="362.0" prefWidth="465.0" stylesheets="@../css/style.css">
+      <children>
+          <Pane prefHeight="400.0" prefWidth="465.0">
+            <VBox prefHeight="400.0" prefWidth="465.0">
+               <children>
+                  <HBox alignment="CENTER" prefHeight="183.0" prefWidth="465.0">
+                     <children>
+                          <GridPane accessibleRole="BUTTON" prefHeight="145.0" prefWidth="200.0">
+                              <columnConstraints>
+                                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="150.0" minWidth="10.0" percentWidth="0.0" prefWidth="50.0" />
+                                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="250.0" minWidth="10.0" percentWidth="0.0" prefWidth="150.0" />
+                              </columnConstraints>
+                              <rowConstraints>
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              </rowConstraints>
+                              <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+                                  <Image url="@../img/dummy.png" />
+                              </ImageView>
+                              <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                                  <Image url="@../img/muscle.png" />
+                              </ImageView>
+                              <ImageView fitHeight="30.0" fitWidth="30.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+                                  <Image url="@../img/dummy.png" />
+                              </ImageView>
+                           <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                              <image>
+                                 <Image url="@../img/我的.png" />
+                              </image>
+                           </ImageView>
+                           <ComboBox fx:id="type" prefHeight="25.0" prefWidth="150.0" promptText="Type" style="-fx-background-color: #1222;" stylesheets="@../css/style.css" GridPane.columnIndex="1">
+                              <styleClass>
+                                 <String fx:value="shadow" />
+                                 <String fx:value="choice-box-course" />
+                                 <String fx:value="course-search-box-button" />
+                              </styleClass>
+                           </ComboBox>
+                           <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                              <children>
+                                    <TextField fx:id="username" prefHeight="40.0" prefWidth="150.0" promptText="Username" stylesheets="@../css/style.css">
+                                    <styleClass>
+                                       <String fx:value="login-box-transparent" />
+                                       <String fx:value="login-box" />
+                                    </styleClass>
+                                    <padding>
+                                       <Insets left="15.0" />
+                                    </padding>
+                                    <font>
+                                       <Font name="Century Gothic" size="12.0" />
+                                    </font>
+                                    </TextField>
+                                 <Line endX="135.0">
+                                    <VBox.margin>
+                                       <Insets left="10.0" />
+                                    </VBox.margin>
+                                 </Line>
+                              </children>
+                           </VBox>
+                           <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                              <children>
+                                    <PasswordField fx:id="password1" prefHeight="40.0" prefWidth="150.0" promptText="Password" stylesheets="@../css/style.css">
+                                    <styleClass>
+                                       <String fx:value="login-box" />
+                                       <String fx:value="login-box-transparent" />
+                                    </styleClass>
+                                    <padding>
+                                       <Insets left="15.0" />
+                                    </padding>
+                                    <font>
+                                       <Font name="Century Gothic" size="12.0" />
+                                    </font>
+                                    </PasswordField>
+                                 <Line endX="135.0">
+                                    <VBox.margin>
+                                       <Insets left="10.0" />
+                                    </VBox.margin>
+                                 </Line>
+                              </children>
+                           </VBox>
+                           <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                              <children>
+                                    <PasswordField fx:id="password2" prefHeight="40.0" prefWidth="150.0" promptText="Confirm Password" stylesheets="@../css/style.css">
+                                    <styleClass>
+                                       <String fx:value="login-box" />
+                                       <String fx:value="login-box-transparent" />
+                                    </styleClass>
+                                    <padding>
+                                       <Insets left="15.0" />
+                                    </padding>
+                                    <font>
+                                       <Font name="Century Gothic" size="12.0" />
+                                    </font>
+                                    </PasswordField>
+                                 <Line endX="135.0">
+                                    <VBox.margin>
+                                       <Insets left="10.0" />
+                                    </VBox.margin>
+                                 </Line>
+                              </children>
+                           </VBox>
+                           <HBox.margin>
+                              <Insets right="5.0" top="5.0" />
+                           </HBox.margin>
+                          </GridPane>
+                        <GridPane prefHeight="145.0" prefWidth="200.0">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="150.0" minWidth="10.0" percentWidth="0.0" prefWidth="50.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="263.0" minWidth="10.0" prefWidth="232.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                                 <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                                     <Image url="@../img/run.png" />
+                                 </ImageView>
+                                 <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                                     <Image url="@../img/push.png" />
+                                 <GridPane.margin>
+                                    <Insets />
+                                 </GridPane.margin>
+                                 </ImageView>
+                                 <ComboBox fx:id="gender" prefHeight="25.0" prefWidth="150.0" promptText="Gender" style="-fx-background-color: #1222;" stylesheets="@../css/style.css" GridPane.columnIndex="1">
+                                 <GridPane.margin>
+                                    <Insets />
+                                 </GridPane.margin>
+                                 <styleClass>
+                                    <String fx:value="shadow" />
+                                    <String fx:value="choice-box-course" />
+                                    <String fx:value="course-search-box-button" />
+                                 </styleClass>
+                              </ComboBox>
+                                 <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+                                     <Image url="@../img/pull.png" />
+                                 </ImageView>
+                                 <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+                                     <Image url="@../img/bike.png" />
+                                 </ImageView>
+                              <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                 <children>
+                                       <TextField fx:id="phone" prefHeight="40.0" prefWidth="150.0" promptText="Phone" stylesheets="@../css/style.css">
+                                       <styleClass>
+                                          <String fx:value="login-box-transparent" />
+                                          <String fx:value="login-box" />
+                                       </styleClass>
+                                       <padding>
+                                          <Insets left="15.0" />
+                                       </padding>
+                                       <font>
+                                          <Font name="Century Gothic" size="12.0" />
+                                       </font>
+                                       </TextField>
+                                    <Line endX="135.0">
+                                       <VBox.margin>
+                                          <Insets left="10.0" />
+                                       </VBox.margin>
+                                    </Line>
+                                 </children>
+                              </VBox>
+                              <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                 <children>
+                                       <TextField fx:id="email" prefHeight="40.0" prefWidth="150.0" promptText="Email" stylesheets="@../css/style.css">
+                                       <styleClass>
+                                          <String fx:value="login-box" />
+                                          <String fx:value="login-box-transparent" />
+                                       </styleClass>
+                                       <VBox.margin>
+                                          <Insets />
+                                       </VBox.margin>
+                                       <padding>
+                                          <Insets left="15.0" />
+                                       </padding>
+                                       <font>
+                                          <Font name="Century Gothic" size="12.0" />
+                                       </font>
+                                       </TextField>
+                                    <Line endX="135.0">
+                                       <VBox.margin>
+                                          <Insets left="10.0" />
+                                       </VBox.margin>
+                                    </Line>
+                                 </children>
+                              </VBox>
+                              <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                 <children>
+                                       <Button fx:id="send" mnemonicParsing="false" onAction="#sendCode" prefHeight="25.0" prefWidth="59.0" style="-fx-background-color: #1222;" styleClass="container" stylesheets="@../css/style.css" text="Send">
+                                       <font>
+                                          <Font name="Century Gothic" size="12.0" />
+                                       </font>
+                                    </Button>
+                                    <VBox prefHeight="44.0" prefWidth="88.0">
+                                       <children>
+                                             <TextField fx:id="verifyCode" prefHeight="40.0" prefWidth="75.0" promptText="Verify Code" stylesheets="@../css/style.css">
+                                             <styleClass>
+                                                <String fx:value="login-box" />
+                                                <String fx:value="login-box-transparent" />
+                                             </styleClass>
+                                             <padding>
+                                                <Insets left="10.0" />
+                                             </padding>
+                                             <font>
+                                                <Font name="Century Gothic" size="12.0" />
+                                             </font>
+                                             </TextField>
+                                          <Line endX="75.0">
+                                             <VBox.margin>
+                                                <Insets left="10.0" />
+                                             </VBox.margin>
+                                          </Line>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </HBox>
+                           </children>
+                           <HBox.margin>
+                              <Insets left="5.0" top="5.0" />
+                           </HBox.margin>
+                        </GridPane>
+                     </children>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </HBox>
+                  <VBox alignment="TOP_CENTER" prefHeight="123.0" prefWidth="465.0">
+                     <children>
+                          <Label fx:id="prompt" alignment="CENTER" prefHeight="20.0" prefWidth="465.0" textAlignment="CENTER" textFill="RED">
+                              <font>
+                                  <Font name="System Bold" size="12.0" />
+                              </font>
+                          </Label>
+                        <HBox alignment="CENTER" prefHeight="61.0" prefWidth="465.0">
+                           <children>
+                              <Button alignment="CENTER" mnemonicParsing="false" onAction="#login" prefHeight="50.0" prefWidth="80.0" styleClass="container" stylesheets="@../css/style.css" text="Login" textFill="#f5dae6">
+                                 <font>
+                                    <Font name="Century Gothic Bold" size="14.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets right="30.0" />
+                                 </HBox.margin>
+                              </Button>
+                                <Button alignment="CENTER" mnemonicParsing="false" onAction="#register" prefHeight="50.0" prefWidth="80.0" styleClass="container" stylesheets="@../css/style.css" text="Register" textFill="#f5dae6">
+                                 <font>
+                                    <Font name="Century Gothic Bold" size="14.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="30.0" />
+                                 </HBox.margin>
+                              </Button>
+                           </children>
+                        </HBox>
+                     </children>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </VBox>
+               </children>
+            </VBox>
+          </Pane>
+      </children>
+      <styleClass>
+         <String fx:value="container" />
+         <String fx:value="shadow" />
+      </styleClass>
+   </VBox>
 </Pane>

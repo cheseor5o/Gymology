@@ -52,7 +52,13 @@ public class CoachItemController extends AbstractController {
         coachName.setText(coach.getName());
         coachSort.setText(coach.getSort().toString());
         coachPrice.setText(String.valueOf(coach.getPrice()));
-        coachTime.setText(coach.getAvailable().size() == 0 ? "No" : "Yes");
+        coachTime.setText(coach.getAvailable().size() == 0 ? "Unavailable" : "Available");
+        if (coach.getAvailable().size() == 0 ){
+            coachTime.setTextFill(Color.RED);
+        }else {
+            coachTime.setTextFill(Color.valueOf("#1aeb52"));
+        }
+
         LoginController loginController = Controllers.get(LoginController.class);
         Instance instance = loginController.getInstance();
         if (!loginController.hasLogging()){

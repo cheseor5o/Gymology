@@ -3,49 +3,48 @@
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 <?import java.lang.*?>
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="600.0" styleClass="transparent" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CourseController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="600.0" styleClass="transparent" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CourseController">
    <VBox prefHeight="500.0" prefWidth="600.0">
       <HBox prefHeight="50.0" prefWidth="600.0">
          <HBox alignment="CENTER" prefHeight="40.0" prefWidth="350.0" stylesheets="@../css/style.css">
             <children>
-               <TextField fx:id="courseSearchTxt" prefHeight="25.0" prefWidth="180.0" promptText="Type here to search" styleClass="course-search-box-transparent" stylesheets="@../css/style.css">
+               <VBox alignment="CENTER" prefHeight="200.0" prefWidth="180.0">
+                  <children>
+                     <TextField fx:id="courseSearchTxt" prefHeight="25.0" prefWidth="180.0" promptText="Type here to search" styleClass="course-search-box-transparent" stylesheets="@../css/style.css">
+                        <font>
+                           <Font name="Century Gothic" size="12.0" />
+                        </font>
+                     </TextField>
+                     <Line endX="80.0" startX="-90.0" />
+                  </children>
+                  <HBox.margin>
+                     <Insets right="5.0" />
+                  </HBox.margin>
+               </VBox>
+               <Button fx:id="courseSearchBtn" mnemonicParsing="false" onAction="#searchCourse" prefHeight="25.0" prefWidth="80.0" styleClass="container" stylesheets="@../css/style.css" text="Search" textFill="#f5dae6">
                   <font>
-                     <Font name="Century Gothic" size="12.0" />
-                  </font>
-               </TextField>
-               <Button fx:id="courseSearchBtn" mnemonicParsing="false" onAction="#searchCourse" prefHeight="25.0" prefWidth="80.0" stylesheets="@../css/style.css" text="Search">
-                  <styleClass>
-                     <String fx:value="course-search-box-button" />
-                     <String fx:value="shadow" />
-                  </styleClass>
-                  <font>
-                     <Font name="Century Gothic" size="12.0" />
+                     <Font name="Century Gothic Bold" size="12.0" />
                   </font>
                </Button>
             </children>
             <HBox.margin>
                <Insets left="20.0" top="10.0" />
             </HBox.margin>
-            <padding>
-               <Insets bottom="5.0" top="5.0" />
-            </padding>
             <styleClass>
                <String fx:value="shadow" />
                <String fx:value="transparent" />
                <String fx:value="course-search-box" />
             </styleClass>
+            <padding>
+               <Insets bottom="3.0" />
+            </padding>
          </HBox>
          <HBox alignment="CENTER" prefHeight="48.0" prefWidth="250.0" stylesheets="@../css/style.css">
             <children>
-               <ChoiceBox fx:id="courseSortCBox" prefHeight="24.0" prefWidth="125.0" stylesheets="@../css/style.css" value="- Select choice -">
-                  <styleClass>
-                     <String fx:value="course-search-box-button" />
-                     <String fx:value="shadow" />
-                  </styleClass>
-
-               </ChoiceBox>
+               <ChoiceBox fx:id="courseSortCBox" prefHeight="35.0" prefWidth="157.0" style="-fx-background-color: #1222;" styleClass="choice-box-course" stylesheets="@../css/style.css" value="- Select choice -" />
             </children>
             <HBox.margin>
                <Insets top="10.0" />
@@ -53,13 +52,13 @@
          </HBox>
          <HBox alignment="CENTER" prefHeight="48.0" prefWidth="146.0">
             <children>
-               <Button fx:id="courseUploadBtn" mnemonicParsing="false" onAction="#uploadCourse" stylesheets="@../css/style.css" text="Upload">
+               <Button fx:id="courseUploadBtn" mnemonicParsing="false" onAction="#uploadCourse" prefHeight="40.0" prefWidth="60.0" style="-fx-background-color: #1222;" stylesheets="@../css/style.css" text="Upload" textFill="#f5dae6">
                   <styleClass>
                      <String fx:value="shadow" />
                      <String fx:value="course-search-box-button" />
                   </styleClass>
                   <font>
-                     <Font name="Century Gothic" size="12.0" />
+                     <Font name="Century Gothic Bold" size="12.0" />
                   </font>
                </Button>
             </children>

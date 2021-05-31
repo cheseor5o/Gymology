@@ -8,11 +8,10 @@ import javafx.stage.Stage;
 import model.Course;
 import model.Customer;
 import model.Instance;
+import org.apache.commons.io.FileUtils;
 import util.Controllers;
 import util.Databases;
 import util.OperateJsonFile;
-import org.apache.commons.io.FileUtils;
-
 
 import java.io.File;
 import java.io.IOException;
@@ -119,8 +118,8 @@ public class CourseEditController extends AbstractController {
     public void unLoad() {
         courseEditNameTxt.setText("");
         courseEditVipCheckBox.setSelected(false);
-        videoLocationLabel.setText("");
-        picLocationLabel.setText("");
+        videoLocationLabel.setText("(picture location)");
+        picLocationLabel.setText("(video location)");
     }
 
     public void onLoad(@org.jetbrains.annotations.NotNull Course course) {

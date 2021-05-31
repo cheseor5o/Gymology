@@ -37,19 +37,14 @@ public class CourseController extends AbstractController {
     private final String[] courseSort = util.OperateJsonFile.strToArray(util.OperateJsonFile.readJsonFile(
             Objects.requireNonNull(CourseController.class.getClassLoader().getResource("data/courseSort.json")).getPath()));
 
-    public Boolean auth(){
-        if (!Controllers.get(LoginController.class).hasLogging()){
-            Controllers.setCenter(LoginController.class);
-            return false;
-        }
-        return true;
-    }
+
 
     @Override
     @FXML
     public void scene() {
         Instance instance = Controllers.get(LoginController.class).getInstance();
         courseUploadBtn.setVisible(instance != null && instance.getIdentity() == Instance.Identity.Manager);
+        courseUploadBtn.setVisible(true);
         super.scene();
     }
 

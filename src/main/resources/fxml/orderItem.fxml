@@ -2,41 +2,50 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.*?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.Pane?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <?import java.lang.String?>
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="52.0" prefWidth="581.0" style="-fx-background-color: -fx-background-color;" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.OrderItemController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="52.0" prefWidth="581.0" style="-fx-background-color: #1222;" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.OrderItemController">
    <children>
       <HBox alignment="CENTER" prefHeight="50.0" prefWidth="580.0">
          <children>
-            <Label fx:id="time" prefHeight="30.0" prefWidth="130.0" text="Time">
+            <Label fx:id="id" prefHeight="30.0" prefWidth="100.0" text="OrderId" textAlignment="JUSTIFY">
+               <font>
+                  <Font name="Century Gothic" size="12.0" />
+               </font>
+               <HBox.margin>
+                  <Insets left="20.0" />
+               </HBox.margin>
+            </Label>
+            <Label fx:id="time" prefHeight="30.0" prefWidth="140.0" text="Time">
                <font>
                   <Font name="Century Gothic" size="12.0" />
                </font>
             </Label>
-            <Label fx:id="id" prefHeight="30.0" prefWidth="111.0" text="OrderID" textAlignment="JUSTIFY">
+            <Label fx:id="instance" prefHeight="30.0" prefWidth="130.0" text="UserId">
                <font>
-                  <Font name="Broadway" size="12.0" />
+                  <Font name="Century Gothic" size="12.0" />
                </font>
             </Label>
-            <Label fx:id="instance" prefHeight="30.0" prefWidth="104.0" text="User">
+            <Label fx:id="status" prefHeight="30.0" prefWidth="70.0" text="Status">
                <font>
-                  <Font name="Broadway" size="12.0" />
+                  <Font name="Century Gothic" size="12.0" />
                </font>
             </Label>
-            <Label fx:id="status" prefHeight="30.0" prefWidth="91.0" text="Status">
-               <font>
-                  <Font name="Broadway" size="12.0" />
-               </font>
-            </Label>
-            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="120.0">
                <children>
-                  <Button fx:id="finish" mnemonicParsing="false" onMouseClicked="#finish" prefHeight="30.0" prefWidth="70.0" styleClass="order-button" stylesheets="@../css/style.css" text="Finish" />
-                  <Button fx:id="cancel" mnemonicParsing="false" onMouseClicked="#cancel" prefHeight="30.0" prefWidth="70.0" styleClass="order-button" stylesheets="@../css/style.css" text="Cancel">
+                  <Button fx:id="finish" mnemonicParsing="false" onMouseClicked="#finish" prefHeight="30.0" prefWidth="50.0" styleClass="container" stylesheets="@../css/style.css" text="Finish">
+                     <font>
+                        <Font name="Century Gothic" size="12.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="cancel" mnemonicParsing="false" onMouseClicked="#cancel" prefHeight="30.0" prefWidth="60.0" styleClass="container" stylesheets="@../css/style.css" text="Cancel">
                      <HBox.margin>
-                        <Insets left="5.0" />
+                        <Insets left="2.0" />
                      </HBox.margin>
+                     <font>
+                        <Font name="Century Gothic" size="12.0" />
+                     </font>
                   </Button>
                </children>
             </HBox>

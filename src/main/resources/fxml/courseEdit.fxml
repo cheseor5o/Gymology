@@ -1,46 +1,185 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.CheckBox?>
-<?import javafx.scene.control.ChoiceBox?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.Pane?>
-<?import javafx.scene.text.Font?>
-
-<Pane fx:id="courseEditPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CourseEditController">
-   <Label layoutX="86.0" layoutY="58.0" prefHeight="21.0" prefWidth="77.0" text="Name" textFill="#3ba0da">
-      <font>
-         <Font name="Broadway" size="18.0" />
-      </font>
-   </Label>
-   <Label layoutX="86.0" layoutY="103.0" prefHeight="15.0" prefWidth="56.0" text="Sort" textFill="#3ba0da">
-      <font>
-         <Font name="Broadway" size="18.0" />
-      </font>
-   </Label>
-   <Label layoutX="86.0" layoutY="152.0" prefHeight="15.0" prefWidth="56.0" text="Vip" textFill="#3ba0da">
-      <font>
-         <Font name="Broadway" size="18.0" />
-      </font>
-   </Label>
-   <Label layoutX="85.0" layoutY="200.0" prefHeight="21.0" prefWidth="79.0" text="Picture" textFill="#3ba0da">
-      <font>
-         <Font name="Broadway" size="18.0" />
-      </font>
-   </Label>
-   <Label layoutX="86.0" layoutY="250.0" prefHeight="15.0" prefWidth="56.0" text="Video" textFill="#3ba0da">
-      <font>
-         <Font name="Broadway" size="18.0" />
-      </font>
-   </Label>
-   <CheckBox fx:id="courseEditVipCheckBox" layoutX="182.0" layoutY="155.0" mnemonicParsing="false" />
-   <Button fx:id="courseEditPicBtn" layoutX="183.0" layoutY="199.0" mnemonicParsing="false" onAction="#choosePictureFile" text="ChooseFile" />
-   <Button fx:id="courseEditVideoBtn" layoutX="181.0" layoutY="249.0" mnemonicParsing="false" onAction="#chooseVideoFile" text="ChooseFile" />
-   <TextField fx:id="courseEditNameTxt" layoutX="182.0" layoutY="57.0" />
-   <Button fx:id="courseSaveBtn" layoutX="260.0" layoutY="316.0" mnemonicParsing="false" onAction="#save" prefHeight="72.0" prefWidth="102.0" text="Save" />
-   <Button fx:id="courseDeleteBtn" layoutX="113.0" layoutY="316.0" mnemonicParsing="false" onAction="#delete" prefHeight="72.0" prefWidth="102.0" text="Delete" />
-   <Label fx:id="videoLocationLabel" layoutX="319.0" layoutY="253.0" textFill="#3ba0da" />
-   <Label fx:id="picLocationLabel" layoutX="316.0" layoutY="215.0" textFill="#3ba0da" />
-   <ChoiceBox fx:id="courseEditSortChoiceBox" layoutX="181.0" layoutY="102.0" prefHeight="23.0" prefWidth="161.0" />
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.*?>
+<?import java.lang.String?>
+<Pane fx:id="courseEditPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CourseEditController">
+   <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="600.0">
+      <children>
+         <Label prefHeight="50.0" prefWidth="129.0" text="Setting up" textFill="#fc8d65">
+            <font>
+               <Font name="Century Gothic Italic" size="24.0" />
+            </font>
+            <HBox.margin>
+               <Insets left="170.0" />
+            </HBox.margin>
+         </Label>
+         <Label prefHeight="50.0" prefWidth="140.0" text="Course" textFill="#e4dcdf">
+            <font>
+               <Font name="Century Gothic Italic" size="36.0" />
+            </font>
+         </Label>
+      </children>
+   </HBox>
+   <VBox alignment="CENTER" layoutX="125.0" layoutY="73.0" prefHeight="400.0" prefWidth="350.0" stylesheets="@../css/style.css">
+      <styleClass>
+         <String fx:value="container" />
+         <String fx:value="shadow" />
+      </styleClass>
+      <children>
+         <VBox prefHeight="400.0" prefWidth="300.0">
+            <children>
+               <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
+                  <children>
+                     <Label prefHeight="25.0" prefWidth="80.0" text="Name:" textFill="#ff854c">
+                        <font>
+                           <Font name="Century Gothic Bold" size="18.0" />
+                        </font>
+                        <HBox.margin>
+                           <Insets left="25.0" />
+                        </HBox.margin>
+                     </Label>
+                     <VBox alignment="CENTER" prefHeight="75.0" prefWidth="239.0">
+                        <children>
+                           <TextField fx:id="courseEditNameTxt" prefHeight="25.0" prefWidth="210.0" styleClass="transparent" stylesheets="@../css/style.css">
+                              <padding>
+                                 <Insets left="10.0" right="10.0" />
+                              </padding>
+                           </TextField>
+                           <Line endX="60.0" startX="-160.0" />
+                        </children>
+                     </VBox>
+                  </children>
+               </HBox>
+               <HBox prefHeight="100.0" prefWidth="200.0">
+                  <children>
+                     <HBox alignment="CENTER_LEFT" prefHeight="78.0" prefWidth="284.0">
+                        <children>
+                           <Label prefHeight="25.0" prefWidth="78.0" text="Sort:" textFill="#ff854c">
+                              <font>
+                                 <Font name="Century Gothic Bold" size="18.0" />
+                              </font>
+                              <HBox.margin>
+                                 <Insets left="25.0" />
+                              </HBox.margin>
+                           </Label>
+                           <ChoiceBox fx:id="courseEditSortChoiceBox" prefHeight="25.0" prefWidth="120.0" styleClass="choice-box-course" stylesheets="@../css/style.css" />
+                        </children>
+                     </HBox>
+                     <HBox alignment="CENTER_LEFT" prefHeight="75.0" prefWidth="185.0">
+                        <children>
+                           <Label prefHeight="25.0" prefWidth="55.0" text="Vip:" textFill="#ff854c">
+                              <font>
+                                 <Font name="Century Gothic Bold" size="18.0" />
+                              </font>
+                              <HBox.margin>
+                                 <Insets left="15.0" />
+                              </HBox.margin>
+                           </Label>
+                           <CheckBox fx:id="courseEditVipCheckBox" alignment="CENTER" mnemonicParsing="false" stylesheets="@../css/style.css">
+                              <HBox.margin>
+                                 <Insets />
+                              </HBox.margin>
+                           </CheckBox>
+                        </children>
+                     </HBox>
+                  </children>
+               </HBox>
+               <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
+                  <children>
+                     <Label prefHeight="25.0" prefWidth="80.0" text="Picture:" textFill="#ff854c">
+                        <font>
+                           <Font name="Century Gothic Bold" size="18.0" />
+                        </font>
+                        <HBox.margin>
+                           <Insets left="25.0" />
+                        </HBox.margin>
+                     </Label>
+                     <HBox alignment="CENTER_LEFT" prefHeight="78.0" prefWidth="250.0">
+                        <children>
+                           <Button fx:id="courseEditPicBtn" maxWidth="120.0" mnemonicParsing="false" onAction="#choosePictureFile" prefHeight="25.0" prefWidth="120.0" styleClass="container" stylesheets="@../css/style.css" text="Choose Pic File">
+                              <HBox.margin>
+                                 <Insets right="5.0" />
+                              </HBox.margin>
+                              <font>
+                                 <Font name="Century Gothic Bold" size="12.0" />
+                              </font>
+                           </Button>
+                           <Label fx:id="picLocationLabel" prefHeight="25.0" prefWidth="123.0" text="(picture location)" textFill="#ff854c">
+                              <font>
+                                 <Font name="Century Gothic" size="14.0" />
+                              </font>
+                           </Label>
+                        </children>
+                     </HBox>
+                  </children>
+               </HBox>
+               <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
+                  <children>
+                     <Label prefHeight="25.0" prefWidth="80.0" text="Video:" textFill="#ff854c">
+                        <font>
+                           <Font name="Century Gothic Bold" size="18.0" />
+                        </font>
+                        <HBox.margin>
+                           <Insets left="25.0" />
+                        </HBox.margin>
+                     </Label>
+                     <HBox alignment="CENTER_LEFT" prefHeight="78.0" prefWidth="250.0">
+                        <children>
+                           <Button fx:id="courseEditVideoBtn" mnemonicParsing="false" onAction="#chooseVideoFile" prefHeight="25.0" prefWidth="120.0" styleClass="container" stylesheets="@../css/style.css" text="Choose Vdo File">
+                              <HBox.margin>
+                                 <Insets right="5.0" />
+                              </HBox.margin>
+                              <font>
+                                 <Font name="Century Gothic Bold" size="12.0" />
+                              </font>
+                           </Button>
+                           <Label fx:id="videoLocationLabel" prefHeight="25.0" prefWidth="120.0" text="(video location)" textFill="#ff854c">
+                              <font>
+                                 <Font name="Century Gothic" size="14.0" />
+                              </font>
+                           </Label>
+                        </children>
+                     </HBox>
+                  </children>
+               </HBox>
+               <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                  <children>
+                     <Button fx:id="courseDeleteBtn" mnemonicParsing="false" onAction="#delete" prefHeight="50.0" prefWidth="80.0" styleClass="container" stylesheets="@../css/style.css" text="Delete" textFill="#f5dae6">
+                        <font>
+                           <Font name="Century Gothic Bold" size="14.0" />
+                        </font>
+                        <HBox.margin>
+                           <Insets right="60.0" />
+                        </HBox.margin>
+                     </Button>
+                     <Button fx:id="courseSaveBtn" mnemonicParsing="false" onAction="#save" prefHeight="50.0" prefWidth="80.0" styleClass="container" stylesheets="@../css/style.css" text="Save" textFill="#f5dae6">
+                        <font>
+                           <Font name="Century Gothic" size="14.0" />
+                        </font>
+                        <HBox.margin>
+                           <Insets left="60.0" />
+                        </HBox.margin>
+                     </Button>
+                  </children>
+                  <VBox.margin>
+                     <Insets bottom="20.0" />
+                  </VBox.margin>
+               </HBox>
+            </children>
+            <opaqueInsets>
+               <Insets top="5.0" />
+            </opaqueInsets>
+         </VBox>
+      </children>
+      <opaqueInsets>
+         <Insets />
+      </opaqueInsets>
+      <padding>
+         <Insets top="5.0" />
+      </padding>
+   </VBox>
 </Pane>

@@ -95,7 +95,8 @@
 /*课程版面*/
 
 .course-search-box{
-    -fx-background-color: #FFFFFF;
+    /*-fx-background-color: #ff854c;*/
+    -fx-background-color: #1222;
     -fx-background-radius: 100;
 }
 
@@ -106,6 +107,24 @@
 .course-search-box-border{
     -fx-border-color: black;
     -fx-border-style: solid;
+    -fx-background-radius: 30;
+}
+
+.choice-box-course{
+    -fx-background-color: rgba(255, 255, 255, 0.2);
+    -fx-padding: 3 10 4 10;
+    -fx-background-radius: 30;
+}
+
+.choice-box-course .label{
+    -fx-font-family: "Century Gothic";
+    -fx-text-fill: #f5dae6;
+    -fx-font-scale: Bold;
+}
+
+
+.check-box{
+    -fx-background-color: rgba(255, 255, 255, 0.2);
     -fx-background-radius: 30;
 }
 

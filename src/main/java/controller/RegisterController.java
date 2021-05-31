@@ -96,6 +96,11 @@ public class RegisterController extends AbstractController {
             prompt.setText("Email invalid!");
         }
     }
+
+    public void login(){
+        LoginController loginController = Controllers.get(LoginController.class);
+        Controllers.setCenter(loginController.getScene(), false);
+    }
     
     private void setUp(User user, String email, String name, String phone, String gender){
         user.setId(email);

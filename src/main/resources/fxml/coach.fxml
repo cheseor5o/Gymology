@@ -5,11 +5,11 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 <?import java.lang.String?>
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CoachController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CoachController">
    <children>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="600.0">
          <children>
-            <Label prefHeight="46.0" prefWidth="253.0" text="Booking a Personal " textFill="#fc8d65">
+            <Label prefHeight="46.0" prefWidth="229.0" text="Booking a Personal " textFill="#fc8d65">
                <font>
                   <Font name="Century Gothic Italic" size="24.0" />
                </font>
@@ -59,7 +59,7 @@
                         <Font name="Century Gothic" size="18.0" />
                      </font>
                   </Label>
-                  <Label alignment="CENTER" prefHeight="30.0" prefWidth="150.0" text="Actions" textFill="#ff854c">
+                  <Label alignment="CENTER" prefHeight="30.0" prefWidth="150.0" text="Action" textFill="#ff854c">
                      <font>
                         <Font name="Century Gothic" size="18.0" />
                      </font>

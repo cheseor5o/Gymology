@@ -1,32 +1,71 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.*?>
 <?import javafx.scene.media.MediaView?>
 <?import javafx.scene.text.Font?>
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CoursePlayerController">
-   
-   <MediaView fx:id="courseMediaView" fitHeight="400.0" fitWidth="600.0" layoutY="-29.0" />
-   <Slider fx:id="processSlider" layoutY="371.0" prefHeight="20.0" prefWidth="600.0" />
-   <HBox alignment="CENTER" layoutY="420.0" prefHeight="80.0" prefWidth="600.0">
+   <VBox prefHeight="500.0" prefWidth="600.0">
       <children>
-         <HBox alignment="CENTER" prefHeight="80.0" prefWidth="200.0">
+         <VBox prefHeight="500.0" prefWidth="600.0">
             <children>
-               <Button fx:id="volumeButton" mnemonicParsing="false" onAction="#operateVolumeButton" prefHeight="40.0" prefWidth="80.0" styleClass="transparent" stylesheets="@../css/style.css" />
-               <Slider fx:id="volumeSlider" prefHeight="14.0" prefWidth="137.0" value="100.0" />
+               <VBox alignment="CENTER" prefHeight="400.0" prefWidth="600.0" styleClass="container" stylesheets="@../css/style.css">
+                  <children>
+                     
+                     <MediaView fx:id="courseMediaView" fitHeight="380.0" fitWidth="580.0" />
+                  </children>
+                  <VBox.margin>
+                     <Insets bottom="5.0" />
+                  </VBox.margin>
+               </VBox>
+               <VBox prefHeight="200.0" prefWidth="100.0" styleClass="container" stylesheets="@../css/style.css">
+                  <children>
+                     <Slider fx:id="processSlider" prefHeight="20.0" prefWidth="564.0">
+                        <VBox.margin>
+                           <Insets top="5.0" />
+                        </VBox.margin>
+                        <padding>
+                           <Insets left="10.0" right="10.0" top="20.0" />
+                        </padding>
+                     </Slider>
+                     <HBox alignment="CENTER" prefHeight="80.0" prefWidth="600.0">
+                        <children>
+                           <HBox alignment="CENTER" prefHeight="80.0" prefWidth="200.0">
+                              <children>
+                                 <Button fx:id="volumeButton" mnemonicParsing="false" onAction="#operateVolumeButton" prefHeight="40.0" prefWidth="80.0" styleClass="transparent" stylesheets="@../css/style.css" />
+                                 <Slider fx:id="volumeSlider" prefHeight="14.0" prefWidth="137.0" value="100.0" />
+                              </children>
+                           </HBox>
+                           <HBox alignment="CENTER" prefHeight="100.0" prefWidth="180.0">
+                              <children>
+                                 <Button fx:id="functionButton" alignment="CENTER" mnemonicParsing="false" onAction="#operateVideoButton" prefHeight="40.0" prefWidth="100.0" styleClass="transparent" stylesheets="@../css/style.css">
+                                    <HBox.margin>
+                                       <Insets left="30.0" />
+                                    </HBox.margin>
+                                 </Button>
+                              </children>
+                           </HBox>
+                           <Label fx:id="timeLabel" alignment="CENTER_RIGHT" prefHeight="80.0" prefWidth="200.0" text="Time" textFill="#e4dcdf">
+                              <font>
+                                 <Font name="Century Gothic Bold" size="24.0" />
+                              </font>
+                              <HBox.margin>
+                                 <Insets />
+                              </HBox.margin>
+                              <padding>
+                                 <Insets right="20.0" />
+                              </padding>
+                           </Label>
+                        </children>
+                     </HBox>
+                  </children>
+               </VBox>
             </children>
-         </HBox>
-         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
-            <children>
-               <Button fx:id="functionButton" mnemonicParsing="false" onAction="#operateVideoButton" prefHeight="40.0" prefWidth="100.0" styleClass="transparent" stylesheets="@../css/style.css" />
-            </children>
-         </HBox>
-         <Label fx:id="timeLabel" alignment="CENTER_RIGHT" prefHeight="80.0" prefWidth="250.0" text="Time" textFill="#ff854c">
-            <font>
-               <Font name="Century Gothic Bold" size="24.0" />
-            </font>
-         </Label>
+            <VBox.margin>
+               <Insets bottom="5.0" right="5.0" top="5.0" />
+            </VBox.margin>
+         </VBox>
       </children>
-   </HBox>
+   </VBox>
 </Pane>

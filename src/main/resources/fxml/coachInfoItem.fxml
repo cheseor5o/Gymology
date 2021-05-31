@@ -24,12 +24,12 @@
             </Label>
             <Label fx:id="coachInfoItemStatusLabel" prefHeight="30.0" prefWidth="130.0" text="Available" textFill="#1aeb52">
                <font>
-                  <Font name="Century Gothic" size="12.0" />
+                  <Font name="Century Gothic Bold" size="12.0" />
                </font>
             </Label>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <Button fx:id="coachInfoItemReserveButton" alignment="CENTER" mnemonicParsing="false" onAction="#reserveCoach" onMouseClicked="#reserveCoach" prefHeight="30.0" prefWidth="90.0" styleClass="coach-button" stylesheets="@../css/style.css" text="reserve">
+                  <Button fx:id="coachInfoItemReserveButton" alignment="CENTER" mnemonicParsing="false" onAction="#reserveCoach" onMouseClicked="#reserveCoach" prefHeight="30.0" prefWidth="90.0" styleClass="container" stylesheets="@../css/style.css" text="reserve">
                      <font>
                         <Font name="Century Gothic" size="12.0" />
                      </font>
