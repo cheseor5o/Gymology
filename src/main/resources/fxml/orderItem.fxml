@@ -6,46 +6,53 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 <?import java.lang.String?>
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="52.0" prefWidth="581.0" style="-fx-background-color: -fx-background-color;" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.OrderItemController">
-   <children>
-      <HBox alignment="CENTER" prefHeight="50.0" prefWidth="580.0">
-         <children>
-            <Label fx:id="time" prefHeight="30.0" prefWidth="130.0" text="Time">
-               <font>
-                  <Font name="Century Gothic" size="12.0" />
-               </font>
-            </Label>
-            <Label fx:id="id" prefHeight="30.0" prefWidth="111.0" text="OrderID" textAlignment="JUSTIFY">
-               <font>
-                  <Font name="Broadway" size="12.0" />
-               </font>
-            </Label>
-            <Label fx:id="instance" prefHeight="30.0" prefWidth="104.0" text="User">
-               <font>
-                  <Font name="Broadway" size="12.0" />
-               </font>
-            </Label>
-            <Label fx:id="status" prefHeight="30.0" prefWidth="91.0" text="Status">
-               <font>
-                  <Font name="Broadway" size="12.0" />
-               </font>
-            </Label>
-            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
-               <children>
-                  <Button fx:id="finish" mnemonicParsing="false" onMouseClicked="#finish" prefHeight="30.0" prefWidth="70.0" styleClass="order-button" stylesheets="@../css/style.css" text="Finish" />
-                  <Button fx:id="cancel" mnemonicParsing="false" onMouseClicked="#cancel" prefHeight="30.0" prefWidth="70.0" styleClass="order-button" stylesheets="@../css/style.css" text="Cancel">
-                     <HBox.margin>
-                        <Insets left="5.0" />
-                     </HBox.margin>
-                  </Button>
-               </children>
-            </HBox>
-         </children>
-      </HBox>
-   </children>
-   <styleClass>
-      <String fx:value="shadow" />
-      <String fx:value="transparent" />
-      <String fx:value="order-item" />
-   </styleClass>
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="52.0"
+      prefWidth="581.0" stylesheets="@../css/style.css"
+      xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="controller.OrderItemController">
+    <children>
+        <HBox alignment="CENTER" prefHeight="50.0" prefWidth="580.0">
+            <children>
+                <Label fx:id="time" prefHeight="30.0" prefWidth="130.0" text="Time">
+                    <font>
+                        <Font name="Century Gothic" size="12.0"/>
+                    </font>
+                </Label>
+                <Label fx:id="id" prefHeight="30.0" prefWidth="111.0" text="OrderID" textAlignment="JUSTIFY">
+                    <font>
+                        <Font name="Broadway" size="12.0"/>
+                    </font>
+                </Label>
+                <Label fx:id="instance" prefHeight="30.0" prefWidth="104.0" text="User">
+                    <font>
+                        <Font name="Broadway" size="12.0"/>
+                    </font>
+                </Label>
+                <Label fx:id="status" prefHeight="30.0" prefWidth="91.0" text="Status">
+                    <font>
+                        <Font name="Broadway" size="12.0"/>
+                    </font>
+                </Label>
+                <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                    <children>
+                        <Button fx:id="finish" mnemonicParsing="false" onMouseClicked="#finish" prefHeight="30.0"
+                                prefWidth="70.0" styleClass="order-button" stylesheets="@../css/style.css"
+                                text="Finish"/>
+                        <Button fx:id="cancel" mnemonicParsing="false" onMouseClicked="#cancel" prefHeight="30.0"
+                                prefWidth="70.0" styleClass="order-button" stylesheets="@../css/style.css"
+                                text="Cancel">
+                            <HBox.margin>
+                                <Insets left="5.0"/>
+                            </HBox.margin>
+                        </Button>
+                    </children>
+                </HBox>
+            </children>
+        </HBox>
+    </children>
+    <styleClass>
+        <String fx:value="shadow"/>
+        <String fx:value="transparent"/>
+        <String fx:value="order-item"/>
+    </styleClass>
 </Pane>

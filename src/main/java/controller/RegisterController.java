@@ -76,7 +76,7 @@ public class RegisterController extends AbstractController {
                                 database = Databases.getDatabase(Manager.class);
                                 user = new Manager();
                                 break;
-                            default:Tools.openMessage(Alert.AlertType.ERROR,"Error Dialog","ERROR OCCUR!","Unknown Error!");
+                            default:Tools.openMessage(Alert.AlertType.ERROR,"Error Dialog","ERROR OCCUR!","Unknown Error!").showAndWait();
                         }
                         setUp(user,instance.getEmail(),usernameText,phoneText,genderValue);
                         database.add(user);
@@ -183,13 +183,13 @@ public class RegisterController extends AbstractController {
                     switch (newOne){
                         case Coach:
                             if (!COACH_AUTHORIZATION_CODE.equals(name)){
-                                Tools.openMessage(Alert.AlertType.ERROR,"Error Dialog","ERROR OCCUR!","Incorrect authorization code!");
+                                Tools.openMessage(Alert.AlertType.ERROR,"Error Dialog","ERROR OCCUR!","Incorrect authorization code!").showAndWait();
                                 type.getSelectionModel().select(oldOne);
                             }
                             break;
                         case Manager:
                             if (!MANAGER_AUTHORIZATION_CODE.equals(name)) {
-                                Tools.openMessage(Alert.AlertType.ERROR,"Error Dialog","ERROR OCCUR!","Incorrect authorization code!");
+                                Tools.openMessage(Alert.AlertType.ERROR,"Error Dialog","ERROR OCCUR!","Incorrect authorization code!").showAndWait();
                                 type.getSelectionModel().select(oldOne);
                             }
                             break;

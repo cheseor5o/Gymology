@@ -7,76 +7,89 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 <?import java.lang.String?>
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="580.0" style="-fx-background-color: #1222;" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CoachItemController">
-   <children>
-      <HBox alignment="CENTER" prefHeight="50.0" prefWidth="580.0">
-         <children>
-            <HBox alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0">
-               <children>
-                  <ImageView fx:id="coachPicture" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../img/coach/logo.png" />
-                     </image>
-                  </ImageView>
-               </children>
-            </HBox>
-            <Label fx:id="coachName" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="100.0" text="Coach Name">
-               <font>
-                  <Font name="Century Gothic" size="12.0" />
-               </font>
-               <HBox.margin>
-                  <Insets />
-               </HBox.margin>
-            </Label>
-            <Label fx:id="coachSort" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="100.0" text="Coach Sort">
-               <font>
-                  <Font name="Century Gothic" size="12.0" />
-               </font>
-               <HBox.margin>
-                  <Insets />
-               </HBox.margin>
-            </Label>
-            <Label fx:id="coachTime" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="80.0" text="Available">
-               <font>
-                  <Font name="Century Gothic" size="12.0" />
-               </font>
-               <HBox.margin>
-                  <Insets />
-               </HBox.margin>
-            </Label>
-            <Label fx:id="coachPrice" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="100.0" text="Coach Price">
-               <font>
-                  <Font name="Century Gothic" size="12.0" />
-               </font>
-               <HBox.margin>
-                  <Insets />
-               </HBox.margin>
-            </Label>
-            <HBox alignment="CENTER" prefHeight="50.0" prefWidth="150.0">
-               <children>
-                  <Button fx:id="coachCheckButton" alignment="CENTER" mnemonicParsing="false" onAction="#clickCheckButton" prefHeight="30.0" prefWidth="70.0" styleClass="coach-button" stylesheets="@../css/style.css" text="check">
-                     <font>
-                        <Font name="Century Gothic" size="12.0" />
-                     </font>
-                  </Button>
-                  <Button fx:id="coachLikeButton" alignment="CENTER" mnemonicParsing="false" onAction="#clickLikeButton" prefHeight="30.0" prefWidth="60.0" styleClass="coach-button" stylesheets="@../css/style.css" text="like">
-                     <font>
-                        <Font name="Century Gothic" size="12.0" />
-                     </font>
-                     <HBox.margin>
-                        <Insets left="5.0" />
-                     </HBox.margin></Button>
-               </children>
-               <HBox.margin>
-                  <Insets />
-               </HBox.margin>
-            </HBox>
-         </children>
-      </HBox>
-   </children>
-   <styleClass>
-      <String fx:value="shadow" />
-      <String fx:value="transparent" />
-      <String fx:value="coach-item" />
-   </styleClass>
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0"
+      prefWidth="580.0" style="-fx-background-color: #1222;" stylesheets="@../css/style.css"
+      xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="controller.CoachItemController">
+    <children>
+        <HBox alignment="CENTER" prefHeight="50.0" prefWidth="580.0">
+            <children>
+                <HBox alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0">
+                    <children>
+                        <ImageView fx:id="coachPicture" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true"
+                                   preserveRatio="true">
+                            <image>
+                                <Image url="@../img/coach/logo.png"/>
+                            </image>
+                        </ImageView>
+                    </children>
+                </HBox>
+                <Label fx:id="coachName" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="100.0"
+                       text="Coach Name">
+                    <font>
+                        <Font name="Century Gothic" size="12.0"/>
+                    </font>
+                    <HBox.margin>
+                        <Insets/>
+                    </HBox.margin>
+                </Label>
+                <Label fx:id="coachSort" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="100.0"
+                       text="Coach Sort">
+                    <font>
+                        <Font name="Century Gothic" size="12.0"/>
+                    </font>
+                    <HBox.margin>
+                        <Insets/>
+                    </HBox.margin>
+                </Label>
+                <Label fx:id="coachTime" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="80.0"
+                       text="Available">
+                    <font>
+                        <Font name="Century Gothic" size="12.0"/>
+                    </font>
+                    <HBox.margin>
+                        <Insets/>
+                    </HBox.margin>
+                </Label>
+                <Label fx:id="coachPrice" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="100.0"
+                       text="Coach Price">
+                    <font>
+                        <Font name="Century Gothic" size="12.0"/>
+                    </font>
+                    <HBox.margin>
+                        <Insets/>
+                    </HBox.margin>
+                </Label>
+                <HBox alignment="CENTER" prefHeight="50.0" prefWidth="150.0">
+                    <children>
+                        <Button fx:id="coachCheckButton" alignment="CENTER" mnemonicParsing="false"
+                                onAction="#clickCheckButton" prefHeight="30.0" prefWidth="70.0"
+                                styleClass="coach-button" stylesheets="@../css/style.css" text="check">
+                            <font>
+                                <Font name="Century Gothic" size="12.0"/>
+                            </font>
+                        </Button>
+                        <Button fx:id="coachLikeButton" alignment="CENTER" mnemonicParsing="false"
+                                onAction="#clickLikeButton" prefHeight="30.0" prefWidth="60.0" styleClass="coach-button"
+                                stylesheets="@../css/style.css" text="like">
+                            <font>
+                                <Font name="Century Gothic" size="12.0"/>
+                            </font>
+                            <HBox.margin>
+                                <Insets left="5.0"/>
+                            </HBox.margin>
+                        </Button>
+                    </children>
+                    <HBox.margin>
+                        <Insets/>
+                    </HBox.margin>
+                </HBox>
+            </children>
+        </HBox>
+    </children>
+    <styleClass>
+        <String fx:value="shadow"/>
+        <String fx:value="transparent"/>
+        <String fx:value="coach-item"/>
+    </styleClass>
 </Pane>

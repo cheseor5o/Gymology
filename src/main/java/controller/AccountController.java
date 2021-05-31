@@ -44,14 +44,14 @@ public class AccountController extends AbstractController {
             Instance instance = loginController.getInstance();
             scene(instance);
         } else {
-            Controllers.setCenter(loginController.getScene(), false);
+            Controllers.setCenter(loginController.getScene(),false);
         }
     }
 
     public void scene(Instance instance) {
         switch (instance.getIdentity()) {
             case Customer:
-                Controllers.replaceCenter(this.getClass());
+                Controllers.setCenter(this.getClass(),false);
                 fill(instance);
                 break;
             case Manager://进入manager界面
@@ -143,23 +143,18 @@ public class AccountController extends AbstractController {
             try {
                 double amount = Double.parseDouble(s);
                 if (amount<=0){
-                    Alert alert = Tools.openMessage(Alert.AlertType.ERROR, "Balance Recharge Center", "Balance <= 0", "Please enter a positive amount!");
-                    alert.showAndWait();
+                    Tools.openMessage(Alert.AlertType.ERROR, "Balance Recharge Center", "Balance <= 0", "Please enter a positive amount!").showAndWait();
                 }else {
                     Instance instance = Controllers.get(LoginController.class).getInstance();
                     Customer customer = Databases.getDatabase(Customer.class).get(instance.getEmail());
                     customer.setBalance(customer.getBalance()+amount);
-                    Alert alert = Tools.openMessage(Alert.AlertType.INFORMATION, "Balance Recharge Center", "Success", "Top up successfully!");
-                    alert.showAndWait();
+                    Tools.openMessage(Alert.AlertType.INFORMATION, "Balance Recharge Center", "Success", "Top up successfully!").showAndWait();
                     Controllers.reload(this.getClass());
-                    Controllers.replaceCenter(this.getClass());
                     Controllers.get(this.getClass()).scene();
-                    Controllers.clearHistory();
                 }
             }catch (Exception e){
                 e.printStackTrace();
-                Alert alert = Tools.openMessage(Alert.AlertType.ERROR, "Balance Recharge Center", "Invalid input", "Please enter a valid amount!");
-                alert.showAndWait();
+                Tools.openMessage(Alert.AlertType.ERROR, "Balance Recharge Center", "Invalid input", "Please enter a valid amount!").showAndWait();
             }
         });
     }
