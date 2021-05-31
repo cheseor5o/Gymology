@@ -1,34 +1,69 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.*?>
-
-<Pane fx:id="courseItemPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#clickCourse" onMouseEntered="#mouseIn" onMouseExited="#mouseOut" prefHeight="180.0" prefWidth="180.0" style="-fx-background-color: #3ba0da;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CourseItemController">
-   <ImageView fx:id="coursePic" fitHeight="180.0" fitWidth="218.0" pickOnBounds="true" preserveRatio="true">
-      <Image url="@../img/健身.png" />
-   </ImageView>
+<?import javafx.scene.text.Font?>
+<?import java.lang.String?>
+<Pane fx:id="courseItemPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#clickCourse" onMouseEntered="#mouseIn" onMouseExited="#mouseOut" prefHeight="180.0" prefWidth="180.0" style="-fx-background-color: #1222;" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CourseItemController">
+   <HBox prefHeight="30.0" prefWidth="180.0">
+      <children>
+         <ImageView fx:id="courseVipLogo" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+            <HBox.margin>
+               <Insets left="5.0" />
+            </HBox.margin>
+         </ImageView>
+         <Label fx:id="courseName" prefHeight="30.0" prefWidth="180.0" text="10天快速增肌100多斤一拳打死一头牛！">
+            <font>
+               <Font name="Century Gothic" size="12.0" />
+            </font>
+         </Label>
+      </children>
+   </HBox>
+   <HBox layoutY="30.0" prefHeight="109.0" prefWidth="180.0">
+      <children>
+         <Pane prefHeight="200.0" prefWidth="200.0">
+            <children>
+               <VBox alignment="CENTER" prefHeight="109.0" prefWidth="180.0">
+                  <children>
+                     <ImageView fx:id="coursePic" fitHeight="100.0" fitWidth="390.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                           <Image url="@../img/course/2.png" />
+                        </image>
+                     </ImageView>
+                  </children>
+               </VBox>
+            </children>
+         </Pane>
+      </children>
+   </HBox>
    <VBox layoutY="144.0" prefHeight="30.0" prefWidth="180.0">
       <HBox prefHeight="30.0" prefWidth="180.0">
          <Label fx:id="courseSort" prefHeight="30.0" prefWidth="90.0" text="增肌">
             <padding>
-               <Insets left="10.0" />
+               <Insets left="15.0" />
             </padding>
+            <font>
+               <Font name="Century Gothic" size="12.0" />
+            </font>
          </Label>
          <Label fx:id="courseTime" alignment="CENTER_RIGHT" contentDisplay="RIGHT" prefHeight="30.0" prefWidth="90.0" text="10:14" textOverrun="WORD_ELLIPSIS">
             <HBox.margin>
-               <Insets right="10.0" />
+               <Insets right="15.0" />
             </HBox.margin>
+            <font>
+               <Font name="Century Gothic" size="12.0" />
+            </font>
          </Label>
       </HBox>
-      <Label fx:id="courseName" prefHeight="30.0" prefWidth="180.0" text="10天快速增肌100多斤一拳打死一头牛！">
-         <padding>
-            <Insets left="10.0" />
-         </padding>
-      </Label>
    </VBox>
-   <Button fx:id="functionBtn" layoutX="125.0" layoutY="-5.0" mnemonicParsing="false" onAction="#clickButton" opacity="0.0" prefHeight="39.0" prefWidth="55.0" />
-   <ImageView fx:id="courseVipLogo" fitHeight="30.0" fitWidth="42.0" layoutX="3.0" pickOnBounds="true" preserveRatio="true" />
-   <Button fx:id="likeButton" layoutX="125.0" layoutY="-4.0" mnemonicParsing="false" opacity="0.0" prefHeight="39.0" prefWidth="55.0" onMouseClicked="#like"/>
+   <Button fx:id="functionBtn" layoutX="125.0" mnemonicParsing="false" onAction="#clickButton" opacity="0.0" prefHeight="39.0" prefWidth="55.0" />
+   <Button fx:id="likeButton" layoutX="125.0" mnemonicParsing="false" onMouseClicked="#like" opacity="0.0" prefHeight="39.0" prefWidth="55.0" />
+   <styleClass>
+      <String fx:value="course-item" />
+      <String fx:value="container" />
+      <String fx:value="shadow" />
+   </styleClass>
 </Pane>
