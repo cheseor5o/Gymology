@@ -42,7 +42,7 @@
                               <children>
                                  <ImageView fitHeight="74.0" fitWidth="73.0" pickOnBounds="true" preserveRatio="true">
                                     <image>
-                                       <Image url="@../img/people.png" />
+                                       <Image url="@../img/coach/1.png" />
                                     </image>
                                     <HBox.margin>
                                        <Insets left="20.0" />
