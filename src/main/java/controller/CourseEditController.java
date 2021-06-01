@@ -118,8 +118,8 @@ public class CourseEditController extends AbstractController {
     public void unLoad() {
         courseEditNameTxt.setText("");
         courseEditVipCheckBox.setSelected(false);
-        videoLocationLabel.setText("(picture location)");
-        picLocationLabel.setText("(video location)");
+        videoLocationLabel.setText("(video location)");
+        picLocationLabel.setText("(picture location)");
     }
 
     public void onLoad(@org.jetbrains.annotations.NotNull Course course) {

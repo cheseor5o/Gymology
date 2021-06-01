@@ -51,8 +51,7 @@ public class CourseItemController extends AbstractController {
     private final String dislikeIcon = Objects.requireNonNull(getClass().getResource("/img/dislike.png")).toString();
     private final Image VipIcon = new Image(Objects.requireNonNull(getClass().getResourceAsStream("/img/Vip.png")));
 
-    
-    //TODO 身份识别的方法
+
     public void setCourseData(Course course) {
         this.course = course;
         courseName.setText(course.getName());
@@ -187,6 +186,7 @@ public class CourseItemController extends AbstractController {
         }
         functionBtn.setOpacity(100);
         likeButton.setOpacity(100);
+        //functionBtn.setVisible(true);
     }
 
     @FXML

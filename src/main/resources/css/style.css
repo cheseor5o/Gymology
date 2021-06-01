@@ -33,7 +33,7 @@
 /*}*/
 .gradient-background{
     -fx-background-color: linear-gradient(from 75% 75% to 100% 100%, #D91F4E,#FF854C);
-    /*-fx-background-color: linear-gradient(from 75% 75% to 100% 100%, #111111,#1222);*/
+    /*-fx-background-color: linear-gradient(from 75% 75% to 100% 100%, #111111,#111111);*/
 }
 .line-color{
     -fx-background-color: #F3ABB5;

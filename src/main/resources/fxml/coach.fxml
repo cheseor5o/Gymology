@@ -44,7 +44,7 @@
                         <Insets />
                      </HBox.margin>
                   </Label>
-                  <Label prefHeight="30.0" prefWidth="100.0" text=" Sort" textFill="#ff854c">
+                  <Label prefHeight="30.0" prefWidth="130.0" text=" Sort" textFill="#ff854c">
                      <font>
                         <Font name="Century Gothic" size="18.0" />
                      </font>
@@ -54,7 +54,7 @@
                         <Font name="Century Gothic" size="18.0" />
                      </font>
                   </Label>
-                  <Label prefHeight="30.0" prefWidth="100.0" text="Price" textFill="#ff854c">
+                  <Label prefHeight="30.0" prefWidth="70.0" text="Price" textFill="#ff854c">
                      <font>
                         <Font name="Century Gothic" size="18.0" />
                      </font>

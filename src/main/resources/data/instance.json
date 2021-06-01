@@ -7,6 +7,22 @@
   "password" : "123123",
   "identity" : "Manager"
 }, {
+  "email" : "2029899255@qq.com",
+  "password" : "123123",
+  "identity" : "Coach"
+}, {
+  "email" : "3029899255@qq.com",
+  "password" : "123123",
+  "identity" : "Coach"
+}, {
+  "email" : "4029899255@qq.com",
+  "password" : "123123",
+  "identity" : "Coach"
+}, {
+  "email" : "5029899255@qq.com",
+  "password" : "123123",
+  "identity" : "Coach"
+}, {
   "email" : "631999273@qq.com",
   "password" : "123123",
   "identity" : "Customer"

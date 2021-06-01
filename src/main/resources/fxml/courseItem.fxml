@@ -37,7 +37,7 @@
    </HBox>
    <VBox layoutY="144.0" prefHeight="30.0" prefWidth="180.0">
       <HBox prefHeight="30.0" prefWidth="180.0">
-         <Label fx:id="courseSort" prefHeight="30.0" prefWidth="90.0" text="增肌" textFill="#e4dcdf">
+         <Label fx:id="courseSort" prefHeight="30.0" prefWidth="135.0" text="增肌" textFill="#e4dcdf">
             <padding>
                <Insets left="15.0" />
             </padding>

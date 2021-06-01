@@ -12,7 +12,7 @@ import java.util.stream.Collectors;
  */
 public class Coach extends User{
     public enum Sort{
-        ALL, LOSE_WEIGHT
+        ALL, Lose_Weight,Muscle_Building,Warm_Up
     }
     
     private Sort sort;

@@ -4,6 +4,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
@@ -15,6 +17,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.Date;
 import java.util.List;
+import java.util.Objects;
 import java.util.ResourceBundle;
 
 /**
@@ -24,6 +27,7 @@ import java.util.ResourceBundle;
 public class CoachInfoController extends AbstractController {
     @FXML
     private VBox coachInfoVbox;
+
     @FXML
     private Label coachInfoNameLb;
 
@@ -47,6 +51,9 @@ public class CoachInfoController extends AbstractController {
 
     @FXML
     private Button coachAddBtn;
+
+    @FXML
+    private ImageView coachInfoPic;
 
     private VBox coachVbox;
     
@@ -72,8 +79,12 @@ public class CoachInfoController extends AbstractController {
         this.coach = coach;
     }
 
+
+
     public void setCoachInfoData(Coach coach) throws Exception {
         this.coach = coach;
+        Image image =new Image(Objects.requireNonNull(getClass().getResourceAsStream(coach.getPicture())));
+        coachInfoPic.setImage(image);
         coachInfoNameLb.setText(coach.getName());
         coachInfoGenderLb.setText(coach.getGender());
         coachInfoSortLb.setText(coach.getSort().toString());

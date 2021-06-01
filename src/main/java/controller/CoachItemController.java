@@ -82,6 +82,7 @@ public class CoachItemController extends AbstractController {
 
 
     }
+
     public void clickCheckButton() throws Exception {
         CoachInfoController coachInfoController = Controllers.get(CoachInfoController.class);
         coachInfoController.setCoachInfoData(coach);

@@ -2,57 +2,82 @@
   "1": {
     "picLocation": "/img/course/1.jpg",
     "videoLocation": "/video/1.mp4",
-    "name": "超燃慢速跑",
-    "sort": "Warm up",
-    "time": "5:12",
+    "name": "Supercombustion runs",
+    "id": "1",
+    "sort": "Warm_Up",
+    "time": "01:42",
     "vip": false
   },
   "2": {
     "picLocation": "/img/course/2.png",
     "videoLocation": "/video/2.mp4",
-    "name": "瑜伽",
-    "sort": "Warm up",
-    "time": "null",
+    "name": "Gentle yoga",
+    "id": "2",
+    "sort": "Stretch",
+    "time": "01:43",
     "vip": true
   },
   "3": {
-    "picLocation": "null",
+    "picLocation": "/img/course/3.png",
     "videoLocation": "null",
-    "name": "1",
+    "name": "Exercise the whole body",
     "id": "3",
-    "time": "null",
+    "sort": "Muscle_Building",
+    "time": "00:00",
     "vip": false
   },
   "4": {
-    "picLocation": "null",
+    "picLocation": "/img/course/4.png",
     "videoLocation": "null",
-    "name": "123",
+    "name": "Happy Diet Dance",
     "id": "4",
-    "time": "null",
+    "sort": "Aerobics",
+    "time": "00:00",
     "vip": false
   },
   "5": {
-    "picLocation": "null",
+    "picLocation": "/img/course/5.png",
     "videoLocation": "null",
-    "name": "123213123",
+    "name": "Aerobic boxing",
     "id": "5",
-    "time": "null",
+    "sort": "Muscle_Building",
+    "time": "00:00",
     "vip": false
   },
   "6": {
-    "picLocation": "null",
+    "picLocation": "/img/course/6.png",
     "videoLocation": "null",
-    "name": "213213213",
+    "name": "Listening exercise",
     "id": "6",
-    "time": "null",
+    "sort": "Fat_Burning",
+    "time": "00:00",
     "vip": false
   },
   "7": {
-    "picLocation": "null",
+    "picLocation": "/img/course/7.png",
     "videoLocation": "null",
-    "name": "1",
+    "name": "Systemic training",
     "id": "7",
-    "time": "null",
+    "sort": "Aerobics",
+    "time": "00:00",
+    "vip": false
+  },
+  "8": {
+    "picLocation": "/img/course/8.png",
+    "videoLocation": "null",
+    "name": "Upper limb training",
+    "id": "8",
+    "sort": "Muscle_Building",
+    "time": "00:00",
+    "vip": false
+  },
+  "9": {
+    "picLocation": "/img/course/9.png",
+    "videoLocation": "null",
+    "name": "Warm up the body",
+    "id": "9",
+    "sort": "Warm_Up",
+    "time": "00:00",
     "vip": false
   }
 }

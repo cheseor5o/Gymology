@@ -6,16 +6,16 @@
     "phone" : "15807711675",
     "height" : "190",
     "weight" : "70kg",
-    "vip" : true,
+    "vip" : false,
     "vipExpired" : null,
     "vipRank" : null,
-    "balance" : 1800.0,
-    "likeCourse" : [ ],
+    "balance" : 1600.0,
+    "likeCourse" : [ "2" ],
     "likeCoach" : [ ],
     "courseHistory" : [ {
       "1" : "19:00",
       "2" : "20:00"
     } ],
-    "orders" : [ "1622517308389", "1622517556837" ]
+    "orders" : [ "1622517308389", "1622517556837", "1622523379943" ]
   }
 }
