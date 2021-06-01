@@ -20,10 +20,7 @@ import java.net.URL;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
-/**
- * @author Cheese
- * @date 2021/4/26 23:11
- */
+
 public class CoursePlayerController extends AbstractController {
     
     private MediaPlayer mediaPlayer;

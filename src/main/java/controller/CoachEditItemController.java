@@ -15,10 +15,7 @@ import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 
-/**
- * @author Cheese
- * @date 2021/5/30 11:55
- */
+
 public class CoachEditItemController extends AbstractController {
 
     @FXML

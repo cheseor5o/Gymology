@@ -20,10 +20,7 @@ import java.util.List;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
-/**
- * @author Cheese
- * @date 2021/5/9 21:38
- */
+
 public class CoachInfoController extends AbstractController {
     @FXML
     private VBox coachInfoVbox;

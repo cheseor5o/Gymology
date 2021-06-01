@@ -1,13 +1,13 @@
 package util;
 
-import controller.*;
+import controller.AbstractController;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.layout.BorderPane;
 
-
 import java.io.IOException;
-import java.util.*;
+import java.util.HashMap;
+import java.util.Objects;
 
 /**
  * The Controllers class is literally a box of controller
@@ -78,8 +78,9 @@ public final class Controllers {
     }
     
     /**
-     * 不带参数的setCenter方法，默认保存访问记录
-     */
+     * @param node
+     * The setCenter method with no parameters saves the access record by default
+    */
     public static void setCenter(Parent node){
         setCenter(node,true);
     }
@@ -159,9 +160,10 @@ public final class Controllers {
     }
 
     /**
-     * 用下一个scene替换当前的scene
-     * 例如：用户注册成功，跳转登录，不能再返回注册界面
-     * 用户支付成功，不能再返回支付页面
+     * @param node
+     * Replace the current scene with the next scene
+     * For example, if the user has successfully registered, he/she will skip to login and cannot return to the registration interface
+     * The user can not return to the payment page after successful payment
      */
     public static void replaceCenter(Parent node){
         sceneList.replace(node);

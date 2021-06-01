@@ -1,11 +1,5 @@
 package model;
 
-import java.util.Date;
-
-/**
- * @author Cheese
- * @date 2021/5/20 22:38
- */
 public class Order {
     
     public enum Status{

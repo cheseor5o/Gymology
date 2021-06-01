@@ -6,17 +6,16 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import model.*;
-import util.*;
+import util.Controllers;
+import util.Databases;
+import util.OrderDatabase;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 
-/**
- * @author Cheese
- * @date 2021/5/28 12:14
- */
+
 public class OrderController extends AbstractController {
 
     @FXML

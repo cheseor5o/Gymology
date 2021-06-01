@@ -20,12 +20,9 @@ import java.util.*;
 
 import static util.OperateJsonFile.readJsonFile;
 
-/**
- * @author Cheese
- * @date 2021/4/26 23:11
- */
+
 public class CourseController extends AbstractController {
-    
+
 
     @FXML private TextField courseSearchTxt;
     @FXML private Button courseSearchBtn;

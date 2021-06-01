@@ -2,21 +2,13 @@ package controller;
 
 import javafx.animation.TranslateTransition;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.Node;
-import javafx.scene.Parent;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.BorderPane;
 import javafx.util.Duration;
-import util.Controllers;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
-/**
- * @author Cheese
- * @date 2021/4/26 23:11
- */
 public class HomeController extends AbstractController {
 
     @FXML

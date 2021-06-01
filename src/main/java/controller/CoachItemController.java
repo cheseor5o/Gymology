@@ -16,10 +16,7 @@ import java.net.URL;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
-/**
- * @author Cheese
- * @date 2021/5/9 15:18
- */
+
 public class CoachItemController extends AbstractController {
     
     private Coach coach;

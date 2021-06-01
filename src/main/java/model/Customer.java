@@ -25,9 +25,7 @@ public class Customer extends User{
     public Customer() {
     }
 
-    /**
-     * 订购课程
-     */
+
     public boolean order(Order order){
         if (balance >= order.getPrice()){
             balance -= order.getPrice();

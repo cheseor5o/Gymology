@@ -164,9 +164,7 @@ public class SceneList<T> {
         return data;
     }
 
-    /**
-     * 替换当前的current
-     */
+
     public void replace(T data){
         if (current == null) throw new NoSuchElementException();
         current.data = data;
