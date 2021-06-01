@@ -4,7 +4,10 @@ import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import model.*;
-import util.*;
+import util.Controllers;
+import util.Databases;
+import util.Tools;
+import util.UserDatabase;
 
 import java.io.IOException;
 import java.net.URL;
@@ -177,7 +180,6 @@ public class AccountController extends AbstractController {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         gender.getItems().addAll("Male", "Female", "Prefer not to say");
-        information.setDisable(true);
         balance.setDisable(true);
     }
 }

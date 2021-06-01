@@ -8,15 +8,15 @@
     "picture" : "/img/coach/logo.png",
     "time" : [ {
       "time" : "2021/6/11 10:00-12:00",
-      "ordered" : false
+      "ordered" : true
     }, {
       "time" : "2021/6/12 10:00-12:00",
-      "ordered" : false
+      "ordered" : true
     } ],
     "price" : 200.0,
     "description" : "又高又帅又可爱，人见人爱花见花开捣蛋鬼",
     "height" : "180",
     "weight" : "70kg",
-    "orders" : [  ]
+    "orders" : [ "1622517308389", "1622517556837" ]
   }
 }

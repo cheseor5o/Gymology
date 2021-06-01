@@ -34,17 +34,17 @@
             </Label>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="120.0">
                <children>
-                  <Button fx:id="finish" mnemonicParsing="false" onMouseClicked="#finish" prefHeight="30.0" prefWidth="50.0" styleClass="container" stylesheets="@../css/style.css" text="Finish">
+                  <Button fx:id="finish" mnemonicParsing="false" onMouseClicked="#finish" prefHeight="30.0" prefWidth="50.0" styleClass="container" stylesheets="@../css/style.css" text="Finish" textFill="#03ae03">
                      <font>
-                        <Font name="Century Gothic" size="12.0" />
+                        <Font name="Century Gothic Bold" size="12.0" />
                      </font>
                   </Button>
-                  <Button fx:id="cancel" mnemonicParsing="false" onMouseClicked="#cancel" prefHeight="30.0" prefWidth="60.0" styleClass="container" stylesheets="@../css/style.css" text="Cancel">
+                  <Button fx:id="cancel" mnemonicParsing="false" onMouseClicked="#cancel" prefHeight="30.0" prefWidth="60.0" styleClass="container" stylesheets="@../css/style.css" text="Cancel" textFill="#e82c2c">
                      <HBox.margin>
                         <Insets left="2.0" />
                      </HBox.margin>
                      <font>
-                        <Font name="Century Gothic" size="12.0" />
+                        <Font name="Century Gothic Bold" size="12.0" />
                      </font>
                   </Button>
                </children>
