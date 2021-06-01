@@ -4,22 +4,32 @@ import controller.*;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.layout.BorderPane;
-import model.Instance;
-import model.User;
 
 
 import java.io.IOException;
 import java.util.*;
 
 /**
+ * The Controllers class is literally a box of controller
+ * It keeps every controller that controls scene that essential to the system
+ * A class is pass into this box, and represents only an object that it keeps
  * @author Dong
+ * @since April 30, 2021
  */
 public final class Controllers {
+    /**
+     * The controller box
+     */
     private static final HashMap<Class<? extends AbstractController>,Object> CONTROLLER_BOX =new HashMap<>();
+    /**
+     * The pane that represent the main scene
+     */
     private static BorderPane mainPane;
+    /**
+     * A scene list for controlling the browse history
+     */
     private static final SceneList<Parent> sceneList = new SceneList<>();
-    private static int current;
-
+    
     public static BorderPane getMainPane() {
         return mainPane;
     }
@@ -30,7 +40,11 @@ public final class Controllers {
 
 
     /**
-     * 前往下一页
+     * If the actual scene is not the current scene, which is standardized in sceneList
+     * @see SceneList
+     * then change actual scene to that current scene
+     * If the actual scene is the current scene, then check if there is a next scene
+     * Switch it to next scene if it has a next scene
      */
     public static void forward(){
         Parent currentScene = sceneList.currentScene();
@@ -43,8 +57,13 @@ public final class Controllers {
             }
         }
     }
+    
     /**
-     * 前往上一页
+     * If the actual scene is not the current scene, which is standardized in sceneList
+     * @see SceneList
+     * then change actual scene to that current scene
+     * If the actual scene is the current scene, then check if there is a previous scene
+     * Switch it to previous scene if it has a previous scene
      */
     public static void backward(){
         Parent currentScene = sceneList.currentScene();
@@ -66,11 +85,13 @@ public final class Controllers {
     }
 
     /**
-     * 切换不同的页面，同时有选择性地保存访问记录
-     * 一般来说，当发生强制性的跳转时，比如因为查看订单时未登录而跳转至了登录界面。
-     * 该登录界面不应该被保存，否则若存在多个登录界面记录，登录后其它的登录界面依然还在sceneList中
-     * @param node 页面
-     * @param track 是否保存记录
+     * Switch between different scenes while selectively saving access records
+     * In general, when a mandatory jump occurs, 
+     * such as a jump to the login screen because you are not logged in while viewing an order.
+     * The login screen should not be saved, otherwise if there are multiple login records, 
+     * the other login screens will remain in the SceneList after login
+     * @param node scene
+     * @param track whether to save records
      */
     public static void setCenter(Parent node, boolean track){
         if (track){
@@ -83,7 +104,7 @@ public final class Controllers {
     }
 
     /**
-     * 不带参数的setCenter方法，默认保存访问记录
+     * The setCenter method, which takes no parameters, saves the access record by default
      * @param clazz clazz
      */
     public static void setCenter(Class<? extends AbstractController> clazz){
@@ -91,19 +112,30 @@ public final class Controllers {
     }
 
     /**
-     * 同理
+     * Obtain the scene by class, then setCenter
      * @param clazz clazz
-     * @param track 是否保存记录
+     * @param track whether to save records
      * @see #setCenter(Parent, boolean) 
      */
     public static void setCenter(Class<? extends AbstractController> clazz, boolean track){
         setCenter(get(clazz).getScene(),track);
     }
 
+    /**
+     * Putting a controller into the CONTROLLER_BOX
+     * @param controller controller that has to extends {@link AbstractController}
+     * @param <T> Generic form of controller
+     */
     public static <T extends AbstractController> void put(T controller){
         CONTROLLER_BOX.put(controller.getClass(),Objects.requireNonNull(controller));
     }
 
+    /**
+     * 
+     * @param clazz A clazz of a controller
+     * @param <T> Generic form of controller
+     * @return A controller, which is an object of the class that clazz represent
+     */
     public static <T extends AbstractController> T get(Class<T> clazz){
         T controller =(T)CONTROLLER_BOX.get(clazz);
         return Objects.requireNonNull(controller);

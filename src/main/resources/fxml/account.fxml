@@ -55,7 +55,7 @@
                                              <Font name="Century Gothic" size="13.0" />
                                           </font>
                                        </Label>
-                                       <Label text="LV.1" textFill="#f5dae6">
+                                       <Label fx:id="membershipStatus" text="LV.1" textFill="#f5dae6">
                                           <font>
                                              <Font name="Century Gothic Bold" size="14.0" />
                                           </font>
@@ -65,7 +65,7 @@
                                              <Font name="Century Gothic" size="13.0" />
                                           </font>
                                        </Label>
-                                       <Label text="31/12/2022" textFill="#ebe1e7">
+                                       <Label fx:id="overdue" text=" " textFill="#ebe1e7">
                                           <font>
                                              <Font name="Century Gothic" size="14.0" />
                                           </font>
@@ -97,7 +97,7 @@
                                        </HBox>
                                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                                           <children>
-                                             <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="70.0" styleClass="container" stylesheets="@../css/style.css" text="Purchase" textFill="RED">
+                                             <Button fx:id="purchase" mnemonicParsing="false" prefHeight="30.0" prefWidth="70.0" styleClass="container" stylesheets="@../css/style.css" text="Purchase" textFill="RED">
                                                 <HBox.margin>
                                                    <Insets bottom="5.0" right="20.0" />
                                                 </HBox.margin>

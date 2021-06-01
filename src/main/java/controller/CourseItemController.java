@@ -14,6 +14,7 @@ import model.Customer;
 import model.Instance;
 import util.Controllers;
 import util.Databases;
+import util.Tools;
 
 import java.net.URL;
 import java.util.Objects;
@@ -110,11 +111,11 @@ public class CourseItemController extends AbstractController {
                 Controllers.setCenter(LoginController.class, false);
             }else if (instance.getIdentity() == Instance.Identity.Customer){
                 Customer customer = Databases.getDatabase(Customer.class).get(instance.getEmail());
-                if (customer.getVip()){
+                if (customer.isVip()){
                     coursePlayerController.mediaPlayerOnLoad(course);
                     coursePlayerController.scene();
                 }else {
-                    inform(customer);
+                    inform();
                 }
             }else {
                 coursePlayerController.mediaPlayerOnLoad(course);
@@ -131,10 +132,10 @@ public class CourseItemController extends AbstractController {
         }else {
             Customer customer = Databases.getDatabase(Customer.class).get(instance.getEmail());
             if (course.getVip()){
-                if (customer.getVip()){
+                if (customer.isVip()){
                     like(customer,course);
                 }else {
-                    inform(customer);
+                    inform();
                 }
             }else {
                 like(customer,course);
@@ -142,11 +143,8 @@ public class CourseItemController extends AbstractController {
         }
     }
     
-    private void inform(Customer customer){
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Dear "+customer.getName() + ", ");
-        alert.setContentText("This course is for VIP customer,Please go to purchase VIP first!");
-        alert.showAndWait();
+    private void inform(){
+        Tools.openMessage(Alert.AlertType.INFORMATION,"Course Center","Failed","This course is for VIP customer,Please go to purchase VIP first!").showAndWait();
     }
     
     

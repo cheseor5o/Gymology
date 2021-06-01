@@ -95,7 +95,6 @@ public class CoachItemController extends AbstractController {
         if (!loginController.hasLogging()){
             Controllers.setCenter(loginController.getScene(),false);
         }else if (instance.getIdentity() == Instance.Identity.Customer){
-            System.out.println(instance);
             Customer customer = Databases.getDatabase(Customer.class).get(instance.getEmail());
             if (!customer.exists(customer.getLikeCoach(),coach.getId())) {
                 customer.addFavouriteCoach(coach.getId());

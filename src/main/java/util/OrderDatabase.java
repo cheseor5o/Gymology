@@ -7,10 +7,12 @@ import com.fasterxml.jackson.databind.type.MapType;
 import model.Coach;
 import model.Customer;
 import model.Order;
+
 import java.io.File;
 import java.io.IOException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.*;
-import java.util.stream.Collectors;
 
 public class OrderDatabase {
     private static final ObjectMapper mapper;
@@ -46,34 +48,36 @@ public class OrderDatabase {
 
     /**
      * 查找并返回指定顾客的orders
+     *
      * @param customer 指定的顾客
      * @return 指定顾客的orders
      */
-    public static List<Order> getOrders(Customer customer){
+    public static List<Order> getOrders(Customer customer) {
         List<Order> orders = new ArrayList<>();
         for (String order : customer.getOrders()) {
             Order customerOrder = map.get(order);
-            if (customerOrder!=null) orders.add(customerOrder);
+            if (customerOrder != null) orders.add(customerOrder);
         }
         return orders;
     }
 
     /**
      * 查找并返回指定顾客的orders
+     *
      * @param coach 指定的顾客
      * @return 指定顾客的orders
      */
-    public static List<Order> getOrders(Coach coach){
+    public static List<Order> getOrders(Coach coach) {
         List<Order> orders = new ArrayList<>();
         for (String order : coach.getOrders()) {
             Order coachOrder = map.get(order);
-            if (coachOrder!=null) orders.add(coachOrder);
+            if (coachOrder != null) orders.add(coachOrder);
         }
         return orders;
     }
-    
-    
-    public static void delete(String id){
+
+
+    public static void delete(String id) {
         map.remove(id);
     }
 
@@ -84,24 +88,7 @@ public class OrderDatabase {
             e.printStackTrace();
         }
     }
+
     
-    public static String now(){
-        Calendar instance = Calendar.getInstance();
-        instance.add(Calendar.MONTH,1);
-        return parse(instance);
-    }
-
-    private static String parse(Calendar withdrawTime){
-        return  withdrawTime == null ? "unset" : withdrawTime.get(Calendar.YEAR)+"/"+
-                withdrawTime.get(Calendar.MONTH)+"/"+
-                withdrawTime.get(Calendar.DATE) + " "+
-                withdrawTime.get(Calendar.HOUR) +":"+
-                withdrawTime.get(Calendar.MINUTE)+":"+
-                withdrawTime.get(Calendar.SECOND);
-    }
-
-    public static void show() {
-        System.out.println(map);
-    }
 
 }

@@ -18,8 +18,6 @@ import java.util.ResourceBundle;
  * @date 2021/4/26 23:11
  */
 public class HomeController extends AbstractController {
-    
-    
 
     @FXML
     private AnchorPane homePane1;
@@ -40,7 +38,6 @@ public class HomeController extends AbstractController {
 
     int show = 0;
     public void next(){
-
         if (show==0){
             translateAnimation(0.5,homePane2,-600);
             show++;
@@ -48,12 +45,16 @@ public class HomeController extends AbstractController {
             translateAnimation(0.5,homePane3,-600);
             show++;
         }else if (show==2){
+//            translateAnimation(0.5,homePane1,+600);
+//            show = 0;
             back();
             back();
         }
     }
     public void back(){
         if (show==0){
+//            translateAnimation(0.5,homePane3,-600);
+//            show = 2;
             next();
             next();
         }else if (show==1){

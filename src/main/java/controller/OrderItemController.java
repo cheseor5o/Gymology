@@ -41,39 +41,44 @@ public class OrderItemController extends AbstractController {
     }
     
     @FXML
-    public boolean finish(){
-        
+    public void finish(){
         Customer customer = Databases.getDatabase(Customer.class).get(order.getCustomer());
         Alert alert = Tools.openMessage(Alert.AlertType.CONFIRMATION, "Order Center", "Dear " + customer.getName(), "Are you sure you have finished this course?");
         alert.showAndWait();
         if (alert.getResult() == ButtonType.OK){
-            System.out.println("Yes");
-        }else {
-            System.out.println("No");
+            order.setStatus(Order.Status.FINISH);
+            status.setText(order.getStatus().toString());
+            Tools.openMessage(Alert.AlertType.INFORMATION, "Order Center", "Dear " + customer.getName(), "Finish! Thanks you!");
+            refresh();
         }
-        return true;
     }
 
     @FXML
     public void cancel(){
         Customer customer = Databases.getDatabase(Customer.class).get(order.getCustomer());
         Alert alert = Tools.openMessage(Alert.AlertType.CONFIRMATION, "Order Center", "Dear " + customer.getName(), "Are you sure you want to cancel this course?");
+        alert.showAndWait();
         if (alert.getResult() == ButtonType.OK){
             String content;
-            if (order.getTime().compareTo(OrderDatabase.now())>0){//可以退
+            if (order.getTime().compareTo(Tools.now())>0){//可以退
                 Coach coach = Databases.getDatabase(Coach.class).get(order.getCoach());
-                customer.cancelOrder(order);
+                customer.refund(order);
                 coach.cancelOrder(order);
-                OrderDatabase.delete(order.getId());
+                order.setStatus(Order.Status.CANCELED);
+                status.setText(order.getStatus().toString());
                 content = "Cancel successfully!";
-                OrderController orderController = Controllers.get(OrderController.class);
-                orderController.setChanged(true);
-                orderController.scene();
+                refresh();
             }else {
                 content = "Cannot be canceled!";
             }
             Tools.openMessage(Alert.AlertType.INFORMATION, "Order Center", "Dear " + customer.getName(), content).showAndWait();
         }
+    }
+    
+    private void refresh(){
+        OrderController orderController = Controllers.get(OrderController.class);
+        orderController.setChanged(true);
+        orderController.scene();
     }
 
     public void setAll(Order order, Class<? extends User> clazz){
@@ -81,6 +86,9 @@ public class OrderItemController extends AbstractController {
         id.setText(order.getId());
         time.setText(order.getTime());
         status.setText(order.getStatus().toString());
+        boolean visible = order.getStatus().equals(Order.Status.PROCESSING);
+        cancel.setVisible(visible);
+        finish.setVisible(visible);
         instance.setText(Databases.getDatabase(clazz).get(clazz == Customer.class ? order.getCustomer() : order.getCoach()).getId());
     }
     

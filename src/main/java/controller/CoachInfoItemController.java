@@ -46,30 +46,36 @@ public class CoachInfoItemController extends AbstractController {
             Controllers.setCenter(loginController.getScene(),false);
         }else if (instance.getIdentity().equals(Instance.Identity.Customer)){
             CoachInfoController coachInfoController = Controllers.get(CoachInfoController.class);
-            reserve(instance, coachInfoController.getCoach(),coachInfoItemTime.getText());
-            try {
-                coachInfoController.setCoachInfoData(coachInfoController.getCoach());
-            } catch (Exception e) {
-                e.printStackTrace();
+            if (reserve(instance, coachInfoController.getCoach(),coachInfoItemTime.getText())) {
+                try {
+                    coachInfoController.setCoachInfoData(coachInfoController.getCoach());
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
+            
         }
     }
 
-    private void reserve(Instance instance, Coach coach, String time){
+    private boolean reserve(Instance instance, Coach coach, String time){
         String id = System.currentTimeMillis() + "";
         UserDatabase<Customer> database = Databases.getDatabase(Customer.class);
         Customer customer = database.get(instance.getEmail());
         Order order = new Order(id,customer.getId(),coach.getId(), time,coach.getPrice());
         String content;
+        boolean result;
         if (customer.order(order)) {
             coach.reserve(order);
             OrderDatabase.add(order);
             Controllers.get(OrderController.class).setChanged(true);
             content = "Reserve successfully";
+            result = true;
         }else {
             content = "Fail! No enough balance!";
+            result = false;
         }
         Tools.openMessage(Alert.AlertType.INFORMATION, "Coach Reservation Center", "Dear " + database.get(order.getCustomer()).getName(), content).showAndWait();
+        return result;
     }
 
 

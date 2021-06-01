@@ -8,14 +8,14 @@
     "weight" : "70kg",
     "vip" : false,
     "vipExpired" : null,
-    "vipRank" : null,
-    "balance" : 1600.0,
-    "likeCourse" : [ "2" ],
-    "likeCoach" : [ ],
+    "vipRank" : 0,
+    "balance" : 1950.0,
+    "likeCourse" : [ ],
+    "likeCoach" : [ "2029899255@qq.com", "4029899255@qq.com", "5029899255@qq.com" ],
     "courseHistory" : [ {
       "1" : "19:00",
       "2" : "20:00"
     } ],
-    "orders" : [ "1622517308389", "1622517556837", "1622523379943" ]
+    "orders" : [ "1622537998136", "1622538004015", "1622538028371", "1622538112916", "1622538133023" ]
   }
 }

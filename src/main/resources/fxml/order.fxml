@@ -41,7 +41,7 @@
                         <Font name="Century Gothic" size="18.0" />
                      </font>
                   </Label>
-                  <Label alignment="CENTER" prefHeight="30.0" prefWidth="130.0" text="User" textFill="#ff854c">
+                  <Label fx:id="userLabel" alignment="CENTER" prefHeight="30.0" prefWidth="130.0" text="User" textFill="#ff854c">
                      <font>
                         <Font name="Century Gothic" size="18.0" />
                      </font>

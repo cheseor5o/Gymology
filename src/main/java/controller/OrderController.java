@@ -2,6 +2,7 @@ package controller;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import model.*;
@@ -17,9 +18,10 @@ import java.util.ResourceBundle;
  * @date 2021/5/28 12:14
  */
 public class OrderController extends AbstractController {
-    
-    private Boolean changed;
 
+    @FXML
+    public Label userLabel;
+    private Boolean changed;
     @FXML
     public VBox orderInfoVbox;
 
@@ -30,14 +32,16 @@ public class OrderController extends AbstractController {
                 Instance instance = Controllers.get(LoginController.class).getInstance();
                 switch (instance.getIdentity()){
                     case Coach:
+                        userLabel.setText("Customer");
                         Coach coach = Databases.getDatabase(Coach.class).get(instance.getEmail());
                         List<Order> coachOrders = OrderDatabase.getOrders(coach);
-                        displayOrder(coachOrders, coach.getClass());
+                        displayOrder(coachOrders, Customer.class);
                         break;
                     case Customer:
+                        userLabel.setText("Coach");
                         Customer customer = Databases.getDatabase(Customer.class).get(instance.getEmail());
                         List<Order> customerOrders = OrderDatabase.getOrders(customer);
-                        displayOrder(customerOrders, customer.getClass());
+                        displayOrder(customerOrders, Coach.class);
                         break;
                     default:
                         System.out.println("ERROR");

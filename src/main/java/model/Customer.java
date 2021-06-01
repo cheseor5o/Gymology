@@ -6,12 +6,16 @@ import java.util.List;
 import java.util.Map;
 
 public class Customer extends User{
+
+    public static boolean isCustomer(Instance instance){
+        return instance.getIdentity().equals(Instance.Identity.Customer);
+    }
     
     private String height;
     private String weight;
-    private Boolean vip;
+    private boolean vip;
     private String vipExpired;
-    private String vipRank;
+    private int vipRank;
     private double balance;
     private List<String> likeCourse;
     private List<String> likeCoach;
@@ -33,11 +37,15 @@ public class Customer extends User{
         return false;
     }
     
-    public void cancelOrder(Order order){
+    public void refund(Order order){
+        balance+=order.getPrice();
+    }
+    
+    public void deleteOrder(Order order){
         int index = Tools.findIndex(orders, order.getId());
         if (exists(orders,index,order.getId())){
             orders.remove(index);
-            balance+=order.getPrice();
+            refund(order);
         }
     }
     
@@ -86,11 +94,11 @@ public class Customer extends User{
         this.weight = weight;
     }
 
-    public Boolean getVip() {
+    public boolean isVip() {
         return vip;
     }
 
-    public void setVip(Boolean vip) {
+    public void setVip(boolean vip) {
         this.vip = vip;
     }
 
@@ -102,11 +110,11 @@ public class Customer extends User{
         this.vipExpired = vipExpired;
     }
 
-    public String getVipRank() {
+    public int getVipRank() {
         return vipRank;
     }
 
-    public void setVipRank(String vipRank) {
+    public void setVipRank(int vipRank) {
         this.vipRank = vipRank;
     }
 

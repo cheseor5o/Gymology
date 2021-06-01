@@ -1,16 +1,16 @@
 package controller;
 
 import javafx.application.Platform;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.input.MouseEvent;
 import model.*;
-import util.Controllers;
-import util.Databases;
-import util.Tools;
-import util.UserDatabase;
+import util.*;
 
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDateTime;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
@@ -38,7 +38,13 @@ public class AccountController extends AbstractController {
     @FXML
     public Button topUp;
     @FXML
-    private Button information;
+    public Button purchase;
+    @FXML
+    public Label membershipStatus;
+    @FXML
+    public Label overdue;
+    
+    private static final double vipPrice = 500;
 
     @Override
     public void scene() {
@@ -52,14 +58,24 @@ public class AccountController extends AbstractController {
     }
 
     public void scene(Instance instance) {
+        Controllers.setCenter(this.getClass(),false);
         switch (instance.getIdentity()) {
             case Customer:
-                Controllers.setCenter(this.getClass(),false);
+                checkVipService(instance);
                 fill(instance);
                 break;
             case Manager://进入manager界面
                 break;
             case Coach://进入coach界面
+        }
+    }
+    
+    private void checkVipService(Instance instance){
+        Customer customer = Databases.getDatabase(Customer.class).get(instance.getEmail());
+        if (customer.isVip()){
+            if (Tools.now().compareTo(customer.getVipExpired())>0){
+                customer.setVip(false);
+            }
         }
     }
 
@@ -81,8 +97,11 @@ public class AccountController extends AbstractController {
                 break;
         }
         user = database.get(instance.getEmail());
-        if (instance.getIdentity().equals(Instance.Identity.Customer)){
-            balance.setText(String.valueOf(((Customer) user).getBalance()));
+        if (Customer.isCustomer(instance)){
+            Customer customer = (Customer) user;
+            membershipStatus.setText(customer.isVip() ? "Vip. "+customer.getVipRank() : "Not Vip");
+            overdue.setText(customer.isVip() ? customer.getVipExpired() : "Not Vip");
+            balance.setText(String.valueOf(customer.getBalance()));
         }else {
             balance.setText("Unavailable");
         }
@@ -90,6 +109,38 @@ public class AccountController extends AbstractController {
         password.setText(instance.getPassword());
         phone.setText(user.getPhone());
         gender.getSelectionModel().select(user.getGender());
+        purchase.setOnMouseClicked(mouseEvent -> {
+            if (Customer.isCustomer(instance)) {
+                Customer customer = (Customer) user;
+                if (customer.getBalance() < vipPrice){
+                    Tools.openMessage(Alert.AlertType.WARNING,"Vip purchase Center","Failed!","Reason: Balance is not enough!").showAndWait();
+                }else {
+                    Alert alert = Tools.openMessage(Alert.AlertType.CONFIRMATION, "Vip purchase Center", "Are you sure?", "Purchase vip for a month");
+                    alert.showAndWait();
+                    if (alert.getResult() == ButtonType.OK){
+                        customer.setBalance(customer.getBalance() - vipPrice);
+                        String vipExpired = customer.getVipExpired();
+                        String now = Tools.now();
+                        if (vipExpired == null || now.compareTo(vipExpired) > 0){
+                            vipExpired = Tools.dateString(Tools.parse(now).plusMonths(1));
+                            customer.setVipExpired(vipExpired);
+                        }else {
+                            LocalDateTime time = Tools.parse(vipExpired);
+                            vipExpired = Tools.dateString(time.plusMonths(1));
+                        }
+                        customer.setVip(true);
+                        customer.setVipExpired(vipExpired);
+                        customer.setVipRank(customer.getVipRank() + 1);
+                        membershipStatus.setText("Vip. "+customer.getVipRank());
+                        overdue.setText(vipExpired);
+                        balance.setText(String.valueOf(customer.getBalance()));
+                        Tools.openMessage(Alert.AlertType.WARNING,"Vip purchase Center","Success!","Successfully purchase vip! Thanks you!").showAndWait();
+                    }
+                }
+            }
+        });
+        
+        
     }
 
     private void setTopUp(boolean status){
@@ -140,26 +191,27 @@ public class AccountController extends AbstractController {
     
     @FXML
     public void topUp(){
-        TextInputDialog dialog = Tools.openDialog("Balance Recharge Center","Here to top up your account","Enter the amount:");
-        Optional<String> result = dialog.showAndWait();
-        result.ifPresent(s -> {
-            try {
-                double amount = Double.parseDouble(s);
-                if (amount<=0){
-                    Tools.openMessage(Alert.AlertType.ERROR, "Balance Recharge Center", "Balance <= 0", "Please enter a positive amount!").showAndWait();
-                }else {
-                    Instance instance = Controllers.get(LoginController.class).getInstance();
-                    Customer customer = Databases.getDatabase(Customer.class).get(instance.getEmail());
-                    customer.setBalance(customer.getBalance()+amount);
-                    Tools.openMessage(Alert.AlertType.INFORMATION, "Balance Recharge Center", "Success", "Top up successfully!").showAndWait();
-                    Controllers.reload(this.getClass());
-                    Controllers.get(this.getClass()).scene();
+        Instance instance = Controllers.get(LoginController.class).getInstance();
+        if (instance.getIdentity().equals(Instance.Identity.Customer)){
+            TextInputDialog dialog = Tools.openDialog("Balance Recharge Center","Here to top up your account","Enter the amount:");
+            Optional<String> result = dialog.showAndWait();
+            result.ifPresent(s -> {
+                try {
+                    double amount = Double.parseDouble(s);
+                    if (amount<=0){
+                        Tools.openMessage(Alert.AlertType.ERROR, "Balance Recharge Center", "Balance <= 0", "Please enter a positive amount!").showAndWait();
+                    }else {
+                        Customer customer = Databases.getDatabase(Customer.class).get(instance.getEmail());
+                        customer.setBalance(customer.getBalance()+amount);
+                        Tools.openMessage(Alert.AlertType.INFORMATION, "Balance Recharge Center", "Success", "Top up successfully!").showAndWait();
+                        balance.setText(String.valueOf(customer.getBalance()));
+                    }
+                }catch (Exception e){
+                    e.printStackTrace();
+                    Tools.openMessage(Alert.AlertType.ERROR, "Balance Recharge Center", "Invalid input", "Please enter a valid amount!").showAndWait();
                 }
-            }catch (Exception e){
-                e.printStackTrace();
-                Tools.openMessage(Alert.AlertType.ERROR, "Balance Recharge Center", "Invalid input", "Please enter a valid amount!").showAndWait();
-            }
-        });
+            });
+        }
     }
 
 

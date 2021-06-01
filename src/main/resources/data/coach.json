@@ -8,7 +8,7 @@
     "picture" : "/img/coach/5.png",
     "time" : [ {
       "time" : "2021-06-11 10:00:00",
-      "ordered" : false
+      "ordered" : true
     }, {
       "time" : "2021-06-12 10:00:00",
       "ordered" : false
@@ -17,7 +17,7 @@
     "description" : "Jerry, a senior fitness instructor, used to be a soldier, has excellent physical fitness. ",
     "height" : "180",
     "weight" : "70kg",
-    "orders" : [ ]
+    "orders" : [ "1622537998136" ]
   },
   "3029899255@qq.com" : {
     "id" : "3029899255@qq.com",
@@ -51,13 +51,13 @@
       "ordered" : false
     }, {
       "time" : "2021-06-12 10:00:00",
-      "ordered" : false
+      "ordered" : true
     } ],
     "price" : 360.0,
     "description" : "She used to be a track and field athlete, is good at long-distance running.",
     "height" : "180",
     "weight" : "70kg",
-    "orders" : [ ]
+    "orders" : [ "1622538133023" ]
   },
   "1029899255@qq.com" : {
     "id" : "1029899255@qq.com",
@@ -88,7 +88,7 @@
     "picture" : "/img/coach/2.png",
     "time" : [ {
       "time" : "2021-06-11 10:00:00",
-      "ordered" : false
+      "ordered" : true
     }, {
       "time" : "2021-06-12 10:00:00",
       "ordered" : false
@@ -97,6 +97,6 @@
     "description" : "A young female fitness instructor, graduated from a prestigious university. She loves bodybuilding and teaches patiently. She is often praised by her students.",
     "height" : "170cm",
     "weight" : "60kg",
-    "orders" : [ ]
+    "orders" : [ "1622538028371" ]
   }
 }

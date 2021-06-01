@@ -1,6 +1,10 @@
 package model;
 
 public class Manager extends User{
+
+    public static boolean isManager(Instance instance){
+        return instance.getIdentity().equals(Instance.Identity.Manager);
+    }
     
     private double allIncome;
 

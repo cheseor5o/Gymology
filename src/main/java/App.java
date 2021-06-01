@@ -8,6 +8,7 @@ import javafx.stage.StageStyle;
 import util.Controllers;
 import util.Databases;
 import util.InstanceDataBase;
+import util.OrderDatabase;
 
 import java.io.IOException;
 
@@ -31,6 +32,7 @@ public class App extends Application{
             System.out.println("See you next time!");
             try {
                 InstanceDataBase.store();
+                OrderDatabase.store();
                 Databases.store();
             } catch (IOException e) {
                 e.printStackTrace();

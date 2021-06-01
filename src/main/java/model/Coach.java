@@ -14,6 +14,10 @@ public class Coach extends User{
     public enum Sort{
         ALL, Lose_Weight,Muscle_Building,Warm_Up
     }
+
+    public static boolean isCoach(Instance instance){
+        return instance.getIdentity().equals(Instance.Identity.Coach);
+    }
     
     private Sort sort;
     private String picture;

@@ -2,7 +2,10 @@ package util;
 
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextInputDialog;
+import org.junit.Test;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 public class Tools {
@@ -42,5 +45,22 @@ public class Tools {
         dialog.setHeaderText(headerText);
         dialog.setContentText(context);
         return dialog;
+    }
+
+    public static String now() {
+        return dateString(LocalDateTime.now());
+    }
+
+    public static String dateString(LocalDateTime dateTime) {
+        return DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss").format(dateTime);
+    }
+
+    public static LocalDateTime parse(String dateTime) {
+        return LocalDateTime.parse(dateTime, DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
+    }
+    
+    @Test
+    public void testNow(){
+        System.out.println(now());
     }
 }

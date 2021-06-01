@@ -10,10 +10,27 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * An instance database keeps every instance that registers to this System,
+ * which is, a {@link model.User}
+ * or {@link model.Customer}, {@link model.Coach} and {@link model.Manager}, specifically
+ */
 public class InstanceDataBase {
+    /**
+     * A mapper that responsible for the data read and write
+     */
     private static final ObjectMapper mapper;
+    /**
+     * Data file's address
+     */
     private static final File address;
+    /**
+     * A list that keeping all the data in the file
+     */
     private static List<Instance> instanceList;
+    /**
+     * Regulate that
+     */
     private static final CollectionType listType;
 
     static {
