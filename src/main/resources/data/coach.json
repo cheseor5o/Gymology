@@ -7,10 +7,10 @@
     "sort" : "Muscle_Building",
     "picture" : "/img/coach/5.png",
     "time" : [ {
-      "time" : "2021/6/11 10:00-12:00",
+      "time" : "2021-06-11 10:00:00",
       "ordered" : false
     }, {
-      "time" : "2021/6/12 10:00-12:00",
+      "time" : "2021-06-12 10:00:00",
       "ordered" : false
     } ],
     "price" : 480.0,
@@ -27,10 +27,10 @@
     "sort" : "Muscle_Building",
     "picture" : "/img/coach/3.png",
     "time" : [ {
-      "time" : "2021/6/11 10:00-12:00",
+      "time" : "2021-06-11 10:00:00",
       "ordered" : false
     }, {
-      "time" : "2021/6/12 10:00-12:00",
+      "time" : "2021-06-12 10:00:00",
       "ordered" : false
     } ],
     "price" : 550.0,
@@ -47,10 +47,10 @@
     "sort" : "Lose_Weight",
     "picture" : "/img/coach/4.png",
     "time" : [ {
-      "time" : "2021/6/11 10:00-12:00",
+      "time" : "2021-06-11 10:00:00",
       "ordered" : false
     }, {
-      "time" : "2021/6/12 10:00-12:00",
+      "time" : "2021-06-12 10:00:00",
       "ordered" : false
     } ],
     "price" : 360.0,
@@ -67,10 +67,10 @@
     "sort" : "Lose_Weight",
     "picture" : "/img/coach/1.png",
     "time" : [ {
-      "time" : "2021/6/11 10:00-12:00",
+      "time" : "2021-06-11 10:00:00",
       "ordered" : false
     }, {
-      "time" : "2021/6/12 10:00-12:00",
+      "time" : "2021-06-12 10:00:00",
       "ordered" : false
     } ],
     "price" : 200.0,
@@ -87,10 +87,10 @@
     "sort" : "Warm_Up",
     "picture" : "/img/coach/2.png",
     "time" : [ {
-      "time" : "2021/6/11 10:00-12:00",
+      "time" : "2021-06-11 10:00:00",
       "ordered" : false
     }, {
-      "time" : "2021/6/12 10:00-12:00",
+      "time" : "2021-06-12 10:00:00",
       "ordered" : false
     } ],
     "price" : 260.0,
