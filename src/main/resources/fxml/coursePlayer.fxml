@@ -10,7 +10,7 @@
       <children>
          <VBox prefHeight="500.0" prefWidth="600.0">
             <children>
-               <VBox alignment="CENTER" prefHeight="400.0" prefWidth="600.0" styleClass="container" stylesheets="@../css/style.css">
+               <VBox alignment="CENTER" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #1222;" styleClass="container" stylesheets="@../css/style.css">
                   <children>
                      
                      <MediaView fx:id="courseMediaView" fitHeight="380.0" fitWidth="580.0" />
@@ -19,7 +19,7 @@
                      <Insets bottom="5.0" />
                   </VBox.margin>
                </VBox>
-               <VBox prefHeight="200.0" prefWidth="100.0" styleClass="container" stylesheets="@../css/style.css">
+               <VBox prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #1222;" styleClass="container" stylesheets="@../css/style.css">
                   <children>
                      <Slider fx:id="processSlider" prefHeight="20.0" prefWidth="564.0">
                         <VBox.margin>

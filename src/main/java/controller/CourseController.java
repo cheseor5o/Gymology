@@ -44,7 +44,7 @@ public class CourseController extends AbstractController {
     public void scene() {
         Instance instance = Controllers.get(LoginController.class).getInstance();
         courseUploadBtn.setVisible(instance != null && instance.getIdentity() == Instance.Identity.Manager);
-        courseUploadBtn.setVisible(true);
+        //courseUploadBtn.setVisible(true);
         super.scene();
     }
 

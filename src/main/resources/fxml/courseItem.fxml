@@ -7,16 +7,16 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.Font?>
 <?import java.lang.String?>
-<Pane fx:id="courseItemPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#clickCourse" onMouseEntered="#mouseIn" onMouseExited="#mouseOut" prefHeight="180.0" prefWidth="180.0" style="-fx-background-color: #1222;" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CourseItemController">
+<Pane fx:id="courseItemPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#clickCourse" onMouseEntered="#mouseIn" onMouseExited="#mouseOut" prefHeight="180.0" prefWidth="180.0" style="-fx-background-color: #1222;" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CourseItemController">
    <HBox prefHeight="30.0" prefWidth="180.0">
       <ImageView fx:id="courseVipLogo" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
          <HBox.margin>
-            <Insets left="5.0"/>
+            <Insets left="5.0" />
          </HBox.margin>
       </ImageView>
-      <Label fx:id="courseName" prefHeight="30.0" prefWidth="180.0" text="10天快速增肌100多斤一拳打死一头牛！">
+      <Label fx:id="courseName" prefHeight="30.0" prefWidth="180.0" text="10天快速增肌100多斤一拳打死一头牛！" textFill="#e4dcdf">
          <font>
-            <Font name="Century Gothic" size="12.0"/>
+            <Font name="Century Gothic" size="12.0" />
          </font>
       </Label>
    </HBox>
@@ -25,10 +25,9 @@
          <children>
             <VBox alignment="CENTER" prefHeight="109.0" prefWidth="180.0">
                <children>
-                  <ImageView fx:id="coursePic" fitHeight="100.0" fitWidth="390.0" pickOnBounds="true"
-                             preserveRatio="true">
+                  <ImageView fx:id="coursePic" fitHeight="100.0" fitWidth="390.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../img/course/2.png"/>
+                        <Image url="@../img/course/2.png" />
                      </image>
                   </ImageView>
                </children>
@@ -38,7 +37,7 @@
    </HBox>
    <VBox layoutY="144.0" prefHeight="30.0" prefWidth="180.0">
       <HBox prefHeight="30.0" prefWidth="180.0">
-         <Label fx:id="courseSort" prefHeight="30.0" prefWidth="90.0" text="增肌">
+         <Label fx:id="courseSort" prefHeight="30.0" prefWidth="90.0" text="增肌" textFill="#e4dcdf">
             <padding>
                <Insets left="15.0" />
             </padding>
@@ -46,7 +45,7 @@
                <Font name="Century Gothic" size="12.0" />
             </font>
          </Label>
-         <Label fx:id="courseTime" alignment="CENTER_RIGHT" contentDisplay="RIGHT" prefHeight="30.0" prefWidth="90.0" text="10:14" textOverrun="WORD_ELLIPSIS">
+         <Label fx:id="courseTime" alignment="CENTER_RIGHT" contentDisplay="RIGHT" prefHeight="30.0" prefWidth="90.0" text="10:14" textFill="#e4dcdf" textOverrun="WORD_ELLIPSIS">
             <HBox.margin>
                <Insets right="15.0" />
             </HBox.margin>
@@ -56,10 +55,9 @@
          </Label>
       </HBox>
    </VBox>
-   <Button fx:id="functionBtn" layoutX="125.0" mnemonicParsing="false" onAction="#clickButton" opacity="0.0" prefHeight="39.0" prefWidth="55.0" />
-   <Button fx:id="likeButton" layoutX="125.0" mnemonicParsing="false" onMouseClicked="#like" opacity="0.0" prefHeight="39.0" prefWidth="55.0" />
+   <Button fx:id="functionBtn" layoutX="125.0" mnemonicParsing="false" onAction="#clickButton" opacity="0.0" prefHeight="39.0" prefWidth="55.0" styleClass="transparent" stylesheets="@../css/style.css" />
+   <Button fx:id="likeButton" layoutX="125.0" mnemonicParsing="false" onMouseClicked="#like" opacity="0.0" prefHeight="39.0" prefWidth="55.0" styleClass="transparent" stylesheets="@../css/style.css" />
    <styleClass>
-      <String fx:value="course-item" />
       <String fx:value="container" />
       <String fx:value="shadow" />
    </styleClass>

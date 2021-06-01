@@ -28,14 +28,14 @@
                   <Font name="Century Gothic" size="12.0" />
                </font>
             </Label>
-            <Button fx:id="coachEditDeleteBtn" alignment="CENTER" mnemonicParsing="false" onAction="#delete" prefHeight="30.0" prefWidth="90.0" styleClass="container" stylesheets="@../css/style.css" text="delete">
+            <Button fx:id="coachEditDeleteBtn" alignment="CENTER" mnemonicParsing="false" onAction="#delete" prefHeight="30.0" prefWidth="90.0" styleClass="container" stylesheets="@../css/style.css" text="delete" textFill="#bc0606">
                <font>
                   <Font name="Century Gothic Bold" size="12.0" />
                </font>
                <HBox.margin>
                   <Insets left="5.0" />
                </HBox.margin></Button>
-            <Button fx:id="coachEditSaveBtn" alignment="CENTER" mnemonicParsing="false" onAction="#save" prefHeight="30.0" prefWidth="90.0" styleClass="container" stylesheets="@../css/style.css" text="save">
+            <Button fx:id="coachEditSaveBtn" alignment="CENTER" mnemonicParsing="false" onAction="#save" prefHeight="30.0" prefWidth="90.0" styleClass="container" stylesheets="@../css/style.css" text="save" textFill="#19d022">
                <font>
                   <Font name="Century Gothic Bold" size="12.0" />
                </font>
