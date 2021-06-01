@@ -3,22 +3,18 @@ package controller;
 
 import javafx.application.Platform;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
-import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
 import javafx.scene.effect.ColorAdjust;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.BorderPane;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
 import javafx.util.Duration;
 import model.Course;
 import util.Controllers;
-
 
 import java.net.URL;
 import java.util.Objects;
@@ -80,7 +76,8 @@ public class CoursePlayerController extends AbstractController {
             functionButton.setDisable(true);
             processSlider.setDisable(true);
             volumeSlider.setDisable(true);
-            timeLabel.setVisible(false);
+            timeLabel.setText("00:00 / 00:00");
+            timeLabel.setDisable(true);
             courseMediaView.setVisible(false);
 
         }
