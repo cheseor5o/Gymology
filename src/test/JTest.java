@@ -1,47 +1,69 @@
-
+import controller.LoginController;
+import controller.RegisterController;
+import model.Coach;
+import model.Course;
+import model.Customer;
+import org.junit.Assert;
 import org.junit.Test;
-import model.*;
 
 public class JTest {
     // This part we mainly test the basic functions of the controller level.
     @Test
-    public void Test_getUser(){
-        System.out.println("Test start");
-        LoginController l = new LoginController();
+    public void Test_Email(){
+        boolean v1 = testEmail(" 123");
+        Assert.assertTrue(v1);
+        boolean v2 = testEmail("   ");
+        Assert.assertFalse(v2);
+        boolean v3 = testEmail("asdfkj1234");
+        Assert.assertTrue(v3);
+    }
 
-        assert l.getUser() != null ? true : false;
-        assert true;
-
-        System.out.println("Test end");
+    private boolean testEmail(String s){
+        return RegisterController.validField(s);
     }
 
     @Test
-    public void Test_sendEmail(){
-        System.out.println("Test start");
-        RegisterController r = new RegisterController();
-        r.sendTest("1115831817@qq.com");
-
-        assert r != null ? true : false;
-        assert true;
-
-        System.out.println("Test end");
+    public void Test_Password(){
+        boolean v1 = testPassword("jkwjkw842");
+        Assert.assertTrue(v1);
+        boolean v2 = testPassword("$wsf234");
+        Assert.assertTrue(v2    );
+        boolean v3 = testPassword("asdf123asdf");
+        Assert.assertTrue(v3);
     }
+
+    private boolean testPassword(String s){
+        return RegisterController.validField(s);
+    }
+
+    @Test
+    public void Test_Phone(){
+        boolean v1 = testPhone("12312341312");
+        Assert.assertTrue(v1);
+        boolean v2 = testPhone("awfsda");
+        Assert.assertTrue(v2);
+        boolean v3 = testPhone("123212123");
+        Assert.assertTrue(v3);
+    }
+
+    private boolean testPhone(String s){
+        return RegisterController.validField(s);
+    }
+
 
     @Test
     public void Test_hasLogging(){
-        System.out.println("Test start");
         LoginController l = new LoginController();
 
         assert l.hasLogging() == false ? true : false;
         assert true;
 
-        System.out.println("Test end");
+        System.out.println("Success");
     }
 
     // This part we mainly test the basic functions of the model level.
     @Test
     public void Test_coach(){
-        System.out.println("Test start");
         Coach c = new Coach();
         c.setId("12345");
         c.setHeight("123");
@@ -49,12 +71,11 @@ public class JTest {
         assert c.getHeight() != null ? true : false;
         assert true;
 
-        System.out.println("Test end");
+        System.out.println("Success");
     }
 
     @Test
     public void Test_course(){
-        System.out.println("Test start");
         Course c = new Course();
         c.setId("12345");
         c.setLocation("C://user");
@@ -62,12 +83,11 @@ public class JTest {
         assert c.getLocation() != null ? true : false;
         assert true;
 
-        System.out.println("Test end");
+        System.out.println("Success");
     }
 
     @Test
     public void Test_customer(){
-        System.out.println("Test start");
         Customer c = new Customer();
         c.setId("12345");
         c.setName("abcde");
@@ -75,6 +95,6 @@ public class JTest {
         assert c.getId() != null ? true : false;
         assert true;
 
-        System.out.println("Test end");
+        System.out.println("Success");
     }
 }
