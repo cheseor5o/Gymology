@@ -22,7 +22,7 @@ public class Customer extends User{
     private double balance;
     private List<String> likeCourse;
     private List<String> likeCoach;
-    private List<Map<String, String>> courseHistory; //[视频1:时间点,视频2:时间点]
+    private List<Map<String, String>> courseHistory;
     private List<String> orders;
 
     public Customer() {

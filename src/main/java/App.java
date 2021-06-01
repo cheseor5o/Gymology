@@ -30,7 +30,6 @@ public class App extends Application{
         stage.setResizable(false);
         stage.show();
         mainController.homeScene();
-        //持久化
         stage.setOnCloseRequest(windowEvent -> {
             System.out.println("See you next time!");
             try {
