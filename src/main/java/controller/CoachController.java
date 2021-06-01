@@ -11,11 +11,14 @@ import util.Controllers;
 import util.Databases;
 import util.UserDatabase;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 
-
+/**
+ * Control the coach page
+ */
 public class CoachController extends AbstractController {
 
     @FXML
@@ -56,7 +59,11 @@ public class CoachController extends AbstractController {
         }
     }
 
-    public void setCoachScene(Coach.Sort sort) throws Exception {
+    /**
+     * Set up the coach information according 
+     * @param sort type
+     */
+    public void setCoachScene(Coach.Sort sort)  {
         Controllers.get(CoachInfoController.class).getCoachAddBtn().setVisible(false);
         coachVbox.getChildren().clear();
         UserDatabase<Coach> database = Databases.getDatabase(Coach.class);
@@ -64,7 +71,12 @@ public class CoachController extends AbstractController {
         for (Coach coach : coaches) {
             FXMLLoader coachItemLoader = new FXMLLoader();
             coachItemLoader.setLocation(getClass().getClassLoader().getResource("fxml/coachItem.fxml"));
-            Pane coachItemPane = coachItemLoader.load();
+            Pane coachItemPane = null;
+            try {
+                coachItemPane = coachItemLoader.load();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
             CoachItemController coachItemController = coachItemLoader.getController();
             coachItemController.setCoachData(coach);
             coachVbox.getChildren().add(coachItemPane);
@@ -72,6 +84,10 @@ public class CoachController extends AbstractController {
 
     }
 
+    /**
+     * set up and edit scene
+     * @param coach coach
+     */
     public void setCoachEditScene(Coach coach) throws Exception {
         Controllers.get(CoachInfoController.class).getCoachAddBtn().setVisible(true);
         coachVbox = Controllers.get(CoachInfoController.class).getCoachInfoVbox();

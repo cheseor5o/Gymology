@@ -20,7 +20,9 @@ import java.util.List;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
-
+/**
+ * Manage the scene of all coach
+ */
 public class CoachInfoController extends AbstractController {
     @FXML
     private VBox coachInfoVbox;

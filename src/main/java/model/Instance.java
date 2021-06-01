@@ -1,5 +1,8 @@
 package model;
-
+/**
+ * A POJO represents a login user
+ * @since  2021/5/9 13:40
+ */
 public class Instance {
     public enum Identity {
         Customer, Coach, Manager

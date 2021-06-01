@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 /**
- * @author Cheese
+ * A POJO represents coach
  * @since  2021/5/9 13:40
  */
 public class Coach extends User{

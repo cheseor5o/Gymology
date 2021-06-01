@@ -20,7 +20,9 @@ import java.net.URL;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
-
+/**
+ * Play course
+ */
 public class CoursePlayerController extends AbstractController {
     
     private MediaPlayer mediaPlayer;

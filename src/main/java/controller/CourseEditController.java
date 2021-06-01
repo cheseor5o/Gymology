@@ -20,7 +20,6 @@ import java.util.Objects;
 import java.util.ResourceBundle;
 
 /**
- * @author Cheese
  * @since 2021/4/26 23:11
  */
 public class CourseEditController extends AbstractController {

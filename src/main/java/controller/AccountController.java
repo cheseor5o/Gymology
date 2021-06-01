@@ -15,28 +15,59 @@ import java.util.Optional;
 import java.util.ResourceBundle;
 
 /**
+ * Account controller controllers the scene of different user account
  * @author Dong
  */
 public class AccountController extends AbstractController {
 
+    /**
+     * Log out button
+     */
     @FXML
     public Button logoutBtn;
+    /**
+     * Username input field
+     */
     @FXML
     public TextField username;
+    /**
+     * Password input field
+     */
     @FXML
     public PasswordField password;
+    /**
+     * Phone input field
+     */
     @FXML
     public TextField phone;
+    /**
+     * Select field
+     */
     @FXML
     public ComboBox<String> gender;
+    /**
+     * Save button
+     */
     @FXML
     public Button save;
+    /**
+     * Prompt field
+     */
     @FXML
     public Label prompt;
+    /**
+     * balance field
+     */
     @FXML
     public TextField balance;
+    /**
+     * Top up button
+     */
     @FXML
     public Button topUp;
+    /**
+     * Purchase button
+     */
     @FXML
     public Button purchase;
     @FXML
@@ -57,6 +88,10 @@ public class AccountController extends AbstractController {
         }
     }
 
+    /**
+     * Choose a scene according the user type
+     * @param instance the login instance
+     */
     public void scene(Instance instance) {
         Controllers.setCenter(this.getClass(),false);
         switch (instance.getIdentity()) {
@@ -69,7 +104,11 @@ public class AccountController extends AbstractController {
             case Coach://进入coach界面
         }
     }
-    
+
+    /**
+     * Check if the user is vip
+     * @param instance the login instance
+     */
     private void checkVipService(Instance instance){
         Customer customer = Databases.getDatabase(Customer.class).get(instance.getEmail());
         if (customer.isVip()){
@@ -79,6 +118,10 @@ public class AccountController extends AbstractController {
         }
     }
 
+    /**
+     * Fill the information into the account information scene
+     * @param instance the login instance
+     */
     private void fill(Instance instance) {
         password.setText(instance.getPassword());
         User user;
@@ -143,11 +186,18 @@ public class AccountController extends AbstractController {
         
     }
 
+    /**
+     * Set up if the buttons
+     * @param status
+     */
     private void setTopUp(boolean status){
         topUp.setDisable(status);
         topUp.setVisible(status);
     }
-    
+
+    /**
+     * Save the information
+     */
     @FXML
     public void save() {
         String username = this.username.getText();
@@ -155,7 +205,7 @@ public class AccountController extends AbstractController {
         String gender = this.gender.getValue();
         String phone = this.phone.getText();
         Instance instance = Controllers.get(LoginController.class).getInstance();
-        if (Controllers.get(RegisterController.class).validateBasic(username, password, password, gender, phone, prompt)) {
+        if (RegisterController.validateBasic(username, password, password, gender, phone, prompt)) {
             User user;
             UserDatabase database = null;
             switch (instance.getIdentity()) {
@@ -188,7 +238,10 @@ public class AccountController extends AbstractController {
             }
         }).start();
     }
-    
+
+    /**
+     * Top up the balance of the user
+     */
     @FXML
     public void topUp(){
         Instance instance = Controllers.get(LoginController.class).getInstance();
@@ -214,7 +267,9 @@ public class AccountController extends AbstractController {
         }
     }
 
-
+    /**
+     * Instance log out
+     */
     @FXML
     public void logout() {
         LoginController loginController = Controllers.get(LoginController.class);

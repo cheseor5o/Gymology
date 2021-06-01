@@ -54,10 +54,7 @@ public class JTest {
     @Test
     public void Test_hasLogging(){
         LoginController l = new LoginController();
-
-        assert l.hasLogging() == false ? true : false;
-        assert true;
-
+        Assert.assertFalse(l.hasLogging());
         System.out.println("Success");
     }
 
@@ -67,10 +64,7 @@ public class JTest {
         Coach c = new Coach();
         c.setId("12345");
         c.setHeight("123");
-
-        assert c.getHeight() != null ? true : false;
-        assert true;
-
+        Assert.assertNotNull(c.getId());
         System.out.println("Success");
     }
 
@@ -79,10 +73,7 @@ public class JTest {
         Course c = new Course();
         c.setId("12345");
         c.setLocation("C://user");
-
-        assert c.getLocation() != null ? true : false;
-        assert true;
-
+        Assert.assertNotNull(c.getId());
         System.out.println("Success");
     }
 
@@ -91,10 +82,7 @@ public class JTest {
         Customer c = new Customer();
         c.setId("12345");
         c.setName("abcde");
-
-        assert c.getId() != null ? true : false;
-        assert true;
-
+        Assert.assertNotNull(c.getId());
         System.out.println("Success");
     }
 }

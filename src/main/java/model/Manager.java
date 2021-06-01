@@ -1,5 +1,9 @@
 package model;
 
+/**
+ * A POJO represents manager
+ * @since  2021/5/9 13:40
+ */
 public class Manager extends User{
 
     public static boolean isManager(Instance instance){

@@ -14,7 +14,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 /**
- * @author Cheese
+ * Coach reservation or cancel
  * @since  2021/5/9 22:14
  */
 public class CoachInfoItemController extends AbstractController {

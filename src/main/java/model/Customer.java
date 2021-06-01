@@ -4,7 +4,10 @@ import util.Tools;
 
 import java.util.List;
 import java.util.Map;
-
+/**
+ * A POJO represents customer
+ * @since  2021/5/9 13:40
+ */
 public class Customer extends User{
 
     public static boolean isCustomer(Instance instance){
@@ -34,7 +37,11 @@ public class Customer extends User{
         }
         return false;
     }
-    
+
+    /**
+     * refund
+     * @param order
+     */
     public void refund(Order order){
         balance+=order.getPrice();
     }
@@ -46,7 +53,13 @@ public class Customer extends User{
             refund(order);
         }
     }
-    
+
+    /**
+     * If exist
+     * @param likeList list need to be searched
+     * @param content content
+     * @return result
+     */
     public boolean exists(List<String> likeList, String content){
         int favourite = Tools.findIndex(likeList, content);
         return exists(likeList,favourite,content);
@@ -55,7 +68,11 @@ public class Customer extends User{
     private boolean exists(List<String> likeList, int index, String content){
         return index != likeList.size() && likeList.get(index).equals(content);
     }
-    
+
+    /**
+     * Add favourite course
+     * @param id course id
+     */
     public void addFavouriteCourse(String id){
         int favourite = Tools.findIndex(likeCourse, id);
         if (!exists(likeCourse, favourite, id)){
@@ -63,6 +80,10 @@ public class Customer extends User{
         }
     }
 
+    /**
+     * Add favourite coach
+     * @param id coach id
+     */
     public void addFavouriteCoach(String id){
         int favourite = Tools.findIndex(likeCoach, id);
         likeCoach.add(favourite, id);

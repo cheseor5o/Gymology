@@ -15,7 +15,9 @@ import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 
-
+/**
+ * show up each coach for manager
+ */
 public class CoachEditItemController extends AbstractController {
 
     @FXML

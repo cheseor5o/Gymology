@@ -16,6 +16,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
+ * Register service
  * @author Dong
  */
 public class RegisterController extends AbstractController {
@@ -213,7 +214,7 @@ public class RegisterController extends AbstractController {
     
     
     
-    public boolean validateBasic(String username, String password1,String password2, String gender, String phone, Label prompt){
+    public static boolean validateBasic(String username, String password1, String password2, String gender, String phone, Label prompt){
         if (!validField(username)) {
             prompt.setText("Invalid Username!");
             return false;

@@ -20,7 +20,9 @@ import java.net.URL;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
-
+/**
+ * Show up each course
+ */
 public class CourseItemController extends AbstractController {
     
     private Course course;

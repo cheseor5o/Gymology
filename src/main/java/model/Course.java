@@ -1,7 +1,8 @@
 package model;
 
 /**
- * @author Cheese
+ * A POJO represents course
+ * @since  2021/5/9 13:40
  */
 public class Course {
     private String id;

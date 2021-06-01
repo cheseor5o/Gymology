@@ -14,6 +14,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 /**
+ * Handling login service
  * @author Dong
  */
 public class LoginController extends AbstractController {

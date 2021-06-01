@@ -20,7 +20,9 @@ import java.util.*;
 
 import static util.OperateJsonFile.readJsonFile;
 
-
+/**
+ * Show up course
+ */
 public class CourseController extends AbstractController {
 
 

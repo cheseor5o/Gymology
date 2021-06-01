@@ -16,7 +16,9 @@ import util.Tools;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-
+/**
+ * Show up order item
+ */
 public class OrderItemController extends AbstractController {
     
     @FXML

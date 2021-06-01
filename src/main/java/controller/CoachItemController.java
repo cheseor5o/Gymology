@@ -16,7 +16,9 @@ import java.net.URL;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
-
+/**
+ * manage scene of each coach information
+ */
 public class CoachItemController extends AbstractController {
     
     private Coach coach;

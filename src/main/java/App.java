@@ -12,6 +12,9 @@ import util.OrderDatabase;
 
 import java.io.IOException;
 
+/**
+ * The start up class
+ */
 public class App extends Application{
     
     @Override

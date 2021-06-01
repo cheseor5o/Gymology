@@ -1,5 +1,8 @@
 package model;
-
+/**
+ * A POJO represents user
+ * @since  2021/5/9 13:40
+ */
 public class User {
     private String id;
     private String name;

@@ -9,6 +9,9 @@ import javafx.util.Duration;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+/**
+ * Show up home scene
+ */
 public class HomeController extends AbstractController {
 
     @FXML

@@ -1,5 +1,9 @@
 package model;
 
+/**
+ * A POJO represents order
+ * @since  2021/5/9 13:40
+ */
 public class Order {
     
     public enum Status{

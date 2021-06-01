@@ -10,7 +10,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 /**
- * @author Cheese
+ * A controller that manager other controllers loading
  * @since 2021/4/26 23:11
  */
 public class MainController extends AbstractController {
