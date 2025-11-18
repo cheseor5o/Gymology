@@ -1,0 +1,83 @@
+{
+  "1": {
+    "picLocation": "/img/course/1.jpg",
+    "videoLocation": "/video/1.mp4",
+    "name": "Supercombustion runs",
+    "id": "1",
+    "sort": "Warm_Up",
+    "time": "01:42",
+    "vip": false
+  },
+  "2": {
+    "picLocation": "/img/course/2.png",
+    "videoLocation": "/video/2.mp4",
+    "name": "Gentle yoga",
+    "id": "2",
+    "sort": "Stretch",
+    "time": "01:43",
+    "vip": true
+  },
+  "3": {
+    "picLocation": "/img/course/3.png",
+    "videoLocation": "null",
+    "name": "Exercise the whole body",
+    "id": "3",
+    "sort": "Muscle_Building",
+    "time": "00:00",
+    "vip": false
+  },
+  "4": {
+    "picLocation": "/img/course/4.png",
+    "videoLocation": "null",
+    "name": "Happy Diet Dance",
+    "id": "4",
+    "sort": "Aerobics",
+    "time": "00:00",
+    "vip": false
+  },
+  "5": {
+    "picLocation": "/img/course/5.png",
+    "videoLocation": "null",
+    "name": "Aerobic boxing",
+    "id": "5",
+    "sort": "Muscle_Building",
+    "time": "00:00",
+    "vip": false
+  },
+  "6": {
+    "picLocation": "/img/course/6.png",
+    "videoLocation": "null",
+    "name": "Listening exercise",
+    "id": "6",
+    "sort": "Fat_Burning",
+    "time": "00:00",
+    "vip": false
+  },
+  "7": {
+    "picLocation": "/img/course/7.png",
+    "videoLocation": "null",
+    "name": "Systemic training",
+    "id": "7",
+    "sort": "Aerobics",
+    "time": "00:00",
+    "vip": false
+  },
+  "8": {
+    "picLocation": "/img/course/8.png",
+    "videoLocation": "null",
+    "name": "Upper limb training",
+    "id": "8",
+    "sort": "Muscle_Building",
+    "time": "00:00",
+    "vip": false
+  },
+  "9": {
+    "picLocation": "/img/course/9.png",
+    "videoLocation": "null",
+    "name": "Warm up the body",
+    "id": "9",
+    "sort": "Warm_Up",
+    "time": "00:00",
+    "vip": false
+  }
+}

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.String?>
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="52.0" prefWidth="581.0" style="-fx-background-color: #1222;" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.OrderItemController">
+   <children>
+      <HBox alignment="CENTER" prefHeight="50.0" prefWidth="580.0">
+         <children>
+            <Label fx:id="id" prefHeight="30.0" prefWidth="100.0" text="OrderId" textAlignment="JUSTIFY" textFill="#e4dcdf">
+               <font>
+                  <Font name="Century Gothic" size="12.0" />
+               </font>
+               <HBox.margin>
+                  <Insets left="20.0" />
+               </HBox.margin>
+            </Label>
+            <Label fx:id="time" prefHeight="30.0" prefWidth="140.0" text="Time" textFill="#e4dcdf">
+               <font>
+                  <Font name="Century Gothic" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="instance" prefHeight="30.0" prefWidth="130.0" text="UserId" textFill="#e4dcdf">
+               <font>
+                  <Font name="Century Gothic" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="status" prefHeight="30.0" prefWidth="70.0" text="Status" textFill="#e4dcdf">
+               <font>
+                  <Font name="Century Gothic" size="12.0" />
+               </font>
+            </Label>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="120.0">
+               <children>
+                  <Button fx:id="finish" mnemonicParsing="false" onMouseClicked="#finish" prefHeight="30.0" prefWidth="50.0" styleClass="container" stylesheets="@../css/style.css" text="Finish" textFill="#03ae03">
+                     <font>
+                        <Font name="Century Gothic Bold" size="12.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="cancel" mnemonicParsing="false" onMouseClicked="#cancel" prefHeight="30.0" prefWidth="60.0" styleClass="container" stylesheets="@../css/style.css" text="Cancel" textFill="#e82c2c">
+                     <HBox.margin>
+                        <Insets left="2.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font name="Century Gothic Bold" size="12.0" />
+                     </font>
+                  </Button>
+               </children>
+            </HBox>
+         </children>
+      </HBox>
+   </children>
+   <styleClass>
+      <String fx:value="shadow" />
+      <String fx:value="transparent" />
+      <String fx:value="order-item" />
+   </styleClass>
+</Pane>
